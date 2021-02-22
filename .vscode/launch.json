@@ -6,14 +6,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch App",
-            "request": "launch",
-            "vmArgs": "--module-path C:/Users/Admin/Downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml",
-            "mainClass": "code.App",
-            "projectName": "KUU_8000f69f"
-        },
-        {
-            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -23,8 +15,8 @@
             "name": "Launch App",
             "request": "launch",
             "vmArgs": "--module-path C:/Users/Admin/Downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml",
-            "mainClass": "App",
-            "projectName": "KUU_8000f69f"
+            "mainClass": "code.App",
+            "projectName": "JavaProject_f01b6e83"
         }
     ]
 }
