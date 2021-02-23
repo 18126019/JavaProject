@@ -22,7 +22,7 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         container.setTranslateX(-150);
-        container.setMinWidth(1226);
+        container.setMinWidth(1230);
         menu.setOnMouseClicked(event -> {
             if (i == 0) {
                 TranslateTransition slide = new TranslateTransition();
@@ -35,7 +35,7 @@ public class Controller implements Initializable {
                 container.setTranslateX(-150);
 
                 slide.setOnFinished((ActionEvent e) -> {
-                    container.setMinWidth(1076);
+                    container.setMinWidth(1080);
                     i = 1;
                 });
 
@@ -53,7 +53,7 @@ public class Controller implements Initializable {
                     i = 0;
                 });
 
-                container.setMinWidth(1226);
+                container.setMinWidth(1230);
             }
 
         });

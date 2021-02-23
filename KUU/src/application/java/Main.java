@@ -14,7 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/Sample.fxml"));
 
-        primaryStage.setScene(new Scene(root, 1276, 892));
+        primaryStage.setScene(new Scene(root, 1280, 720));
         Image icon = new Image(getClass().getResourceAsStream("../resources/img/logo.jpg"));
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("KUU");
