@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
 public class Main extends Application {
 	@Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/Sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/home.fxml"));
 
         primaryStage.setScene(new Scene(root, 1280, 720));
         Image icon = new Image(getClass().getResourceAsStream("../resources/img/logo.jpg"));
