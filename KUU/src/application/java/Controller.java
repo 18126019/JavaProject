@@ -1,5 +1,5 @@
-package code;
-
+package application.java;
+ 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,4 +58,4 @@ public class Controller implements Initializable {
 
         });
     }
-} 
+}

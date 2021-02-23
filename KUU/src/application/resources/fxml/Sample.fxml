@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="892.0" prefWidth="1276.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="892.0" prefWidth="1276.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.Controller">
    <children>
       <BorderPane layoutX="396.0" layoutY="202.0" prefHeight="233.0" prefWidth="228.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <AnchorPane prefHeight="892.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="892.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
                   <Pane fx:id="menu" prefHeight="50.0" prefWidth="200.0">
                      <children>
@@ -122,7 +122,7 @@
                </children>
             </AnchorPane>
          </left>
-         <center>
+         <right>
             <AnchorPane fx:id="container" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="928.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
@@ -131,7 +131,7 @@
                      </image>
                   </ImageView>
                </children></AnchorPane>
-         </center>
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

@@ -1,4 +1,5 @@
-package code;
+package application.java;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,15 +8,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
-public class App extends Application {
-    double x, y = 0;
 
-    @Override
+public class Main extends Application {
+	@Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/Sample.fxml"));
 
         primaryStage.setScene(new Scene(root, 1276, 892));
-        Image icon = new Image(getClass().getResourceAsStream("../img/logo.jpg"));
+        Image icon = new Image(getClass().getResourceAsStream("../resources/img/logo.jpg"));
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("KUU");
         primaryStage.show();
@@ -24,5 +24,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 }
