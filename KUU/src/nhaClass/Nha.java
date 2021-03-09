@@ -1,15 +1,15 @@
 package nhaClass;
 
 public class Nha{
-	String soNha;
-	String duong;
-	String phuong;
-	String quan;
-	float dienTich;
-	float soTang;
-	String ketCau; // loai nha ( nha cap 1, 2, 3, 4)
-	float chieuRongHem;
-	float giaTien;
+	private String soNha;
+	private String duong;
+	private String phuong;
+	private String quan;
+	private float dienTich;
+	private float soTang;
+	private String ketCau; // loai nha ( nha cap 1, 2, 3, 4)
+	private float chieuRongHem;
+	private float giaTien;
 	// hinhAnh: kieu du lieu??
 	
 	public Nha()
@@ -23,6 +23,30 @@ public class Nha{
 		this.ketCau = null;
 		this.chieuRongHem = 0;
 		this.giaTien = 0;
+	}
+	public Nha(String soNha, String duong, String phuong, String quan, float dienTich, float soTang, String ketCau, float chieuRongHem, float giaTien)
+	{
+		this.soNha = soNha;
+		this.duong = duong;
+		this.phuong = phuong;
+		this.quan = quan;
+		this.dienTich = dienTich;
+		this.soTang = soTang;
+		this.ketCau = ketCau;
+		this.chieuRongHem = chieuRongHem;
+		this.giaTien = giaTien;
+	}
+	public Nha(Nha nha)
+	{
+		this.soNha = nha.soNha;
+		this.duong = nha.duong;
+		this.phuong = nha.phuong;
+		this.quan = nha.quan;
+		this.dienTich = nha.dienTich;
+		this.soTang = nha.soTang;
+		this.ketCau = nha.ketCau;
+		this.chieuRongHem = nha.chieuRongHem;
+		this.giaTien = nha.giaTien;
 	}
 	
 	public String getSoNha()
@@ -119,9 +143,18 @@ public class Nha{
 	
 	public float evaluate() 
 	{
-		float gia = 0;
-		// doi them cong thuc tinh gia nha
-		return gia;
+		float giaDat = 0;
+		float donGiaNN = 1 // example 
+		float HSD = 1; // example (co the co nhieu HSD - tuy thuoc vao hinh dang va vi tri cua nha)
+		giaDat = this.dienTich * donGiaNN * HSD;
+		
+		float giaNha = 0;
+		float dienTichSan = this.dienTich * this.soTang;
+		float giaXayDung = 1 // example
+		float HSN = 1; // example (co the co nhieu HSN - tuy thuoc vao ket cau nha, muc do vat lieu hoan thien, muc do nha cu moi )
+		giaNha = dienTichSan * giaXayDung * HSN;
+		
+		return giaDat + giaNha;
 	}
 	
 	public void checkInfo()

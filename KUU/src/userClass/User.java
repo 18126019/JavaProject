@@ -7,6 +7,32 @@ public class User {
 	private String sdt;
 	private String email;
 	
+	public User()
+	{
+		this.username = "";
+		this.password = "";
+		this.hoTen = "";
+		this.sdt = "";
+		this.email = "";
+	}
+	
+	public User(String user, String pass, String ht, String SDT, String mail)
+	{
+		this.username = user;
+		this.password = pass;
+		this.hoTen = ht;
+		this.sdt = SDT;
+		this.email = mail;
+	}
+	
+	public User(User u)
+	{
+		this.username = u.username;
+		this.password = u.password;
+		this.hoTen = u.hoTen;
+		this.sdt = u.sdt;
+		this.email = this.email;
+	}
 	public String getUsername() {
 		return this.username;
 	}
