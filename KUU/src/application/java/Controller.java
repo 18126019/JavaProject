@@ -7,11 +7,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import userClass.User;
 import javafx.scene.layout.BorderPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import package1.User;
 
 public class Controller implements Initializable {
     @FXML

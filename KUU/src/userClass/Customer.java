@@ -1,5 +1,7 @@
-package package1;
+package userClass;
 import java.util.ArrayList;
+
+import nhaClass.listNha;
 
 public class Customer extends User {
 	private ArrayList<listNha> listNha;

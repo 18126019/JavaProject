@@ -1,4 +1,4 @@
-package package1;
+package userClass;
 
 public class User {
 	private String username;
@@ -7,7 +7,7 @@ public class User {
 	private String sdt;
 	private String email;
 	
-	public  String getUsername() {
+	public String getUsername() {
 		return this.username;
 	}
 	

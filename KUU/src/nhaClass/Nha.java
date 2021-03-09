@@ -1,4 +1,4 @@
-package package1;
+package nhaClass;
 
 public class Nha{
 	String soNha;
