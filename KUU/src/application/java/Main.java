@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import nguoiDung.*;
 import javafx.scene.image.Image;
-import userClass.*;
 
 public class Main extends Application {
 	@Override
