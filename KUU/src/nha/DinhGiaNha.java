@@ -31,8 +31,6 @@ public class DinhGiaNha extends Nha {
         float giaNha = (this.dienTich * this.soTang) * donGiaNN * this.ketCau * this.tinhTrangNha * this.noiThat;
         float giaDat = this.dienTich * this.hem * this.matTien * this.hinhDang * this.khuDanCu;
 
-
-
         return (giaNha + giaDat) * this.hesoKhac;
     }
 }
