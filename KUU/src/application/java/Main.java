@@ -37,13 +37,25 @@ import nha.*;
 import application.java.Student;
 
 public class Main {
-	private static final String DB_URL = "jdbc:sqlserver://localhost;databaseName=student;integratedSecurity=true";
-	// Database credentials
-	private static final String USER = "";
-	private static final String PASS = "";
+	
 
 	public static void main(String[] args) {
-		try {
+		
+		
+		
+		String hemTemp1 = "Hem 1";
+		String hemTemp2 = "Hem 2";
+		
+		Hem hem = new Hem(hemTemp1, (float)0.2);
+		Hem hem2 = new Hem(hemTemp2, (float)0.3);
+
+		hem.addHem(hem);
+		hem.addHem(hem2);
+		
+		hem.delHem(hem);
+			
+		hem.editHem(hem2, hem);
+		/*try {
             // connnect to database ''
             Connection conn = getConnection(DB_URL, USER, PASS);
             // crate statement
@@ -61,19 +73,8 @@ public class Main {
             conn.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
+        }*/
 	}
 	
-	public static Connection getConnection(String dbURL, String userName, String password) {
-		Connection conn = null;
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection(dbURL, userName, password);
-            System.out.println("connect successfully!");
-        } catch (Exception ex) {
-            System.out.println("connect failure!");
-            ex.printStackTrace();
-        }
-        return conn;
-	}
+	
 }
