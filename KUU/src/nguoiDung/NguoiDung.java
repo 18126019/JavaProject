@@ -12,8 +12,7 @@ public abstract class NguoiDung {
 	protected String sdt;
 	protected String email;
 
-	protected NguoiDung()
-	{
+	protected NguoiDung() {
 		this.tenDangNhap = "";
 		this.matKhau = "";
 		this.hoTen = "";
@@ -21,8 +20,7 @@ public abstract class NguoiDung {
 		this.email = "";
 	}
 	
-	protected NguoiDung(String ngDung, String mKhau, String ht, String SDT, String mail)
-	{
+	protected NguoiDung(String ngDung, String mKhau, String ht, String SDT, String mail) {
 		this.tenDangNhap = ngDung;
 		this.matKhau = mKhau;
 		this.hoTen = ht;
@@ -30,8 +28,7 @@ public abstract class NguoiDung {
 		this.email = mail;
 	}
 	
-	protected NguoiDung(NguoiDung u)
-	{
+	protected NguoiDung(NguoiDung u) {
 		this.tenDangNhap = u.tenDangNhap;
 		this.matKhau = u.matKhau;
 		this.hoTen = u.hoTen;

@@ -14,8 +14,7 @@ public class DinhGiaNha extends Nha {
     protected float hesoKhac;
 
 
-    public DinhGiaNha()
-    {
+    public DinhGiaNha() {
         super();
         hem = 0;
         matTien = 0;
@@ -25,11 +24,14 @@ public class DinhGiaNha extends Nha {
         tinhTrangNha = 0;
         noiThat = 0;
     }
-    public float dinhGia()
-    {
+    public float dinhGia() {
         float donGiaNN = 5; //example
         float giaNha = (this.dienTich * this.soTang) * donGiaNN * this.ketCau * this.tinhTrangNha * this.noiThat;
         float giaDat = this.dienTich * this.hem * this.matTien * this.hinhDang * this.khuDanCu;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0f149b2e99b4453c7893b1a219e693dd0740f809
         return (giaNha + giaDat) * this.hesoKhac;
     }
 }

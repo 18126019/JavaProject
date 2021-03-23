@@ -6,18 +6,15 @@ import nha.*;
 public class KhachHang extends NguoiDung {
 	protected ArrayList<Nha> dsNha;
 	
-	public KhachHang()
-	{
+	public KhachHang() {
 		super();
 		this.dsNha = new ArrayList<>();
 	}
-	public KhachHang(String ngDung, String mKhau, String ht, String sdt, String mail, ArrayList<Nha> dsNha)
-	{
+	public KhachHang(String ngDung, String mKhau, String ht, String sdt, String mail, ArrayList<Nha> dsNha) {
 		super(ngDung, mKhau, ht, sdt, mail);
 		this.dsNha = dsNha;
 	}
-	public KhachHang(KhachHang kh)
-	{
+	public KhachHang(KhachHang kh) {
 		super(kh.tenDangNhap, kh.matKhau, kh.hoTen, kh.sdt, kh.email);
 		this.dsNha = kh.dsNha;
 	}
@@ -30,21 +27,13 @@ public class KhachHang extends NguoiDung {
 	@Override
 	public void themNha() {
 		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public void xoaNha() {
 		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public void suaNha() {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
-	// @Override
-	// public void sapXepNha() {
-	// 	// TODO Auto-generated method stub
-		
-	// }
 }
