@@ -1,10 +1,14 @@
 package nguoiDung;
+import java.sql.*;
 import java.util.ArrayList;
 import nha.*;
 public class QuanTri extends NguoiDung {
 	protected ArrayList<KhachHang> dsKhachHang;
+    //connect database
+    CnnDB conn = new CnnDB();
+    Connection cnn = conn.getDB();
 	
-	public QuanTri() {
+    public QuanTri() {
 		super();
 		dsKhachHang = new ArrayList<>();
 	}

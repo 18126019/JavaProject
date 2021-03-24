@@ -1,10 +1,15 @@
 package heSo.hesoDat;
+import java.sql.*;
 
 public class HinhDang
 {
 	private String tenHinhDang;
     private float hesoHinhDang;
-
+    private int id = 0;
+    //connect database
+    CnnDB conn = new CnnDB();
+    Connection cnn = conn.getDB();
+    
     public HinhDang()
     {
         this.tenHinhDang = "";

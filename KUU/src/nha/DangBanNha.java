@@ -1,11 +1,13 @@
 package nha;
-
+import java.sql.*;
 public class DangBanNha extends Nha {
     protected String ketCau;
     protected String hem;
     protected String matTien;
     protected String ghiChu;
-
+    //connect database
+    CnnDB conn = new CnnDB();
+    Connection cnn = conn.getDB();
     public DangBanNha()
     {
         super();

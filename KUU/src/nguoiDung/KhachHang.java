@@ -1,11 +1,14 @@
 package nguoiDung;
-
+import java.sql.*;
 import java.util.ArrayList;
 import nha.*;
 
 public class KhachHang extends NguoiDung {
 	protected ArrayList<Nha> dsNha;
-	
+    //connect database
+    CnnDB conn = new CnnDB();
+    Connection cnn = conn.getDB();
+    
 	public KhachHang() {
 		super();
 		this.dsNha = new ArrayList<>();

@@ -1,10 +1,15 @@
 package heSo.hesoNha;
+import java.sql.*;
 
 public class KetCau
 {
 	private String tenKetCau;
     private float hesoKetCau;
-
+    private int id = 0;
+    //connect database
+    CnnDB conn = new CnnDB();
+    Connection cnn = conn.getDB();
+    
     public KetCau()
     {
         this.hesoKetCau = 0;

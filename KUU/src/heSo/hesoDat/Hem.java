@@ -8,8 +8,8 @@ public class Hem
 {
 	private String tenHem;
     private float hesoHem;
-    private int daXoa = 0;
-    private int id;
+    private int id = 0;
+    //connect database
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
     public Hem()
@@ -21,17 +21,12 @@ public class Hem
  
     	tenHem = ten;
     	hesoHem = hs;
-    	daXoa = 0;
     }
     public float getHesoHem() {
         return hesoHem;
     }
     public String getTenHem() {
         return tenHem;
-    }
-    public int getdaXoa()
-    {
-    	return daXoa;
     }
     public int getID() {
     	return id;
@@ -41,9 +36,6 @@ public class Hem
     }
     public void setTenHem(String tenHem) {
         this.tenHem = tenHem;
-    }
-    public void setdaXoa(int daXoa) {
-    	this.daXoa = daXoa;
     }
     public void setID(int id) {
     	this.id = id;

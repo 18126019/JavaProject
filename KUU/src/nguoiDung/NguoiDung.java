@@ -11,7 +11,8 @@ public abstract class NguoiDung {
 	protected String hoTen;
 	protected String sdt;
 	protected String email;
-
+	protected int id = 0;
+	
 	protected NguoiDung() {
 		this.tenDangNhap = "";
 		this.matKhau = "";

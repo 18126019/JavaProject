@@ -2,7 +2,7 @@ package nha;
 import heSo.hesoDat.*;
 import heSo.hesoNha.*;
 import heSo.hesoKhac;
-
+import java.sql.*;
 public class DinhGiaNha extends Nha {
     protected float hem;
     protected float matTien;
@@ -12,7 +12,9 @@ public class DinhGiaNha extends Nha {
     protected float tinhTrangNha;
     protected float noiThat;
     protected float hesoKhac;
-
+    //connect database
+    CnnDB conn = new CnnDB();
+    Connection cnn = conn.getDB();
 
     public DinhGiaNha() {
         super();

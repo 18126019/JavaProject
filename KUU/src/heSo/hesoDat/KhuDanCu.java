@@ -1,10 +1,14 @@
 package heSo.hesoDat;
-
+import java.sql.*;
 public class KhuDanCu
 {
 	private String tenKhuDanCu;
     private float hesoKhuDanCu;
-
+    private int id = 0;
+    //connect database
+    CnnDB conn = new CnnDB();
+    Connection cnn = conn.getDB();
+    
     public KhuDanCu()
     {
         this.tenKhuDanCu = "";

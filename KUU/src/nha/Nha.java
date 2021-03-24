@@ -11,6 +11,7 @@ public class Nha{
 	protected float dienTich;
 	protected float soTang;
 	protected float giaTien;
+	protected int id = 0;
 	// hinhAnh: kieu du lieu??
 	
 	public Nha() {
