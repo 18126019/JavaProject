@@ -1,5 +1,5 @@
 package heSo;
 
-public class dongiaNN {
+public class DonGiaNN {
 
 }

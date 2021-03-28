@@ -1,30 +1,37 @@
 package heSo;
 import java.sql.*;
-public class hesoKhac 
+public class HeSoNC 
 {
-	private String tenHesoKhac;
+	private String ten;
     private float heso;
     private int id = 0;
     //connect database
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
     
-    public hesoKhac()
-    {
-        this.tenHesoKhac = "";
+    public HeSoNC() {
+        this.ten = "";
         this.heso = 0;
     }
 
+    public HesoKhac(String ten, float hs ) {
+    	this.ten = ten;
+    	this.heso = hs;
+    }
+    
     public float getHeso() {
         return heso;
     }
-    public String getTenHesoKhac() {
-        return tenHesoKhac;
+    
+    public String getTen() {
+        return this.ten;
     }
+    
     public void setHeso(float heso) {
         this.heso = heso;
     }
-    public void setTenHesoKhac(String tenHesoKhac) {
-        this.tenHesoKhac = tenHesoKhac;
+    
+    public void setTen(String ten) {
+        this.ten = ten;
     }
 }
