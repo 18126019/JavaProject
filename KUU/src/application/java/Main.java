@@ -40,9 +40,6 @@ public class Main {
 	
 
 	public static void main(String[] args) {
-		
-		
-		
 		String hemTemp1 = "Hem 1";
 		String hemTemp2 = "Hem 2";
 		

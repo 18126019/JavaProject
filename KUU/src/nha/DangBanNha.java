@@ -5,6 +5,7 @@ public class DangBanNha extends Nha {
     protected String hem;
     protected String matTien;
     protected String ghiChu;
+    private int id = 0;
     //connect database
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
@@ -28,8 +29,17 @@ public class DangBanNha extends Nha {
     public String getMatTien() {
         return matTien;
     }
+    public int getID() {
+    	return id;
+    }
+    public void setID(int id) {
+    	this.id = id;
+    }
+    
     public void suaNha()
     {
         //
     }
+    
+  
 }

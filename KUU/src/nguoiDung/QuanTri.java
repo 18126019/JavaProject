@@ -22,8 +22,10 @@ public class QuanTri extends NguoiDung {
 		super(qTri.tenDangNhap, qTri.matKhau, qTri.hoTen, qTri.sdt, qTri.email);
 		dsKhachHang = qTri.dsKhachHang;
 	}
-	public void themKhachHang() {
-		//
+	
+	
+	public void themKhachHang(QuanTri qTri) {
+		
 	}
 	
 	public void suaKhachHang() {
