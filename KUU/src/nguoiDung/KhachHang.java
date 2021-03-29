@@ -1,8 +1,8 @@
-package nguoiDung;
+package src.nguoiDung;
 import java.sql.*;
 import java.util.ArrayList;
-import nha.*;
-
+import src.nha.*;
+import src.application.java.CnnDB;
 public class KhachHang extends NguoiDung {
 	protected ArrayList<Nha> dsNha;
     //connect database

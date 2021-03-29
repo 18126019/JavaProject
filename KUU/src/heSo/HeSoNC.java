@@ -1,5 +1,6 @@
-package heSo;
+package src.heSo;
 import java.sql.*;
+import src.application.java.CnnDB;
 public class HeSoNC 
 {
 	private String ten;
@@ -14,7 +15,7 @@ public class HeSoNC
         this.heso = 0;
     }
 
-    public HesoKhac(String ten, float hs ) {
+    public HeSoNC(String ten, float hs ) {
     	this.ten = ten;
     	this.heso = hs;
     }

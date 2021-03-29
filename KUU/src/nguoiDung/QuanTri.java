@@ -1,7 +1,8 @@
-package nguoiDung;
+package src.nguoiDung;
 import java.sql.*;
 import java.util.ArrayList;
-import nha.*;
+import src.application.java.CnnDB;
+import src.nha.*;
 public class QuanTri extends NguoiDung {
 	protected ArrayList<KhachHang> dsKhachHang;
     //connect database

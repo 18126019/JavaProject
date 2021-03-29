@@ -1,10 +1,10 @@
-package nguoiDung;
+package src.nguoiDung;
 
 import java.util.ArrayList;
 
-import heSo.hesoDat.Hem;
-import nha.*;
-
+import src.heSo.hesoDat.Hem;
+import src.nha.*;
+import src.application.java.CnnDB;
 public abstract class NguoiDung {
 	protected String tenDangNhap;
 	protected String matKhau;

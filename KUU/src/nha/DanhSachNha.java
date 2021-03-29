@@ -1,8 +1,8 @@
-package nha;
+package src.nha;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import nguoiDung.KhachHang;
+import src.nguoiDung.KhachHang;
 
 public class DanhSachNha {
 	private ArrayList<Nha> dsNha;

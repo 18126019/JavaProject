@@ -1,4 +1,4 @@
-package application.java;
+package src.application.java;
 import java.sql.*;
 public class CnnDB {
 	private static final String DB_URL = "jdbc:sqlserver://localhost;databaseName=KUU;integratedSecurity=true";

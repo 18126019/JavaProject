@@ -1,4 +1,4 @@
-package application.java;
+package src.application.java;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +14,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import heSo.*;
-import heSo.hesoDat.*;
-import heSo.hesoNha.*;
-import nguoiDung.*;
-import nha.*;
+import src.heSo.*;
+import src.heSo.hesoDat.*;
+import src.heSo.hesoNha.*;
+import src.nguoiDung.*;
+import src.nha.*;
 
 
 //public class Main extends Application {
@@ -34,11 +34,8 @@ import nha.*;
 //    }
 //}
 
-import application.java.Student;
 
 public class Main {
-	
-
 	public static void main(String[] args) {
 		String hemTemp1 = "Hem 1";
 		String hemTemp2 = "Hem 2";
@@ -46,12 +43,12 @@ public class Main {
 		Hem hem = new Hem(hemTemp1, (float)0.2);
 		Hem hem2 = new Hem(hemTemp2, (float)0.3);
 
-		hem.addHem(hem);
-		hem.addHem(hem2);
+		hem.addHem();
+		hem2.addHem();
 		
-		hem.delHem(hem);
+		//hem.delHem();
 			
-		hem.editHem(hem2, hem);
+		hem.editHem(hem2);
 		/*try {
             // connnect to database ''
             Connection conn = getConnection(DB_URL, USER, PASS);

@@ -1,7 +1,7 @@
-package nha;
-import heSo.hesoDat.*;
-import heSo.hesoNha.*;
-import heSo.*;
+package src.nha;
+import src.heSo.hesoDat.*;
+import src.heSo.hesoNha.*;
+import src.heSo.*;
 
 public class Nha{
 	protected String soNha;
@@ -60,15 +60,15 @@ public class Nha{
 	}
 	public float getDienTich()
 	{
-		return this.dientich;
+		return this.dienTich;
 	}
 	public float getSoTang()
 	{
-		return this.sotang;
+		return this.soTang;
 	}
 	public float getGiaTien()
 	{
-		return this.giatien;
+		return this.giaTien;
 	}
 	
 	
@@ -90,15 +90,15 @@ public class Nha{
 	}
 	public void setDienTich(float dienTich)
 	{
-		this.dientich = dientich;
+		this.dienTich = dienTich;
 	}
 	public void setSoTang(float soTang)
 	{
-		this.sotang = soTang;
+		this.soTang = soTang;
 	}
 	public void setGiaTien(float giaTien)
 	{
-		this.giatien = giaTien;
+		this.giaTien = giaTien;
 	}
 	
 }

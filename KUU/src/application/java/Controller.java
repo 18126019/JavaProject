@@ -1,4 +1,4 @@
-package application.java;
+package src.application.java;
  
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -7,7 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import nguoiDung.NguoiDung;
+import src.nguoiDung.NguoiDung;
 import javafx.scene.layout.BorderPane;
 
 import java.net.URL;

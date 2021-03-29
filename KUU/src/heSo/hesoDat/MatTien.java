@@ -1,5 +1,6 @@
-package heSo.hesoDat;
+package src.heSo.hesoDat;
 import java.sql.*;
+import src.application.java.CnnDB;
 public class MatTien
 {
 	private String tenMatTien;

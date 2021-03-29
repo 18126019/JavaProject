@@ -1,4 +1,4 @@
-package heSo;
+package src.heSo;
 
 public class DonGiaNN {
 

@@ -1,5 +1,6 @@
-package heSo.hesoNha;
+package src.heSo.hesoNha;
 import java.sql.*;
+import src.application.java.CnnDB;
 public class TinhTrang
 {
 	private String tenTinhTrang;
@@ -45,54 +46,5 @@ public class TinhTrang
     	this.id = id;
     }
     
-    public void addTinhTrang(TinhTrang tinhTrang) {
-    	try {
-			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOTINHTRANG(ten, heso, daxoa)" + "values('" + tinhTrang.getTenTinhTrang() + "','"
-					+ tinhTrang.getHesoTinhTrang() + "','" + this.daXoa + "')";
-			statement.executeUpdate(insertSqlString);
-			System.out.println("Add Sucessfully");
-			String add = "SELECT ID FROM HESOTINHTRANG WHERE ten = '" + tinhTrang.getTenTinhTrang() + "' AND heso = " + tinhTrang.getHesoTinhTrang();
-			ResultSet rs = statement.executeQuery(add);
-			while (rs.next()) {
-				hem.setID(rs.getInt("ID"));
-			}
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println("Cannot insert student");
-		}
-    }
     
-    public void delTinhTrang(TinhTrang tinhTrang) {
-    	try {
-			Statement statement = cnn.createStatement();
-			String deleteSqlString = "UPDATE HESOTINHTRANG SET daxoa = 1 WHERE ten = " + "'" + tinhTrang.getTenTinhTrang() + "'";
-			statement.executeUpdate(deleteSqlString);
-			System.out.println("Del Sucessfully");
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println("Cannot delete student");
-		}
-    }
-    
-    public void editTinhTrangTinhTrang tinhTrang, TinhTrang tinhTrang2) {
-    	try {
-			Statement statement = cnn.createStatement();
-			if (hem.getdaXoa() == 0) {
-				String updateSqlString = "Update HESOHEM SET ten =" + "'" + tinhTrang2.getTenTinhTrang() + "', heso= " + tinhTrang2.getHesoTinhTrang() +
-						" WHERE id = '" + tinhTrang.getID() + "'";
-				statement.executeUpdate(updateSqlString);
-				cnn.commit();
-				System.out.println("Update success");
-				statement.close();	
-			}
-			else {
-				System.out.println("Can't update");
-			}
-		} catch (SQLException e) {
-			System.out.println("Cannot update tinhTrang " + e);
-		}
-    }
 }

@@ -1,5 +1,6 @@
-package nha;
+package src.nha;
 import java.sql.*;
+import src.application.java.CnnDB;
 public class DangBanNha extends Nha {
 	protected int maNguoiDung;
     protected String ketCau;
@@ -59,27 +60,6 @@ public class DangBanNha extends Nha {
     	this.id = id;
     }
     
-    public void themDangBanNha(DangBanNha dbn)
-    {
-    	/*try {
-			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into NHADANGBAN(manguoidung, sotang, dientich, ketcau, giatien,sonha, duong, phuong, quan, ghichu, daxoa)" 
-			+ "values(" 
-			+ dbn.getMaNguoiDung() + ",'"
-			+ dbn.getSoTang() + "','" + this.daXoa + "')";
-			statement.executeUpdate(insertSqlString);
-			System.out.println("Add Sucessfully");
-			String add = "SELECT ID FROM HESOHEM WHERE ten = '" + hem.getTenHem() + "' AND heso = " + hem.getHesoHem();
-			ResultSet rs = statement.executeQuery(add);
-			while (rs.next()) {
-				hem.setID(rs.getInt("ID"));
-			}
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println("Cannot insert student");
-		}*/
-    }
-    
+
   
 }
