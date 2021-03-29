@@ -45,8 +45,6 @@ public class Hem
     	try {
 			Statement statement = cnn.createStatement();
 			String insertSqlString = "Insert into HESOHEM(ten, heso) values('" + this.getTenHem() + "','" + this.getHesoHem() + "')";
-			System.out.println(this.getTenHem());
-			System.out.println(this.getHesoHem());
 			statement.executeUpdate(insertSqlString);
 			System.out.println("Add Sucessfully");
 			String add = "SELECT ID FROM HESOHEM WHERE ten = '" + this.getTenHem() + "' AND heso = " + this.getHesoHem();
@@ -70,7 +68,7 @@ public class Hem
 			cnn.commit();
 			statement.close();
 		} catch (SQLException e) {
-			System.out.println("Cannot delete student");
+			System.out.println(e);
 		}
     }
     public void editHem(Hem hem) {
@@ -85,7 +83,7 @@ public class Hem
 			statement.close();	
 		
 			}  catch (SQLException e) {
-			System.out.println("Cannot update hem " + e);
+			System.out.println(e);
 		}
     }
 }

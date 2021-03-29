@@ -46,5 +46,51 @@ public class TinhTrang
     	this.id = id;
     }
     
+    public void addTT() {
+    	try {
+			Statement statement = cnn.createStatement();
+			String insertSqlString = "Insert into HESOTINHTRANG(ten, heso) values('" + this.getTenTinhTrang() + "','" + this.getHesoTinhTrang() + "')";
+			statement.executeUpdate(insertSqlString);
+			System.out.println("Add Sucessfully");
+			String add = "SELECT ID FROM HESOTINHTRANG WHERE ten = '" + this.getTenTinhTrang() + "' AND heso = " + this.getHesoTinhTrang();
+			ResultSet rs = statement.executeQuery(add);
+			while (rs.next()) {
+				this.setID(rs.getInt("ID"));
+			}
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+    	
+    }
     
+    public void delTT() {
+    	try {
+			Statement statement = cnn.createStatement();
+			String deleteSqlString = "DELETE FROM HESOTINHTRANG WHERE ten = " + "'" + this.getTenTinhTrang() + "'";
+			statement.executeUpdate(deleteSqlString);
+			System.out.println("Delete Sucessfully");
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+    }
+    
+    public void editTT(TinhTrang tt) {
+    	try {
+			Statement statement = cnn.createStatement();
+			String updateSqlString = "Update HESOTINHTRANG SET ten =" + "'" + tt.getTenTinhTrang() + "', heso= " + tt.getHesoTinhTrang() +
+					" WHERE id = '" + this.getID() + "'";
+			statement.executeUpdate(updateSqlString);
+			
+			cnn.commit();
+			System.out.println("Update success");
+			statement.close();	
+		
+			}  catch (SQLException e) {
+			System.out.println(e);
+		}
+    }
 }
