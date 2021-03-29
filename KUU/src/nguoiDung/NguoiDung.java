@@ -12,7 +12,7 @@ public abstract class NguoiDung {
 	protected String sdt;
 	protected String email;
 	protected int id = 0;
-	
+	protected int daXoa = 0;
 	protected NguoiDung() {
 		this.tenDangNhap = "";
 		this.matKhau = "";
@@ -28,7 +28,7 @@ public abstract class NguoiDung {
 		this.sdt = SDT;
 		this.email = mail;
 	}
-	
+
 	protected NguoiDung(NguoiDung u) {
 		this.tenDangNhap = u.tenDangNhap;
 		this.matKhau = u.matKhau;
@@ -45,23 +45,42 @@ public abstract class NguoiDung {
 	public String getMatKhau() {
 		return this.matKhau;
 	}
-	
 	public String getHoTen() {
 		return this.hoTen;
-	}
-	
+	}	
 	public String getEmail() {
 		return this.email;
 	}
-	public void setSDT(String sdtMoi) {
-		//
+	public int getId() {
+		return id;
 	}
-	public void setMatKhau(String matKhauMoi)
+	public int getDaXoa() {
+		return daXoa;
+	}
+	public void setTenDangNhap(String tenDangNhap) {
+		this.tenDangNhap = tenDangNhap;
+	}
+	public void setHoTen(String hoTen) {
+		this.hoTen = hoTen;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setSdt(String sdt) {
+		this.sdt = sdt;
+	}
+	public void setMatKhau(String matKhau)
 	{
-		//
+		this.matKhau = matKhau;
 	}
-	public abstract void themNha();
-	public abstract void suaNha();
-	public abstract void xoaNha();
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setDaXoa(int daXoa) {
+		this.daXoa = daXoa;
+	}
+	public abstract void themNha(DangBanNha dbn);
+	public abstract void suaNha(DangBanNha dbn, DangBanNha dbn2);
+	public abstract void xoaNha(DangBanNha dbn);
 //	public abstract ArrayList<Nha> sapXepNha();
 }
