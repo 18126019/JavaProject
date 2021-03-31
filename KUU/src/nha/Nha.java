@@ -12,6 +12,7 @@ public class Nha{
 	protected float soTang;
 	protected float giaTien;
 	protected int id = 0;
+	protected int daXoa = 0;
 	// hinhAnh: kieu du lieu??
 	
 	public Nha() {
@@ -70,8 +71,9 @@ public class Nha{
 	{
 		return this.giaTien;
 	}
-	
-	
+	public int getDaXoa() {
+		return daXoa;
+	}
 	public void setSoNha(String soNha)
 	{
 		this.soNha = soNha;
@@ -100,5 +102,7 @@ public class Nha{
 	{
 		this.giaTien = giaTien;
 	}
-	
+	public void setDaXoa(int daXoa) {
+		this.daXoa = daXoa;
+	}
 }

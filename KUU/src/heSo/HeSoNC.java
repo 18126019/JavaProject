@@ -1,10 +1,8 @@
 package src.heSo;
 import java.sql.*;
 import src.application.java.CnnDB;
-import src.heSo.hesoDat.Hem;
 
-public class HeSoNC 
-{
+public class HeSoNC {
 	private String ten;
     private float heso;
     private int id = 0;
