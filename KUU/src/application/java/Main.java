@@ -39,7 +39,6 @@ public class Main {
 	public static void main(String[] args) {
 		String hemTemp1 = "Hem 1";
 		String hemTemp2 = "Hem 2";
-<<<<<<< HEAD
 		
 //		Hem hem = new Hem(hemTemp1, (float)0.2);
 //		Hem hem2 = new Hem(hemTemp2, (float)0.3);
@@ -50,14 +49,8 @@ public class Main {
 //		//hem.delHem();
 //			
 //		hem.editHem(hem2);
-=======
-		Hem hem = new Hem(hemTemp1, (float)0.2);
-		Hem hem2 = new Hem(hemTemp2, (float)0.3);
-		hem.addHem();
-		hem2.addHem();
-		hem.delHem();
-		hem.editHem(hem2);
->>>>>>> c6f311271820329a8cddd2172340a0c6083c229c
+
+
 		/*try {
             // connnect to database ''
             Connection conn = getConnection(DB_URL, USER, PASS);
