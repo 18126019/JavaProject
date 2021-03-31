@@ -59,7 +59,5 @@ public class DangBanNha extends Nha {
     public void setID(int id) {
     	this.id = id;
     }
-    
-
   
 }

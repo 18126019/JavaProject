@@ -40,15 +40,15 @@ public class Main {
 		String hemTemp1 = "Hem 1";
 		String hemTemp2 = "Hem 2";
 		
-		Hem hem = new Hem(hemTemp1, (float)0.2);
-		Hem hem2 = new Hem(hemTemp2, (float)0.3);
-
-		hem.addHem();
-		hem2.addHem();
-		
-		//hem.delHem();
-			
-		hem.editHem(hem2);
+//		Hem hem = new Hem(hemTemp1, (float)0.2);
+//		Hem hem2 = new Hem(hemTemp2, (float)0.3);
+//
+//		hem.addHem();
+//		hem2.addHem();
+//		
+//		//hem.delHem();
+//			
+//		hem.editHem(hem2);
 		/*try {
             // connnect to database ''
             Connection conn = getConnection(DB_URL, USER, PASS);
