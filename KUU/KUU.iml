@@ -15,7 +15,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="library" name="org.eclipse.xtend.XTEND_CONTAINER" level="application" />
-    <orderEntry type="library" name="JavaFX" level="project" />
     <orderEntry type="library" name="JDBC" level="project" />
     <orderEntry type="library" name="mssql-jdbc-9.2.1.jre15" level="project" />
     <orderEntry type="library" name="javafx-swt" level="project" />
