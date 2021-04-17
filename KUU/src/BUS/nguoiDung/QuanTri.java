@@ -1,8 +1,12 @@
 package src.BUS.nguoiDung;
-import java.sql.*;
-import java.util.ArrayList;
+import src.BUS.nha.DangBanNha;
 import src.application.java.CnnDB;
-import src.BUS.nha.*;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 public class QuanTri extends NguoiDung {
     //connect database
     CnnDB conn = new CnnDB();

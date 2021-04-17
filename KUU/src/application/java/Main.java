@@ -13,28 +13,28 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-/*
+
 import src.heSo.*;
 import src.heSo.hesoDat.*;
 import src.heSo.hesoNha.*;
 import src.nguoiDung.*;
 import src.nha.*;
 
-*/
-public class Main extends Application {
-	@Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/signin.fxml"));
 
-        primaryStage.setScene(new Scene(root, 1280, 720));
-        Image icon = new Image(getClass().getResourceAsStream("../resources/img/logo.jpg"));
-        primaryStage.getIcons().add(icon);
-        primaryStage.setTitle("KUU");
-        primaryStage.show();
-    }
-}
+//public class Main extends Application {
+//	@Override
+//    public void start(Stage primaryStage) throws Exception {
+//        Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/home.fxml"));
+//
+//        primaryStage.setScene(new Scene(root, 1280, 720));
+//        Image icon = new Image(getClass().getResourceAsStream("../resources/img/logo.jpg"));
+//        primaryStage.getIcons().add(icon);
+//        primaryStage.setTitle("KUU");
+//        primaryStage.show();
+//    }
+//}
 
-/*
+
 public class Main {
 	public static void main(String[] args) {
 		String hemTemp1 = "Hem 1";
@@ -51,7 +51,7 @@ public class Main {
 //		hem.editHem(hem2);
 
 
-		try {
+		/*try {
             // connnect to database ''
             Connection conn = getConnection(DB_URL, USER, PASS);
             // crate statement
@@ -69,7 +69,8 @@ public class Main {
             conn.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
+        }*/
 	}
+	
+	
 }
-*/

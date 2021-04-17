@@ -5,7 +5,7 @@ public class CnnDB {
 	// Database credentials
 	private static final String USER = "";
 	private static final String PASS = "";
-	private static Connection cnn = getConnection(DB_URL, USER, PASS);
+	private static final Connection cnn = getConnection(DB_URL, USER, PASS);
 	
 	public static Connection getConnection(String dbURL, String userName, String password) {
 		Connection conn = null;
