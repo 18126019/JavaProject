@@ -7,7 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import src.nguoiDung.NguoiDung;
+//import src.nguoiDung.NguoiDung;
 import javafx.scene.layout.BorderPane;
 
 import java.net.URL;

@@ -24,6 +24,7 @@ public class QuanTri extends NguoiDung {
 	
 	public void themKhachHang(KhachHang kh) {
 		try {
+
 			Statement statement = cnn.createStatement();
 			String insertSqlString = "Insert into KHACHHANG(taikhoan, matkhau, ten, email, sodienthoai, maquantri, daxoa)"
 					+ " values('" + kh.getTenDangNhap() + "','" + kh.getMatKhau() + "','" + kh.getHoTen() + "','" + kh.getSdt()
@@ -73,6 +74,7 @@ public class QuanTri extends NguoiDung {
 	}
 	public void convertDBtoList() {
 		try {
+			ArrayList<KhachHang> dsKhachHang = new ArrayList<>();
 			Statement statement = cnn.createStatement();
 			String convert = "SELECT ID, taikhoan, matkhau, ten, email, sodienthoai, maquantri, daxoa FROM KHACHHANG";
 			ResultSet rs = statement.executeQuery(convert);
