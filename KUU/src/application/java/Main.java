@@ -26,7 +26,7 @@ import src.nha.*;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/dangky.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/quanlyuser.fxml"));
 		primaryStage.setScene(new Scene(root, 1280, 720));
 		Image icon = new Image(getClass().getResourceAsStream("../resources/img/logo.jpg"));
 		primaryStage.getIcons().add(icon);
