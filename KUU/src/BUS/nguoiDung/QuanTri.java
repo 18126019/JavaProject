@@ -28,6 +28,7 @@ public class QuanTri extends NguoiDung {
 	
 	public void themKhachHang(KhachHang kh) {
 		try {
+
 			Statement statement = cnn.createStatement();
 			String insertSqlString = "Insert into KHACHHANG(taikhoan, matkhau, ten, email, sodienthoai, maquantri, daxoa)"
 					+ " values('" + kh.getTenDangNhap() + "','" + kh.getMatKhau() + "','" + kh.getHoTen() + "','" + kh.getSdt()

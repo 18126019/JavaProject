@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="JDBC">
+  <library name="jfoenix-9.0.10">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../sqljdbc_9.2/enu/mssql-jdbc-9.2.1.jre15.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jfoenix-9.0.10.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
