@@ -178,11 +178,11 @@
                                         <Insets left="15.0" />
                                     </GridPane.margin>
                                 </Label>
-                                <TextField prefHeight="26.0" prefWidth="407.0" GridPane.columnIndex="1">
+                                <TextField fx:id="dangky_hoten" prefHeight="26.0" prefWidth="407.0" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin></TextField>
-                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                <TextField fx:id="dangky_email" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label text="Tên đăng nhập" GridPane.rowIndex="1">
                            <font>
                               <Font size="28.0" />
@@ -215,13 +215,13 @@
                               <Insets left="15.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="dangky_tendangnhap" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="dangky_matkhau" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="dangky_kiemtramatkhau" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="dangky_sdt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                             </children>
                         </GridPane>
-                        <JFXButton layoutX="607.0" layoutY="567.0" prefHeight="70.0" prefWidth="167.0" text="Hủy" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="565.0">
+                        <JFXButton fx:id="dangky_btn_huy" layoutX="607.0" layoutY="567.0" prefHeight="70.0" prefWidth="167.0" text="Hủy" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="565.0">
                             <font>
                                 <Font size="32.0" />
                             </font>
@@ -235,7 +235,7 @@
                         <Font size="34.0" />
                      </font>
                   </Label>
-                  <JFXButton layoutX="290.0" layoutY="571.0" prefHeight="70.0" prefWidth="167.0" text="Hoàn tất" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="565.0">
+                  <JFXButton fx:id="dangky_btn_dangky" layoutX="290.0" layoutY="571.0" prefHeight="70.0" prefWidth="167.0" text="Hoàn tất" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="565.0">
                      <font>
                         <Font size="32.0" />
                      </font>

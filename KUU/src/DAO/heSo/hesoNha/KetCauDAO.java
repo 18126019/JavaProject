@@ -1,8 +1,8 @@
-package src.BUS.heSo.hesoNha;
+package src.DAO.heSo.hesoNha;
 import java.sql.*;
 import src.application.java.CnnDB;
 
-public class KetCau
+public class KetCauDAO
 {
 	private String tenKetCau;
     private float hesoKetCau;
@@ -11,7 +11,7 @@ public class KetCau
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
     
-    public KetCau()
+    public KetCauDAO()
     {
         this.hesoKetCau = 0;
         this.tenKetCau = "";
@@ -41,12 +41,6 @@ public class KetCau
 			Statement statement = cnn.createStatement();
 			String insertSqlString = "Insert into HESOKETCAU(ten, heso) values('" + this.getTenKetCau() + "','" + this.getHesoKetCau() + "')";
 			statement.executeUpdate(insertSqlString);
-			System.out.println("Add Sucessfully");
-			String add = "SELECT ID FROM HESOKETCAU WHERE ten = '" + this.getTenKetCau() + "' AND heso = " + this.getHesoKetCau();
-			ResultSet rs = statement.executeQuery(add);
-			while (rs.next()) {
-				this.setID(rs.getInt("ID"));
-			}
 			cnn.commit();
 			statement.close();
 		} catch (SQLException e) {
@@ -59,26 +53,32 @@ public class KetCau
 			Statement statement = cnn.createStatement();
 			String deleteSqlString = "DELETE FROM HESOKETCAU WHERE ten = " + "'" + this.getTenKetCau() + "'";
 			statement.executeUpdate(deleteSqlString);
-			System.out.println("Delete Sucessfully");
 			cnn.commit();
 			statement.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
     }
-    public void editKC(KetCau kc) {
+    public void editKC(KetCauDAO kc) {
     	try {
 			Statement statement = cnn.createStatement();
-			String updateSqlString = "Update HESOKETCAU SET ten =" + "'" + kc.getTenKetCau() + "', heso= " + kc.getHesoKetCau() +
-					" WHERE id = '" + this.getID() + "'";
-			statement.executeUpdate(updateSqlString);
-			
-			cnn.commit();
-			System.out.println("Update success");
+			String updateSqlString = "Update HESOKETCAU SET ten =" + "'" + kc.getTenKetCau() + "', heso= " + kc.getHesoKetCau() + " WHERE id = '" + this.getID() + "'";
+			statement.executeUpdate(updateSqlString);	
+			cnn.commit();	
 			statement.close();	
-		
 			}  catch (SQLException e) {
 			System.out.println(e);
 		}
     }
+	public ResultSet layKetCau() {
+		ResultSet rs = null;
+		try {
+			Statement statement = cnn.createStatement();
+			String selectString = "SELECT * FROM HESOKETCAU";
+			rs = statement.executeQuery(selectString);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 }

@@ -1,48 +1,56 @@
-package src.BUS.heSo.hesoNha;
+package src.BUS.heSo;
 import java.sql.*;
 import src.application.java.CnnDB;
 
-public class KetCau
-{
-	private String tenKetCau;
-    private float hesoKetCau;
+public class HeSoNcBUS {
+	private String ten;
+    private float heso;
     private int id = 0;
     //connect database
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
     
-    public KetCau()
-    {
-        this.hesoKetCau = 0;
-        this.tenKetCau = "";
+    public HeSoNcBUS() {
+        this.ten = "";
+        this.heso = 0;
     }
 
-    public float getHesoKetCau() {
-        return hesoKetCau;
+    public HeSoNcBUS(String ten, float hs ) {
+    	this.ten = ten;
+    	this.heso = hs;
     }
-    public String getTenKetCau() {
-        return tenKetCau;
+    
+    public float getHeso() {
+        return heso;
     }
+    
+    public String getTen() {
+        return this.ten;
+    }
+    
     public int getID() {
-		return id;
+		return this.id;
 	}
-    public void setHesoKetCau(float hesoKetCau) {
-        this.hesoKetCau = hesoKetCau;
+    
+    public void setHeso(float heso) {
+        this.heso = heso;
     }
-    public void setTenKetCau(String tenKetCau) {
-        this.tenKetCau = tenKetCau;
+    
+    public void setTen(String ten) {
+        this.ten = ten;
     }
+    
     public void setID(int id) {
 		this.id = id;
 	}
- 
-    public void addKC() {
+    
+    public void addNC() {
     	try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOKETCAU(ten, heso) values('" + this.getTenKetCau() + "','" + this.getHesoKetCau() + "')";
+			String insertSqlString = "Insert into HESONGOAICANH(ten, heso) values('" + this.getTen() + "','" + this.getHeso() + "')";
 			statement.executeUpdate(insertSqlString);
 			System.out.println("Add Sucessfully");
-			String add = "SELECT ID FROM HESOKETCAU WHERE ten = '" + this.getTenKetCau() + "' AND heso = " + this.getHesoKetCau();
+			String add = "SELECT ID FROM HESONGOAICANH WHERE ten = '" + this.getTen() + "' AND heso = " + this.getHeso();
 			ResultSet rs = statement.executeQuery(add);
 			while (rs.next()) {
 				this.setID(rs.getInt("ID"));
@@ -54,10 +62,10 @@ public class KetCau
 		}
     	
     }
-    public void delKC() {
+    public void delNC() {
     	try {
 			Statement statement = cnn.createStatement();
-			String deleteSqlString = "DELETE FROM HESOKETCAU WHERE ten = " + "'" + this.getTenKetCau() + "'";
+			String deleteSqlString = "DELETE FROM HESONGOAICANH WHERE ten = " + "'" + this.getTen() + "'";
 			statement.executeUpdate(deleteSqlString);
 			System.out.println("Delete Sucessfully");
 			cnn.commit();
@@ -66,10 +74,10 @@ public class KetCau
 			System.out.println(e);
 		}
     }
-    public void editKC(KetCau kc) {
+    public void editNC(HeSoNcBUS nc) {
     	try {
 			Statement statement = cnn.createStatement();
-			String updateSqlString = "Update HESOKETCAU SET ten =" + "'" + kc.getTenKetCau() + "', heso= " + kc.getHesoKetCau() +
+			String updateSqlString = "Update HESONGOAICANH SET ten =" + "'" + nc.getTen() + "', heso= " + nc.getHeso() +
 					" WHERE id = '" + this.getID() + "'";
 			statement.executeUpdate(updateSqlString);
 			
@@ -81,4 +89,5 @@ public class KetCau
 			System.out.println(e);
 		}
     }
+    
 }
