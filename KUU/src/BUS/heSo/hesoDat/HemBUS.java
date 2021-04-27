@@ -1,6 +1,10 @@
 package src.BUS.heSo.hesoDat;
 import java.sql.*;
+import java.util.ArrayList;
+
+import src.DAO.heSo.hesoDat.HemDAO;
 import src.application.java.CnnDB;
+import src.DTO.heSo.hesoDat.*;
 public class HemBUS {
 	private String tenHem;
     private float hesoHem;
@@ -37,5 +41,12 @@ public class HemBUS {
     	this.id = id;
     }
 
+    public ArrayList<HemDTO> danhsachHem() {
+        HemDAO hemDAO = new HemDAO();
+        HemDTO hemDTO = new HemDTO();
+        ArrayList<HemDTO> dsHem = hemDTO.danhSachHem(hemDAO);
 
+        return dsHem;
+    }
+    
 }

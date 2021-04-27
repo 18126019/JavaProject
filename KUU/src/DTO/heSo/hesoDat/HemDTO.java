@@ -53,10 +53,9 @@ public class HemDTO {
 
     public ArrayList<HemDTO> danhSachHem(HemDAO hemDAO) {
         ResultSet resultSet = hemDAO.layHem();
-        HemDTO hsHemDTO = new HemDTO();
         try {
             while (resultSet.next()) {
-                hsHemDTO = new HemDTO(resultSet.getInt("id"),
+                HemDTO hsHemDTO = new HemDTO(resultSet.getInt("id"),
                                 resultSet.getString("ten"),
                                 resultSet.getFloat("heso"));
                 this.getDsHem().add(hsHemDTO);
