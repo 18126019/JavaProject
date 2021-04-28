@@ -1,5 +1,9 @@
 package src.BUS.heSo.hesoDat;
 import java.sql.*;
+import java.util.ArrayList;
+
+import src.DAO.heSo.hesoDat.*;
+import src.DTO.heSo.hesoDat.*;
 import src.application.java.*;
 public class HinhDangBUS {
 	private String tenHinhDang;
@@ -14,6 +18,12 @@ public class HinhDangBUS {
         this.tenHinhDang = "";
         this.hesoHinhDang = 0;
     }
+
+	public HinhDangBUS(String ten, float hs)
+	{
+		this.tenHinhDang = ten;
+		this.hesoHinhDang = hs;
+	}
 	public int getId() {
 		return id;
 	}
@@ -33,47 +43,11 @@ public class HinhDangBUS {
 		this.id = id;
 	}
 
-    public void addHinhDang() {
-    	try {
-			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOHINHDANG(ten, heso)" + "values('" + this.getTenHinhDang() + "','" + this.getHesoHinhDang() + "')";
-			statement.executeUpdate(insertSqlString);
-			System.out.println("Add Sucessfully");
-			String add = "SELECT ID FROM HESOHINHDANG WHERE ten = '" + this.getTenHinhDang() + "' AND heso = " + this.getHesoHinhDang();
-			ResultSet rs = statement.executeQuery(add);
-			while (rs.next()) {
-				this.setId(rs.getInt("ID"));
-			}
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-    }
+	public ArrayList<HinhDangDTO> danhsachHinhDang() {
+		HinhDangDAO hinhDangDAO = new HinhDangDAO();
+		HinhDangDTO hinhDangDTO = new HinhDangDTO();
+		ArrayList<HinhDangDTO> dsHinhDang = hinhDangDTO.danhSachHinhDang(hinhDangDAO);
 
-    public void delHinhDang() {
-    	try {
-			Statement statement = cnn.createStatement();
-			String deleteSqlString 	= "DELETE FROM HESOHINHDANG WHERE ten = " + "'" + this.getTenHinhDang() + "'";
-			statement.executeUpdate(deleteSqlString);
-			System.out.println("Delete Sucessfully");
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-    }
-    public void editHinhDang(HinhDangBUS hd) {
-    	try {
-			Statement statement = cnn.createStatement();
-			String updateSqlString = "Update HESOHINHDANG SET ten =" + "'" + hd.getTenHinhDang() + "', heso= " + hd.getHesoHinhDang() +
-					" WHERE id = '" + this.getId() + "'";
-			statement.executeUpdate(updateSqlString);
-			cnn.commit();
-			System.out.println("Update success");
-			statement.close();	
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-    }
+		return dsHinhDang;
+	}
 }

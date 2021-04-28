@@ -1,5 +1,9 @@
 package src.BUS.heSo.hesoDat;
 import java.sql.*;
+import java.util.ArrayList;
+
+import src.DAO.heSo.hesoDat.*;
+import src.DTO.heSo.hesoDat.*;
 import src.application.java.*;
 public class MatTienBUS {
 	private String tenMatTien;
@@ -14,7 +18,11 @@ public class MatTienBUS {
         this.tenMatTien = "";
         this.hesoMatTien = 0;
     }
-    
+	public MatTienBUS(String ten, float hs ) {
+
+		tenMatTien = ten;
+		hesoMatTien = hs;
+	}
     public float getHesoMatTien() {
         return hesoMatTien;
     }
@@ -33,48 +41,12 @@ public class MatTienBUS {
     public void setId(int id) {
     	this.id = id;
     }
-    public void addMatTien()
-    {
-    	try {
-			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOMATTIEN(ten, heso)" + "values('" + this.getTenMatTien() + "','" + this.getHesoMatTien() + "')";
-			statement.executeUpdate(insertSqlString);
-			System.out.println("Add Sucessfully");
-			String add = "SELECT ID FROM HESOMATTIEN WHERE ten = '" + this.getTenMatTien() + "' AND heso = " + this.getHesoMatTien();
-			ResultSet rs = statement.executeQuery(add);
-			while (rs.next()) {
-				this.setId(rs.getInt("ID"));
-			}
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-    	
-    }
-    public void delMatTien() {
-    	try {
-			Statement statement = cnn.createStatement();
-			String deleteSqlString 	= "DELETE FROM HESOMATTIEN WHERE ten = " + "'" + this.getTenMatTien() + "'";
-			statement.executeUpdate(deleteSqlString);
-			System.out.println("Delete Sucessfully");
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println("Cannot delete student");
-		}
-    }
-    public void editMatTien(MatTienBUS mt) {
-    	try {
-			Statement statement = cnn.createStatement();
-			String updateSqlString = "Update HESOMATTIEN SET ten =" + "'" + mt.getTenMatTien() + "', heso= " + mt.getHesoMatTien() +
-					" WHERE id = '" + this.getId() + "'";
-			statement.executeUpdate(updateSqlString);
-			cnn.commit();
-			System.out.println("Update success");
-			statement.close();	
-		} catch (SQLException e) {
-			System.out.println("Cannot update hem " + e);
-		}
+
+	public ArrayList<MatTienDTO> danhsachMatTien() {
+		MatTienDAO matTienDAO = new MatTienDAO();
+		MatTienDTO matTienDTO = new MatTienDTO();
+		ArrayList<MatTienDTO> dsMatTien = matTienDTO.danhSachMatTien(matTienDAO);
+
+		return dsMatTien;
 	}
 }

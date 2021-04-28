@@ -1,6 +1,11 @@
 package src.BUS.heSo.hesoDat;
 import java.sql.*;
+import java.util.ArrayList;
+
 import src.application.java.*;
+import src.DAO.heSo.hesoDat.*;
+import src.application.java.CnnDB;
+import src.DTO.heSo.hesoDat.*;
 public class KhuDanCuBUS {
 	private String tenKhuDanCu;
     private float hesoKhuDanCu;
@@ -15,6 +20,11 @@ public class KhuDanCuBUS {
         this.hesoKhuDanCu = 0;
     }
 
+	public KhuDanCuBUS(String ten, float hs)
+	{
+		this.tenKhuDanCu = ten;
+		this.hesoKhuDanCu = hs;
+	}
     public float getHesoKhuDanCu() {
         return hesoKhuDanCu;
     }
@@ -33,48 +43,12 @@ public class KhuDanCuBUS {
     public void setId(int id) {
     	this.id = id;
     }
-    public void addKhuDanCu()
-    {
-    	try {
-			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOKHUDANCU(ten, heso)" + "values('" + this.getTenKhuDanCu() + "','" + this.getHesoKhuDanCu() + "')";
-			statement.executeUpdate(insertSqlString);
-			System.out.println("Add Sucessfully");
-			String add = "SELECT ID FROM HESOKHUDANCU WHERE ten = '" + this.getTenKhuDanCu() + "' AND heso = " + this.getHesoKhuDanCu();
-			ResultSet rs = statement.executeQuery(add);
-			while (rs.next()) {
-				this.setId(rs.getInt("ID"));
-			}
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-    	
-    }
-    public void delKhuDanCu() {
-    	try {
-			Statement statement = cnn.createStatement();
-			String deleteSqlString 	= "DELETE FROM HESOKHUDANCU WHERE ten = " + "'" + this.getTenKhuDanCu() + "'";
-			statement.executeUpdate(deleteSqlString);
-			System.out.println("Delete Sucessfully");
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-    }
-    public void editKhuDanCu(KhuDanCuBUS kdc) {
-    	try {
-			Statement statement = cnn.createStatement();
-			String updateSqlString = "Update HESOKHUDANCU SET ten =" + "'" + kdc.getTenKhuDanCu() + "', heso= " + kdc.getHesoKhuDanCu() +
-					" WHERE id = '" + this.getId() + "'";
-			statement.executeUpdate(updateSqlString);
-			cnn.commit();
-			System.out.println("Update success");
-			statement.close();	
-		} catch (SQLException e) {
-			System.out.println("Cannot update hem " + e);
-		}
+
+	public ArrayList<KhuDanCuDTO> danhsachKhuDanCu() {
+		KhuDanCuDAO khuDanCuDAO = new KhuDanCuDAO();
+		KhuDanCuDTO khuDanCuDTO = new KhuDanCuDTO();
+		ArrayList<KhuDanCuDTO> dsKhuDanCu = khuDanCuDTO.danhSachKhuDanCu(khuDanCuDAO);
+
+		return dsKhuDanCu;
 	}
 }
