@@ -1,5 +1,11 @@
 package src.BUS.heSo;
 import java.sql.*;
+import java.util.ArrayList;
+
+import src.DAO.heSo.HeSoNcDAO;
+import src.DAO.heSo.hesoDat.HinhDangDAO;
+import src.DTO.heSo.HeSoNcDTO;
+import src.DTO.heSo.hesoDat.HinhDangDTO;
 import src.application.java.CnnDB;
 
 public class HeSoNcBUS {
@@ -43,51 +49,13 @@ public class HeSoNcBUS {
     public void setID(int id) {
 		this.id = id;
 	}
-    
-    public void addNC() {
-    	try {
-			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESONGOAICANH(ten, heso) values('" + this.getTen() + "','" + this.getHeso() + "')";
-			statement.executeUpdate(insertSqlString);
-			System.out.println("Add Sucessfully");
-			String add = "SELECT ID FROM HESONGOAICANH WHERE ten = '" + this.getTen() + "' AND heso = " + this.getHeso();
-			ResultSet rs = statement.executeQuery(add);
-			while (rs.next()) {
-				this.setID(rs.getInt("ID"));
-			}
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-    	
-    }
-    public void delNC() {
-    	try {
-			Statement statement = cnn.createStatement();
-			String deleteSqlString = "DELETE FROM HESONGOAICANH WHERE ten = " + "'" + this.getTen() + "'";
-			statement.executeUpdate(deleteSqlString);
-			System.out.println("Delete Sucessfully");
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-    }
-    public void editNC(HeSoNcBUS nc) {
-    	try {
-			Statement statement = cnn.createStatement();
-			String updateSqlString = "Update HESONGOAICANH SET ten =" + "'" + nc.getTen() + "', heso= " + nc.getHeso() +
-					" WHERE id = '" + this.getID() + "'";
-			statement.executeUpdate(updateSqlString);
-			
-			cnn.commit();
-			System.out.println("Update success");
-			statement.close();	
-		
-			}  catch (SQLException e) {
-			System.out.println(e);
-		}
-    }
+
+	public ArrayList<HeSoNcDTO> danhsachHinhDang() {
+		HeSoNcDTO heSoNcDTO = new HeSoNcDTO();
+		HeSoNcDAO heSoNcDAO = new HeSoNcDAO();
+		ArrayList<HeSoNcDTO> dsHeSoNc = heSoNcDTO.danhSachHeSoNn(heSoNcDAO);
+
+		return dsHeSoNc;
+	}
     
 }

@@ -1,6 +1,12 @@
 package src.BUS.heSo;
+import src.DAO.heSo.DonGiaNnDAO;
+import src.DAO.heSo.hesoDat.HinhDangDAO;
+import src.DTO.heSo.DonGiaNnDTO;
+import src.DTO.heSo.hesoDat.HinhDangDTO;
 import src.application.java.*;
 import java.sql.*;
+import java.util.ArrayList;
+
 public class DonGiaNnBUS {
 	private String duong;
 	private String quan;
@@ -39,48 +45,13 @@ public class DonGiaNnBUS {
    public void setGiaTien(float giaTien) {
 	   this.giaTien = giaTien;
    }
-   public void addDongiaNN()
-   {
-   	try {
-			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into DONGIANHANUOC(duong, quan, dongia)" + "values('" + this.getDuong() + "','" + this.getQuan() + "','" + this.getGiaTien() + "')";
-			statement.executeUpdate(insertSqlString);
-			System.out.println("Add Sucessfully");
-			String add = "SELECT ID FROM DONGIANHANUOC WHERE duong = '" + this.getDuong() + "' AND quan = " + this.getQuan() + "'";
-			ResultSet rs = statement.executeQuery(add);
-			while (rs.next()) {
-				this.setID(rs.getInt("ID"));
-			}
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println("Cannot insert hem");
-		}
-   	
-   }
-   public void delDongiaNN() {
-   	try {
-			Statement statement = cnn.createStatement();
-			String deleteSqlString = "DELETE FROM DONGIANHANUOC WHERE duong = " + "'" + this.getDuong() + "' AND quan = " + this.getQuan() + "'";
-			statement.executeUpdate(deleteSqlString);
-			System.out.println("Delete Sucessfully");
-			cnn.commit();
-			statement.close();
-		} catch (SQLException e) {
-			System.out.println("Cannot delete student");
-		}
-   }
-   public void editDongiaNN(DonGiaNnBUS dgnn) {
-   	try {
-			Statement statement = cnn.createStatement();
-			String updateSqlString = "Update DONGIANHANUOC SET duong =" + "'" + this.getDuong() + "', quan= " + this.getQuan() +
-					" WHERE id = '" + this.getID() + "'";
-			statement.executeUpdate(updateSqlString);
-			cnn.commit();
-			System.out.println("Update success");
-			statement.close();	
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-   }
+
+
+	public ArrayList<DonGiaNnDTO> danhsachDonGiaNn() {
+		DonGiaNnDAO donGiaNnDAO = new DonGiaNnDAO();
+		DonGiaNnDTO donGiaNnDTO = new DonGiaNnDTO();
+		ArrayList<DonGiaNnDTO> dsDonGiaNn = donGiaNnDTO.danhSachDonGiaNn(donGiaNnDAO);
+
+		return dsDonGiaNn;
+	}
 }

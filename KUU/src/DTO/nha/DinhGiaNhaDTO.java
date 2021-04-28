@@ -1,75 +1,79 @@
 package src.DTO.nha;
 import java.sql.*;
+import java.util.ArrayList;
+
+import src.DAO.nha.DangBanNhaDAO;
+import src.DAO.nha.DinhGiaNhaDAO;
 import src.application.java.CnnDB;
 public class DinhGiaNhaDTO extends Nha {
-    protected float hem;
-    protected float matTien;
-    protected float hinhDang;
-    protected float khuDanCu;
-    protected float ketCau;
-    protected float tinhTrangNha;
-    protected float noiThat;
-    protected float hesoKhac;
+    private ArrayList<DinhGiaNhaDTO> danhsachDinhGiaNha = new ArrayList<>();
+    private float hesoHem;
+    private float hesoHinhDang;
+    private float hesoKhuDanCu;
+    private float hesoMatTien;
+    private float hesoKetCau;
+    private float hesoNoiThat;
+    private float hesoTinhTrang;
+    private float dongiaNn;
+    private float hesoNc;
     //connect database
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
 
+    public ArrayList<DinhGiaNhaDTO> getDanhsachDinhGiaNha() {
+        return danhsachDinhGiaNha;
+    }
+
+    public void setDanhsachDinhGiaNha(ArrayList<DinhGiaNhaDTO> danhsachDinhGiaNha) {
+        this.danhsachDinhGiaNha = danhsachDinhGiaNha;
+    }
+
     public DinhGiaNhaDTO() {
         super();
-        hem = 0;
-        matTien = 0;
-        hinhDang = 0;
-        khuDanCu = 0;
-        ketCau = 0;
-        tinhTrangNha = 0;
-        noiThat = 0;
     }
-    public void setHem(float hem) {
-		this.hem = hem;
-	}
-    public void setHesoKhac(float hesoKhac) {
-		this.hesoKhac = hesoKhac;
-	}
-    public void setHinhDang(float hinhDang) {
-		this.hinhDang = hinhDang;
-	}
-    public void setKetCau(float ketCau) {
-		this.ketCau = ketCau;
-	}
-    public void setKhuDanCu(float khuDanCu) {
-		this.khuDanCu = khuDanCu;
-	}
-    public void setMatTien(float matTien) {
-		this.matTien = matTien;
-	}
-    public void setNoiThat(float noiThat) {
-		this.noiThat = noiThat;
-	}
-    public void setTinhTrangNha(float tinhTrangNha) {
-		this.tinhTrangNha = tinhTrangNha;
-	}
-    public float getHem() {
-		return hem;
-	}
-    public float getHesoKhac() {
-		return hesoKhac;
-	}
-    public float getHinhDang() {
-		return hinhDang;
-	}
-    public float getKetCau() {
-		return ketCau;
-	}
-    public float getKhuDanCu() {
-		return khuDanCu;
-	}
-    public float getMatTien() {
-		return matTien;
-	}
-    public float getNoiThat() {
-		return noiThat;
-	}
-    public float getTinhTrangNha() {
-		return tinhTrangNha;
-	}
+    public DinhGiaNhaDTO(int id, String duong, String quan,
+                         float hesoHem, float hesoHinhDang, float hesoKhuDanCu,
+                         float hesoMatTien, float hesoKetCau, float hesoNoiThat,
+                         float hesoTinhTrang, float dongiaNn, float hesoNc,
+                         float giatien, float sotang, float dientich) {
+
+        super(id, duong, quan, dientich, sotang, giatien);
+        this.hesoHem = hesoHem;
+        this.hesoKetCau = hesoKetCau;
+        this.hesoHinhDang = hesoHinhDang;
+        this.hesoMatTien = hesoMatTien;
+        this.hesoKhuDanCu = hesoKhuDanCu;
+        this.hesoNoiThat = hesoNoiThat;
+        this.hesoTinhTrang = hesoTinhTrang;
+        this.dongiaNn = dongiaNn;
+        this.hesoNc = hesoNc;
+    }
+
+    public ArrayList<DinhGiaNhaDTO> danhSachDinhGiaNha(DinhGiaNhaDAO dinhGiaNhaDAO){
+        ResultSet resultSet = dinhGiaNhaDAO.layDinhGiaNha();
+        try {
+            while (resultSet.next()) {
+                DinhGiaNhaDTO dinhGiaNhaDTO = new DinhGiaNhaDTO(
+                        resultSet.getInt("id"),
+                        resultSet.getString("duong"),
+                        resultSet.getString("quan"),
+                        resultSet.getFloat("hesohem"),
+                        resultSet.getFloat("hesohinhdang"),
+                        resultSet.getFloat("hesokhudancu"),
+                        resultSet.getFloat("hesomattien"),
+                        resultSet.getFloat("hesoketcau"),
+                        resultSet.getFloat("hesonoithat"),
+                        resultSet.getFloat("hesotinhtrang"),
+                        resultSet.getFloat("dongianhanuoc"),
+                        resultSet.getFloat("hesongoaicanh"),
+                        resultSet.getFloat("giatien"),
+                        resultSet.getFloat("sotang"),
+                        resultSet.getFloat("dientich"));
+                this.getDanhsachDinhGiaNha().add(dinhGiaNhaDTO);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return this.getDanhsachDinhGiaNha();
+    }
 }
