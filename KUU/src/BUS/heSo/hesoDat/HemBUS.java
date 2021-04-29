@@ -1,10 +1,15 @@
 package src.BUS.heSo.hesoDat;
-import java.sql.*;
+import src.DTO.heSo.hesoDat.HemDTO;
 import src.application.java.CnnDB;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
 public class HemBUS {
 	private String tenHem;
     private float hesoHem;
     private int id = 0;
+    private ArrayList<HemDTO> dsHem;
     //connect database
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
@@ -36,6 +41,5 @@ public class HemBUS {
     public void setID(int id) {
     	this.id = id;
     }
-
 
 }

@@ -39,5 +39,4 @@ public class DonGiaNnDTO {
    public void setGiaTien(float giaTien) {
 	   this.giaTien = giaTien;
    }
-   
 }

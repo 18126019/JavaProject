@@ -41,8 +41,7 @@ public class DonGiaNnDAO {
 	   this.giaTien = giaTien;
    }
 
-   public void addDonGiaNN()
-   {
+   public void addDonGiaNN() {
    	try {
 			Statement statement = cnn.createStatement();
 			String insertSqlString = "Insert into DONGIANHANUOC(duong, quan, dongia)" + "values('" + this.getDuong() + "','" + this.getQuan() + "','" + this.getGiaTien() + "')";
@@ -53,6 +52,7 @@ public class DonGiaNnDAO {
 			System.out.println("Cannot insert hem");
 		}
    }
+
    public void delDonGiaNN() {
    	try {
 			Statement statement = cnn.createStatement();
