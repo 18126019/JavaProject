@@ -1,63 +1,29 @@
 package src.BUS.nha;
 import java.sql.*;
+import java.util.ArrayList;
+
+import src.DAO.nguoiDung.QuanTriDAO;
+import src.DAO.nha.DangBanNhaDAO;
+import src.DTO.nguoiDung.QuanTriDTO;
+import src.DTO.nha.DangBanNhaDTO;
 import src.application.java.CnnDB;
 public class DangBanNhaBUS extends Nha {
-	protected int maNguoiDung;
-    protected String ketCau;
-    protected String hem;
-    protected String matTien;
-    protected String ghiChu;
-    private int id = 0;
-    //connect database
-    CnnDB conn = new CnnDB();
-    Connection cnn = conn.getDB();
-    public DangBanNhaBUS()
-    {
-        super();
-        maNguoiDung = 0;
-        ketCau = "";
-        hem = "";
-        matTien = "";
-        ghiChu = "";
+    private int id_khachang;
+    private String ghichu;
+    private String ketcau;
+    public DangBanNhaBUS(int id, int id_khachang, String soNha, String duong, String phuong, String quan, String ketcau, float dienTich, float soTang, float giaTien, String ghichu) {
+        super(id, soNha, duong, phuong, quan, dienTich, soTang, giaTien);
+        this.id_khachang = id_khachang;
+        this.ghichu = ghichu;
+        this.ketcau = ketcau;
     }
-    public String getGhiChu() {
-        return ghiChu;
+
+    public ArrayList<DangBanNhaDTO> danhSachDangBanNha() {
+        DangBanNhaDAO dangBanNhaDAO = new DangBanNhaDAO();
+        DangBanNhaDTO dangBanNhaDTO = new DangBanNhaDTO();
+        ArrayList<DangBanNhaDTO> dsDangBanNha = dangBanNhaDTO.danhSachDangBanNha(dangBanNhaDAO);
+
+        return dsDangBanNha;
     }
-    public String getHem() {
-        return hem;
-    }
-    public String getKetCau() {
-        return ketCau;
-    }
-    public String getMatTien() {
-        return matTien;
-    }
-    public int getID() {
-    	return id;
-    }
-    public int getMaNguoiDung()
-    {
-    	return this.maNguoiDung;
-    }
-    
-    public void setGhiChu(String ghiChu) {
-        this.ghiChu = ghiChu;
-    }
-    public void setHem(String hem) {
-        this.hem = hem;
-    }
-    public void setKetCau(String ketCau) {
-        this.ketCau = ketCau ;
-    }
-    public void setMatTien(String matTien) {
-        this.matTien = matTien;
-    }
-    public void setMaNguoiDung(int MaNguoiDung)
-    {
-    	this.maNguoiDung = MaNguoiDung;
-    }
-    public void setID(int id) {
-    	this.id = id;
-    }
-  
+
 }

@@ -60,7 +60,7 @@ public class DangBanNhaDAO extends Nha {
     	this.id = id;
     }
 
-    public ResultSet layDonGiaNN() {
+    public ResultSet layDangBanNha() {
         ResultSet rs = null;
         try {
             Statement statement = cnn.createStatement();

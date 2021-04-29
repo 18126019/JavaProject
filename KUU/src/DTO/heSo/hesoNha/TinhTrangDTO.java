@@ -1,11 +1,32 @@
 package src.DTO.heSo.hesoNha;
 import java.sql.*;
+import java.util.ArrayList;
+
+import src.DAO.heSo.hesoDat.HemDAO;
+import src.DAO.heSo.hesoNha.TinhTrangDAO;
+import src.DTO.heSo.hesoDat.HemDTO;
 import src.application.java.CnnDB;
 public class TinhTrangDTO
 {
 	private String tenTinhTrang;
     private float hesoTinhTrang;
     private int id = 0;
+    private ArrayList<TinhTrangDTO> danhsachTinhTrang = new ArrayList<>();
+
+    public TinhTrangDTO( int id, String tenTinhTrang, float hesoTinhTrang) {
+        this.tenTinhTrang = tenTinhTrang;
+        this.hesoTinhTrang = hesoTinhTrang;
+        this.id = id;
+    }
+
+    public ArrayList<TinhTrangDTO> getDanhsachTinhTrang() {
+        return danhsachTinhTrang;
+    }
+
+    public void setDanhsachTinhTrang(ArrayList<TinhTrangDTO> danhsachTinhTrang) {
+        this.danhsachTinhTrang = danhsachTinhTrang;
+    }
+
     //connect database
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
@@ -44,5 +65,20 @@ public class TinhTrangDTO
     
     public void setID(int id) {
     	this.id = id;
+    }
+
+    public ArrayList<TinhTrangDTO> danhSachHem(TinhTrangDAO tinhTrangDAO) {
+        ResultSet resultSet = tinhTrangDAO.layTinhTrang();
+        try {
+            while (resultSet.next()) {
+                TinhTrangDTO tinhTrangDTO = new TinhTrangDTO(resultSet.getInt("id"),
+                        resultSet.getString("ten"),
+                        resultSet.getFloat("heso"));
+                this.getDanhsachTinhTrang().add(tinhTrangDTO);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return this.getDanhsachTinhTrang();
     }
 }

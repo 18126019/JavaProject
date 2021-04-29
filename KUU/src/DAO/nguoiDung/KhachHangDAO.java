@@ -118,7 +118,7 @@ public class KhachHangDAO {
 			System.out.println(e);
 		}
 	}
-	public ResultSet layNguoiDung() {
+	public ResultSet layKhacHang() {
 		ResultSet rs = null;
 		try {
 			Statement statement = cnn.createStatement();

@@ -5,6 +5,8 @@ import src.application.java.CnnDB;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import src.DAO.heSo.hesoDat.HemDAO;
+
 public class HemBUS {
 	private String tenHem;
     private float hesoHem;
@@ -17,9 +19,9 @@ public class HemBUS {
     {
         tenHem = "";
         hesoHem = 0;
-    }	
+    }
     public HemBUS(String ten, float hs ) {
- 
+
     	tenHem = ten;
     	hesoHem = hs;
     }
@@ -42,4 +44,10 @@ public class HemBUS {
     	this.id = id;
     }
 
+    public ArrayList<HemDTO> danhsachHem() {
+        HemDAO hemDAO = new HemDAO();
+        HemDTO hemDTO = new HemDTO();
+
+        return hemDTO.danhSachHem(hemDAO);
+    }
 }

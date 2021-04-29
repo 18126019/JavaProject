@@ -2,7 +2,7 @@ package src.BUS.nguoiDung;
 
 import src.BUS.nha.*;
 
-public abstract class NguoiDung {
+public class NguoiDung {
 	protected String tenDangNhap;
 	protected String matKhau;
 	protected String hoTen;
@@ -18,12 +18,13 @@ public abstract class NguoiDung {
 		this.email = "";
 	}
 	
-	protected NguoiDung(String ngDung, String mKhau, String ht, String SDT, String mail) {
+	protected NguoiDung(int id, String ngDung, String mKhau, String ht, String SDT, String mail) {
 		this.tenDangNhap = ngDung;
 		this.matKhau = mKhau;
 		this.hoTen = ht;
 		this.sdt = SDT;
 		this.email = mail;
+		this.id = id;
 	}
 
 	protected NguoiDung(NguoiDung u) {
@@ -76,8 +77,6 @@ public abstract class NguoiDung {
 	public void setDaXoa(int daXoa) {
 		this.daXoa = daXoa;
 	}
-	public abstract void themNha(DangBanNhaBUS dbn);
-	public abstract void suaNha(DangBanNhaBUS dbn, DangBanNhaBUS dbn2);
-	public abstract void xoaNha(DangBanNhaBUS dbn);
+
 //	public abstract ArrayList<Nha> sapXepNha();
 }

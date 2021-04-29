@@ -1,19 +1,31 @@
 package src.DTO.heSo.hesoDat;
 import java.sql.*;
+import java.util.ArrayList;
+
+import src.DAO.heSo.hesoDat.HinhDangDAO;
 import src.application.java.*;
 public class HinhDangDTO {
 	private String tenHinhDang;
     private float hesoHinhDang;
     private int id = 0;
+	private ArrayList<HinhDangDTO> dsHinhDangDTO = new ArrayList<>();
     //connect database
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
     
-    public HinhDangDTO()
+    public HinhDangDTO(int id, String ten, float heso)
     {
-        this.tenHinhDang = "";
-        this.hesoHinhDang = 0;
+    	this.id = id;
+        this.tenHinhDang = ten;
+        this.hesoHinhDang = heso;
     }
+
+	public HinhDangDTO() {
+		this.tenHinhDang = "";
+		this.hesoHinhDang = 0;
+	}
+
+	public ArrayList<HinhDangDTO> getDsHinhDangDTO(){return dsHinhDangDTO;}
 	public int getId() {
 		return id;
 	}
@@ -31,5 +43,19 @@ public class HinhDangDTO {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public ArrayList<HinhDangDTO> danhSachHinhDang(HinhDangDAO hinhDangDAO){
+    	ResultSet resultSet = hinhDangDAO.layHinhDang();
+    	try {
+    		while (resultSet.next()) {
+			    HinhDangDTO hsHinhDangDTO = new HinhDangDTO(resultSet.getInt("id"),
+					    resultSet.getString("ten"), resultSet.getFloat("heso"));
+			    this.getDsHinhDangDTO().add(hsHinhDangDTO);
+		    }
+	    }catch (SQLException e){
+    		e.printStackTrace();
+	    }
+    	return this.getDsHinhDangDTO();
 	}
 }

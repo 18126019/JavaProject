@@ -1,62 +1,60 @@
 package src.DTO.nha;
 import java.sql.*;
+import java.util.ArrayList;
+
+import src.DAO.nguoiDung.QuanTriDAO;
+import src.DAO.nha.DangBanNhaDAO;
+import src.DTO.nguoiDung.QuanTriDTO;
 import src.application.java.CnnDB;
 public class DangBanNhaDTO extends Nha {
-	protected int maNguoiDung;
-    protected String ketCau;
-    protected String hem;
-    protected String matTien;
-    protected String ghiChu;
-    private int id = 0;
+    private ArrayList<DangBanNhaDTO> danhsachDangBanNha = new ArrayList<>();
+    private int id_khachang;
+    private String ghichu;
+    private String ketcau;
+    public DangBanNhaDTO(int id, int id_khachang, String soNha, String duong, String phuong, String quan, String ketcau, float dienTich, float soTang, float giaTien, String ghichu) {
+        super(id, soNha, duong, phuong, quan, dienTich, soTang, giaTien);
+        this.id_khachang = id_khachang;
+        this.ghichu = ghichu;
+        this.ketcau = ketcau;
+    }
+
+    public ArrayList<DangBanNhaDTO> getDanhsachDangBanNha() {
+        return danhsachDangBanNha;
+    }
+
+    public void setDanhsachDangBanNha(ArrayList<DangBanNhaDTO> danhsachDangBanNha) {
+        this.danhsachDangBanNha = danhsachDangBanNha;
+    }
+
     //connect database
     CnnDB conn = new CnnDB();
     Connection cnn = conn.getDB();
     public DangBanNhaDTO()
     {
         super();
-        maNguoiDung = 0;
-        ketCau = "";
-        hem = "";
-        matTien = "";
-        ghiChu = "";
     }
-    public String getGhiChu() {
-        return ghiChu;
-    }
-    public String getHem() {
-        return hem;
-    }
-    public String getKetCau() {
-        return ketCau;
-    }
-    public String getMatTien() {
-        return matTien;
-    }
-    public int getID() {
-    	return id;
-    }
-    public int getMaNguoiDung()
-    {
-    	return this.maNguoiDung;
-    }
-    
-    public void setGhiChu(String ghiChu) {
-        this.ghiChu = ghiChu;
-    }
-    public void setHem(String hem) {
-        this.hem = hem;
-    }
-    public void setKetCau(String ketCau) {
-        this.ketCau = ketCau ;
-    }
-    public void setMatTien(String matTien) {
-        this.matTien = matTien;
-    }
-    public void setMaNguoiDung(int MaNguoiDung)
-    {
-    	this.maNguoiDung = MaNguoiDung;
-    }
-    public void setID(int id) {
-    	this.id = id;
+
+    public ArrayList<DangBanNhaDTO> danhSachDangBanNha(DangBanNhaDAO dangBanNhaDAO){
+        ResultSet resultSet = dangBanNhaDAO.layDangBanNha();
+        try {
+            while (resultSet.next()) {
+                DangBanNhaDTO dangBanNhaDTO = new DangBanNhaDTO(
+                        resultSet.getInt("id"),
+                        resultSet.getInt("manguoidung"),
+                        resultSet.getString("sonha"),
+                        resultSet.getString("duong"),
+                        resultSet.getString("phuong"),
+                        resultSet.getString("quan"),
+                        resultSet.getString("ketcau"),
+                        resultSet.getFloat("dientich"),
+                        resultSet.getFloat("sotang"),
+                        resultSet.getFloat("giatien"),
+                        resultSet.getString("ghichu"));
+                this.getDanhsachDangBanNha().add(dangBanNhaDTO);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return this.getDanhsachDangBanNha();
     }
 }
