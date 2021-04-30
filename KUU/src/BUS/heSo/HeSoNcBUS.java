@@ -50,7 +50,7 @@ public class HeSoNcBUS {
 		this.id = id;
 	}
 
-	public ArrayList<HeSoNcDTO> danhsachHinhDang() {
+	public ArrayList<HeSoNcDTO> danhsachNgoaiCanh() {
 		HeSoNcDTO heSoNcDTO = new HeSoNcDTO();
 		HeSoNcDAO heSoNcDAO = new HeSoNcDAO();
 		ArrayList<HeSoNcDTO> dsHeSoNc = heSoNcDTO.danhSachHeSoNn(heSoNcDAO);

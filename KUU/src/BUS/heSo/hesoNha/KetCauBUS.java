@@ -42,7 +42,7 @@ public class KetCauBUS
 		this.id = id;
 	}
 
-	public ArrayList<KetCauDTO> danhsachHem() {
+	public ArrayList<KetCauDTO> danhsachKetCau() {
 		KetCauDAO ketCauDAO = new KetCauDAO();
 		KetCauDTO ketCauDTO = new KetCauDTO();
 		ArrayList<KetCauDTO> dsKetCau = ketCauDTO.danhSachKetCau(ketCauDAO);

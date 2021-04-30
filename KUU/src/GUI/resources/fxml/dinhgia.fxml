@@ -276,7 +276,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="dinhgia_txt_giatien" alignment="CENTER">
+                        <JFXTextField fx:id="dinhgia_txt_giatien" alignment="CENTER" >
                            <font>
                               <Font size="15.0" />
                            </font>
