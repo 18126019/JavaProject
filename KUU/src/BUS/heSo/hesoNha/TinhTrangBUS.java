@@ -53,7 +53,7 @@ public class TinhTrangBUS
     }
 
 
-	public ArrayList<TinhTrangDTO> danhsachHem() {
+	public ArrayList<TinhTrangDTO> danhsachTinhTrang() {
 		TinhTrangDAO tinhTrangDAO = new TinhTrangDAO();
 		TinhTrangDTO tinhTrangDTO = new TinhTrangDTO();
 		ArrayList<TinhTrangDTO> dsTinhTrang = tinhTrangDTO.danhSachHem(tinhTrangDAO);
