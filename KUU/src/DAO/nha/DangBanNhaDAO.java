@@ -1,12 +1,17 @@
 package src.DAO.nha;
-import java.sql.*;
 import src.application.java.CnnDB;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 public class DangBanNhaDAO extends Nha {
 	protected int maNguoiDung;
     protected String ketCau;
     protected String hem;
     protected String matTien;
     protected String ghiChu;
+    protected String imgUrl;
     private int id = 0;
     //connect database
     CnnDB conn = new CnnDB();
@@ -39,7 +44,10 @@ public class DangBanNhaDAO extends Nha {
     {
     	return this.maNguoiDung;
     }
-    
+    public String getImgUrl() {
+        return this.imgUrl;
+    }
+
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
@@ -58,6 +66,9 @@ public class DangBanNhaDAO extends Nha {
     }
     public void setID(int id) {
     	this.id = id;
+    }
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public ResultSet layDangBanNha() {
