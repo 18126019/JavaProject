@@ -46,7 +46,7 @@ public class ControllerHome implements Initializable {
                 e.printStackTrace();
             }
             PostController postController = fxmlLoader.getController();
-            postController.setData(dsNha.get(i), Integer.toString(dsNha.get(i).getId()));
+            postController.setData(dsNha.get(i), dsNha.get(i).getId());
             if(column == 3) {
                 column = 0;
                 row++;

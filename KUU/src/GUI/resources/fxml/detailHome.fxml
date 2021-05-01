@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GUI.controller.ControllerDetail">
     <children>
         <BorderPane fx:id="border_pane" layoutX="278.0" layoutY="137.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <left>
@@ -46,7 +46,7 @@
                                 </Pane>
                                 <Pane prefHeight="50.0" prefWidth="200.0" GridPane.rowIndex="1">
                                     <children>
-                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" prefHeight="50.0" prefWidth="200.0" text="Trang chủ">
+                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#switchToHome" prefHeight="50.0" prefWidth="200.0" text="Trang chủ">
                                             <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
@@ -62,7 +62,7 @@
                                 </Pane>
                                 <Pane prefHeight="50.0" prefWidth="200.0" GridPane.rowIndex="7">
                                     <children>
-                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" prefHeight="50.0" prefWidth="200.0" text="Cài đặt">
+                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#switchToSetting" prefHeight="50.0" prefWidth="200.0" text="Cài đặt">
                                             <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
@@ -78,7 +78,7 @@
                                 </Pane>
                                 <Pane prefHeight="50.0" prefWidth="200.0" GridPane.rowIndex="6">
                                     <children>
-                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" prefHeight="50.0" prefWidth="200.0" text="Tài khoản">
+                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#switchToAccount" prefHeight="50.0" prefWidth="200.0" text="Tài khoản">
                                             <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
@@ -94,7 +94,7 @@
                                 </Pane>
                                 <Pane prefHeight="50.0" prefWidth="200.0" GridPane.rowIndex="2">
                                     <children>
-                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" prefHeight="50.0" prefWidth="200.0" text="Định giá">
+                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#switchToDinhGia" prefHeight="50.0" prefWidth="200.0" text="Định giá">
                                             <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
@@ -110,7 +110,7 @@
                                 </Pane>
                                 <Pane prefHeight="50.0" prefWidth="200.0" GridPane.rowIndex="3">
                                     <children>
-                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" prefHeight="50.0" prefWidth="200.0" text="Tìm kiếm">
+                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#switchToSearch" prefHeight="50.0" prefWidth="200.0" text="Tìm kiếm">
                                             <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
@@ -126,7 +126,7 @@
                                 </Pane>
                                 <Pane prefHeight="50.0" prefWidth="200.0" GridPane.rowIndex="4">
                                     <children>
-                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" prefHeight="50.0" prefWidth="200.0" text="Thêm nhà">
+                                        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#switchToAddHome" prefHeight="50.0" prefWidth="200.0" text="Thêm nhà">
                                             <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
@@ -157,7 +157,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="245.0" fitWidth="313.0" layoutX="756.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="img" fitHeight="245.0" fitWidth="313.0" layoutX="756.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/logo.jpg" />
                            </image>
@@ -172,7 +172,7 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <Label layoutX="69.0" layoutY="162.0" text="Kích thước">
+                        <Label layoutX="69.0" layoutY="162.0" text="Diện tích">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -212,18 +212,18 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <JFXTextField layoutX="214.0" layoutY="31.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextField layoutX="214.0" layoutY="67.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextField layoutX="221.0" layoutY="163.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextField layoutX="221.0" layoutY="199.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextField layoutX="221.0" layoutY="245.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextField layoutX="734.0" layoutY="396.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextField layoutX="734.0" layoutY="427.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextField layoutX="734.0" layoutY="459.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextField layoutX="734.0" layoutY="491.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextField layoutX="734.0" layoutY="542.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextArea layoutX="221.0" layoutY="408.0" prefHeight="135.0" prefWidth="343.0" />
-                        <Label layoutX="114.0" layoutY="516.0" text="Ghi chú">
+                        <JFXTextField fx:id="tbChuNha" layoutX="214.0" layoutY="31.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextField fx:id="tbSdt" layoutX="214.0" layoutY="67.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextField fx:id="tbDienTich" layoutX="221.0" layoutY="163.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextField fx:id="tbSoTang" layoutX="221.0" layoutY="199.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextField fx:id="tbKetCau" layoutX="221.0" layoutY="245.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextField fx:id="tbSoNha" layoutX="734.0" layoutY="396.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextField fx:id="tbDuong" layoutX="734.0" layoutY="427.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextField fx:id="tbPhuong" layoutX="734.0" layoutY="459.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextField fx:id="tbQuan" layoutX="734.0" layoutY="491.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextField fx:id="tbGiaTien" layoutX="734.0" layoutY="542.0" prefHeight="25.0" prefWidth="247.0" />
+                        <JFXTextArea fx:id="tbGhiChu" layoutX="221.0" layoutY="408.0" prefHeight="135.0" prefWidth="343.0" />
+                        <Label layoutX="114.0" layoutY="460.0" text="Ghi chú">
                            <font>
                               <Font size="21.0" />
                            </font>

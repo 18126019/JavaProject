@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -157,11 +158,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <ImageView fitHeight="245.0" fitWidth="313.0" layoutX="710.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/house3.jpg" />
-                                    </image>
-                                </ImageView>
+                                <ImageView fx:id="img" fitHeight="245.0" fitWidth="313.0" layoutX="710.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
                                 <Label layoutX="123.0" layoutY="92.0" text="Số nhà">
                                     <font>
                                         <Font size="21.0" />
@@ -202,23 +199,38 @@
                                         <Font size="21.0" />
                                     </font>
                                 </Label>
-                                <JFXTextField layoutX="220.0" layoutY="286.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField layoutX="220.0" layoutY="323.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField layoutX="220.0" layoutY="369.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField layoutX="220.0" layoutY="95.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField layoutX="220.0" layoutY="131.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField layoutX="220.0" layoutY="168.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField layoutX="220.0" layoutY="206.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField layoutX="220.0" layoutY="246.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextArea layoutX="695.0" layoutY="428.0" prefHeight="135.0" prefWidth="343.0" />
+                                <JFXTextField fx:id="tbDienTich" layoutX="220.0" layoutY="286.0" prefHeight="25.0" prefWidth="247.0" />
+                                <JFXTextField fx:id="tbSoTang" layoutX="220.0" layoutY="323.0" prefHeight="25.0" prefWidth="247.0" />
+                                <JFXTextField fx:id="tbGiaTien" layoutX="220.0" layoutY="369.0" prefHeight="25.0" prefWidth="247.0" />
+                                <JFXTextField fx:id="tbSoNha" layoutX="220.0" layoutY="95.0" prefHeight="25.0" prefWidth="247.0" />
+                                <JFXTextField fx:id="tbDuong" layoutX="220.0" layoutY="131.0" prefHeight="25.0" prefWidth="247.0" />
+                                <JFXTextField fx:id="tbPhuong" layoutX="220.0" layoutY="168.0" prefHeight="25.0" prefWidth="247.0" />
+                                <JFXTextField fx:id="tbQuan" layoutX="220.0" layoutY="206.0" prefHeight="25.0" prefWidth="247.0" />
+                                <JFXTextField fx:id="tbKetCau" layoutX="220.0" layoutY="246.0" prefHeight="25.0" prefWidth="247.0" />
+                                <JFXTextArea fx:id="tbGhiChu" layoutX="695.0" layoutY="428.0" prefHeight="135.0" prefWidth="343.0" />
                                 <Label layoutX="592.0" layoutY="532.0" text="Ghi chú">
                                     <font>
                                         <Font size="21.0" />
                                     </font>
                                 </Label>
+                        <JFXButton layoutX="806.0" layoutY="359.0" text="Thêm ảnh">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </JFXButton>
                             </children>
                         </AnchorPane>
                     </center>
+               <bottom>
+                  <JFXButton prefHeight="43.0" prefWidth="200.0" text="Thêm" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets bottom="20.0" />
+                     </BorderPane.margin>
+                  </JFXButton>
+               </bottom>
                 </BorderPane>
             </center>
         </BorderPane>

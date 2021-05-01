@@ -16,7 +16,7 @@ import src.DTO.nha.DangBanNhaDTO;
 import java.io.IOException;
 
 public class PostController {
-    private String id;
+    public DangBanNhaDTO nhaSelected;
     @FXML
     private ImageView img;
 
@@ -29,18 +29,23 @@ public class PostController {
     @FXML
     private JFXButton detail;
 
-    public void setData(DangBanNhaDTO nha, String id) {
+    public void setData(DangBanNhaDTO nha, int id) {
         String addrStr = nha.getSoNha() + " " + nha.getDuong() + ", Phường " + nha.getPhuong() + ", Quận" + nha.getQuan();
         address.setText(addrStr);
-        price.setText(Float.toString(nha.getGiaTien()) + "Triệu Đồng");
+        price.setText(Float.toString(nha.getGiaTien()) + " Triệu Đồng");
 
         Image image = new javafx.scene.image.Image(getClass().getResourceAsStream(nha.getImgUrl()));
         img.setImage(image);
+
+        this.nhaSelected = nha;
     }
 
     public void switchToDetail(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/detailHome.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../../GUI/resources/fxml/detailHome.fxml"));
+        Parent root = loader.load();
+        ControllerDetail controllerDetail = loader.getController();
+        controllerDetail.setHome(this.nhaSelected);
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);

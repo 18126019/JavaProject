@@ -1,8 +1,12 @@
 package src.DAO.nguoiDung;
-import java.sql.*;
-
-import src.DAO.nha.*;
+import src.DAO.nha.DangBanNhaDAO;
+import src.DTO.nha.DangBanNhaDTO;
 import src.application.java.CnnDB;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 public class KhachHangDAO {
     //connect database
     CnnDB conn = new CnnDB();
@@ -79,13 +83,13 @@ public class KhachHangDAO {
 		this.hoTen = kh.hoTen;
 		this.sdt = kh.sdt;
 	}
-	public void themNha(DangBanNhaDAO DbNha) {
+	public void themNha(DangBanNhaDTO DbNha) {
 		try {
 			Statement statement = cnn.createStatement();
 			String insertSqlString = "Insert into NHADANGBAN(ID, manguoidung, sotang, dientich, ketcau, giatien, sonha, duong, phuong, quan, ghichu, daxoa)"
-					+ " values(" + DbNha.getID() + ",'" + this.getId() + "','" + DbNha.getSoTang() + "','" + DbNha.getKetCau() + "','" + DbNha.getGiaTien()
-					+ "','" + DbNha.getSoNha() + "','"+ DbNha.getDuong()+ "','" + DbNha.getPhuong() + "','" + DbNha.getQuan() + "','" + DbNha.getGhiChu() 
-					+ "'," + DbNha.getDaXoa() + ")";
+					+ " values(" + DbNha.getId() + ",'" + this.getId() + "','" + DbNha.getSoTang() + "','" + DbNha.getKetcau() + "','" + DbNha.getGiaTien()
+					+ "','" + DbNha.getSoNha() + "','"+ DbNha.getDuong()+ "','" + DbNha.getPhuong() + "','" + DbNha.getQuan() + "','" + DbNha.getGhichu()
+					+ "'," + this.daXoa + ")";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
 			statement.close();
@@ -104,13 +108,13 @@ public class KhachHangDAO {
 			System.out.println(e);
 		}
 	}
-	public void suaNha(DangBanNhaDAO nha1, DangBanNhaDAO nha2) {
+	public void suaNha(DangBanNhaDTO nha1) {
 		try {
 			Statement statement = cnn.createStatement();
-			String updateSqlString = "Update NHADANGBAN SET sotang = " + nha2.getSoTang() + "', dientich = " + nha2.getDienTich() 
-							+ ", ketcau = '" + nha2.getKetCau() + "', giatien = " + nha2.getGiaTien() + "',sonha = '" + nha2.getSoNha() 
-							+ "', duong = '" + nha2.getDuong() + "', phuong = '" + nha2.getPhuong() + "','" + "quan = '" + nha2.getQuan() 
-							+ " WHERE id = '" + nha1.getID() + "'";
+			String updateSqlString = "Update NHADANGBAN SET sotang = " + nha1.getSoTang() + "', dientich = " + nha1.getDienTich()
+							+ ", ketcau = '" + nha1.getKetcau() + "', giatien = '" + nha1.getGiaTien() + "', sonha = '" + nha1.getSoNha()
+							+ "', duong = '" + nha1.getDuong() + "', phuong = '" + nha1.getPhuong() + "', quan = '" + nha1.getQuan()
+							+ "', ghichu = '" + nha1.getGhichu() + " WHERE id = '" + nha1.getId() + "'";
 			statement.executeUpdate(updateSqlString);
 			cnn.commit();
 			statement.close();	
