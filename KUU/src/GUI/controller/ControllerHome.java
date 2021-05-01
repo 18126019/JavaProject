@@ -14,13 +14,12 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import src.BUS.nha.DangBanNhaBUS;
 import src.DTO.nha.DangBanNhaDTO;
+import src.application.java.UserSession;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-
 
 public class ControllerHome implements Initializable {
     private DangBanNhaDTO homeSelected;
@@ -72,6 +71,7 @@ public class ControllerHome implements Initializable {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+        System.out.println(UserSession.getInstace("a").toString());
     }
 
     public void switchToDetail(ActionEvent event) throws IOException {

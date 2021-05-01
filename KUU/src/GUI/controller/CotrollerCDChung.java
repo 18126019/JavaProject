@@ -61,4 +61,37 @@ public class CotrollerCDChung implements Initializable{
 
 	}
 
+	public void switchToHome(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+	public void switchToDinhGia(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/dinhgia.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchToSearch(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/timkiem.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchToAddHome(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+
+
+	public void switchToAccount(ActionEvent actionEvent) {
+	}
 }

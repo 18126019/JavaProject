@@ -61,6 +61,11 @@ public class ControllerDangKy implements Initializable {
 						Alert alert = new Alert(Alert.AlertType.INFORMATION);
 						alert.setContentText("Ban dang ky thanh cong");
 						alert.show();
+						try {
+							switchToAccount(event);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					} else {
 						Alert alert = new Alert(Alert.AlertType.WARNING);
 						alert.setContentText("Mat khau cua ban chua khop");
@@ -113,5 +118,49 @@ public class ControllerDangKy implements Initializable {
 		Chuyendn(); // chuyen qua man hinh dang nhap
 		NhapttNguoiD(); // nhap thong tin nguoi moi dang ky
 		Huy(); // huy tat ca tt
+	}
+
+	public void switchToHome(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+	public void switchToSetting(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/setting.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchToDinhGia(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/dinhgia.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchToSearch(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/timkiem.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchToAddHome(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchToAccount(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
 	}
 }
