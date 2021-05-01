@@ -221,21 +221,21 @@
                         <TextField fx:id="dangky_sdt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                             </children>
                         </GridPane>
-                        <JFXButton fx:id="dangky_btn_huy" layoutX="607.0" layoutY="567.0" prefHeight="70.0" prefWidth="167.0" text="Hủy" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="565.0">
+                        <JFXButton fx:id="dangky_btn_huy" layoutX="607.0" layoutY="567.0" prefHeight="70.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 10px;" text="Hủy" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="565.0">
                             <font>
                                 <Font size="32.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton layoutX="430.0" layoutY="649.0" text="Đã có tài khoản? Đăng nhập ngay">
+                        <JFXButton layoutX="430.0" layoutY="649.0" style="-fx-font-style: italic;" text="Đã có tài khoản? Đăng nhập ngay">
                      <font>
                         <Font size="15.0" />
                      </font></JFXButton>
-                  <Label layoutX="480.0" layoutY="33.0" text="Đăng ký" AnchorPane.leftAnchor="470.0" AnchorPane.topAnchor="33.0">
+                  <Label layoutX="480.0" layoutY="33.0" style="-fx-font-weight: bold;" text="Đăng ký" AnchorPane.leftAnchor="470.0" AnchorPane.topAnchor="33.0">
                      <font>
                         <Font size="34.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="dangky_btn_dangky" layoutX="290.0" layoutY="571.0" prefHeight="70.0" prefWidth="167.0" text="Hoàn tất" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="565.0">
+                  <JFXButton fx:id="dangky_btn_dangky" layoutX="312.0" layoutY="564.0" prefHeight="71.0" prefWidth="174.0" style="-fx-border-radius: 10px; -fx-border-color: black;" text="Hoàn tất" AnchorPane.leftAnchor="312.0" AnchorPane.topAnchor="564.0">
                      <font>
                         <Font size="32.0" />
                      </font>
