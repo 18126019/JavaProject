@@ -6,10 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import src.GUI.controller.ControllerDangNhap;
 
 public class Main extends Application {
 	@Override
     public void start(Stage primaryStage) throws Exception {
+
         Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
 
         primaryStage.setScene(new Scene(root, 1280, 720));
@@ -17,5 +19,11 @@ public class Main extends Application {
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("KUU");
         primaryStage.show();
+
+        int id = 0;
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+        Parent temp = loader.load();
+        ControllerDangNhap controllerDangNhap = loader.getController();
     }
 }

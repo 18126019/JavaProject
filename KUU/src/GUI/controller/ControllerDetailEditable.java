@@ -58,6 +58,7 @@ public class ControllerDetailEditable {
         nha.setDienTich(Float.parseFloat(tbDienTich.getText()));
         nha.setSoTang(Float.parseFloat(tbSoTang.getText()));
         nha.setKetcau(tbKetCau.getText());
+        nha.setSoNha(tbSoNha.getText());
         nha.setDuong(tbDuong.getText());
         nha.setPhuong(tbPhuong.getText());
         nha.setQuan(tbQuan.getText());

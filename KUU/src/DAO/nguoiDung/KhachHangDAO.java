@@ -86,10 +86,10 @@ public class KhachHangDAO {
 	public void themNha(DangBanNhaDTO DbNha) {
 		try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into NHADANGBAN(ID, manguoidung, sotang, dientich, ketcau, giatien, sonha, duong, phuong, quan, ghichu, daxoa)"
-					+ " values(" + DbNha.getId() + ",'" + this.getId() + "','" + DbNha.getSoTang() + "','" + DbNha.getKetcau() + "','" + DbNha.getGiaTien()
-					+ "','" + DbNha.getSoNha() + "','"+ DbNha.getDuong()+ "','" + DbNha.getPhuong() + "','" + DbNha.getQuan() + "','" + DbNha.getGhichu()
-					+ "'," + this.daXoa + ")";
+			String insertSqlString = "Insert into NHADANGBAN(ID, manguoidung, sotang, dientich, ketcau, giatien, sonha, duong, phuong, quan, ghichu, imgurl, daxoa)"
+					+ " values('" + DbNha.getId() + "','" + this.getId() + "','" + DbNha.getSoTang() + "','" + DbNha.getKetcau() + "','" + DbNha.getGiaTien()
+					+ "','" + DbNha.getSoNha() + "','" + DbNha.getDuong()+ "','" + DbNha.getPhuong() + "','" + DbNha.getQuan() + "','" + DbNha.getGhichu()
+					+ "','"  + DbNha.getImgUrl() + "','" + this.daXoa + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
 			statement.close();

@@ -167,7 +167,7 @@
                                         <Font size="21.0" />
                                     </font>
                                 </Label>
-                                <Label layoutX="97.0" layoutY="476.0" text="Ghi chú">
+                                <Label layoutX="98.0" layoutY="508.0" text="Ghi chú">
                                     <font>
                                         <Font size="21.0" />
                                     </font>
@@ -215,19 +215,19 @@
                                 <JFXTextField fx:id="tbPhuong" layoutX="734.0" layoutY="459.0" prefHeight="25.0" prefWidth="247.0" />
                                 <JFXTextField fx:id="tbQuan" layoutX="734.0" layoutY="491.0" prefHeight="25.0" prefWidth="247.0" />
                                 <JFXTextField fx:id="tbGiaTien" layoutX="734.0" layoutY="542.0" prefHeight="25.0" prefWidth="247.0" />
-                        <JFXTextArea fx:id="tbGhiChu" layoutX="197.0" layoutY="417.0" prefHeight="135.0" prefWidth="343.0" />
+                        <JFXTextArea fx:id="tbGhiChu" layoutX="197.0" layoutY="494.0" prefHeight="58.0" prefWidth="343.0" />
                             </children>
                         </AnchorPane>
                     </center>
                <bottom>
                   <AnchorPane prefHeight="48.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                      <children>
-                        <JFXButton fx:id="btnLuu" layoutX="302.0" layoutY="3.0" onAction="#saveModifiedHome" prefHeight="45.0" prefWidth="167.0" text="Lưu">
+                        <JFXButton fx:id="btnLuu" layoutX="302.0" layoutY="3.0" onAction="#saveModifiedHome" prefHeight="45.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 10;" text="Lưu" AnchorPane.bottomAnchor="15.0">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="btnHuy" layoutX="599.0" layoutY="6.0" prefHeight="45.0" prefWidth="167.0" text="Hủy">
+                        <JFXButton fx:id="btnHuy" layoutX="599.0" layoutY="3.0" prefHeight="45.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 10;" text="Hủy" AnchorPane.bottomAnchor="15.0">
                            <font>
                               <Font size="21.0" />
                            </font>
