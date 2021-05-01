@@ -12,7 +12,7 @@ public class QuanTriDAO {
 	protected String hoTen;
 	protected String sdt;
 	protected String email;
-	protected int id = 0;
+	protected int id = 1;
 	protected int daXoa = 0;
 	
 	public QuanTriDAO() {
@@ -84,11 +84,12 @@ public class QuanTriDAO {
 		try {
 			Statement statement = cnn.createStatement();
 			String insertSqlString = "Insert into KHACHHANG(taikhoan, matkhau, ten, email, sodienthoai, maquantri, daxoa)"
-					+ " values('" + kh.getTenDangNhap() + "','" + kh.getMatKhau() + "','" + kh.getHoTen() + "','" + kh.getSdt()
+					+ " values('" + kh.getTenDangNhap() + "','" + kh.getMatKhau() + "','" + kh.getHoTen() + "','" + kh.getEmail()+ "','"+ kh.getSdt()
 					+ "','" + this.getId() + "','" + kh.getDaXoa() + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
 			statement.close();
+			System.out.println("aaaaaaaaa");
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
