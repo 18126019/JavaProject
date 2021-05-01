@@ -1,11 +1,6 @@
 package src.GUI.controller;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -18,77 +13,79 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerGioiThieu implements Initializable {
-	@FXML
-	private JFXButton quyenrt;
-	@FXML
-	private JFXButton btndksd;
-	@FXML
-	private JFXButton btncaidatc;
-	@FXML
-	private JFXButton btngioithieu;
 
-	public void showQRT() {
-		quyenrt.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				Parent root = null;
-				try {
-					root = FXMLLoader.load(getClass().getResource("../resources/fxml/quyenrt.fxml"));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				Scene scene = new Scene(root);
+	public void showQRT(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quyenrt.fxml"));
+		Scene scene = new Scene(root);
 
-				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				window.setScene(scene);
-				window.show();
-			}
-		});
-	}
-	public void showDKSD() {
-		btndksd.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				Parent root = null;
-				try {
-					root = FXMLLoader.load(getClass().getResource("../resources/fxml/dksdung.fxml"));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				Scene scene = new Scene(root);
-
-				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				window.setScene(scene);
-				window.show();
-			}
-		});
-	}
-	public void switchCD() {
-		btncaidatc.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				Parent root = null;
-				try {
-					root = FXMLLoader.load(getClass().getResource("../resources/fxml/setting.fxml"));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				Scene scene = new Scene(root);
-
-				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				window.setScene(scene);
-				window.show();
-			}
-		});
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(scene);
+		window.show();
 	}
 
+	public void showDKSD(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/dksdung.fxml"));
+		Scene scene = new Scene(root);
+
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(scene);
+		window.show();
+
+	}
+
+	public void switchCD(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/setting.fxml"));
+		Scene scene = new Scene(root);
+
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(scene);
+		window.show();
+	}
+
+	public void switchToHome(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+
+	public void switchToDinhGia(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/dinhgia.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public void switchToSearch(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/timkiem.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public void switchToAddHome(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public void switchToAccount(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
-		showQRT(); // hien thi chinh sach quyen rieng tu
-		showDKSD(); // hien thi dieu khoan su dung
-		switchCD(); // chuyen qua cai dat chung
+
 	}
-
-
 }
+
