@@ -1,12 +1,8 @@
 package src.BUS.nha;
-import java.sql.*;
-import java.util.ArrayList;
-
-import src.DAO.nguoiDung.QuanTriDAO;
 import src.DAO.nha.DangBanNhaDAO;
-import src.DTO.nguoiDung.QuanTriDTO;
 import src.DTO.nha.DangBanNhaDTO;
-import src.application.java.CnnDB;
+
+import java.util.ArrayList;
 public class DangBanNhaBUS extends Nha {
     private int id_khachang;
     private String ghichu;
@@ -16,6 +12,10 @@ public class DangBanNhaBUS extends Nha {
         this.id_khachang = id_khachang;
         this.ghichu = ghichu;
         this.ketcau = ketcau;
+    }
+
+    public DangBanNhaBUS() {
+
     }
 
     public ArrayList<DangBanNhaDTO> danhSachDangBanNha() {
