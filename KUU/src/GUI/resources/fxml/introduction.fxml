@@ -209,7 +209,7 @@
                               <Insets bottom="150.0" left="50.0" />
                            </GridPane.margin>
                         </Label>
-                        <JFXButton fx:id="btnquyenrt" prefHeight="46.0" prefWidth="281.0" text="Chính sách quyền riêng tư" GridPane.columnIndex="1">
+                        <JFXButton fx:id="quyenrt" prefHeight="46.0" prefWidth="281.0" text="Chính sách quyền riêng tư" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="30.0" left="70.0" />
                            </GridPane.margin>

@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class ControllerGioiThieu implements Initializable {
 	@FXML
-	private JFXButton btnquyenrt;
+	private JFXButton quyenrt;
 	@FXML
 	private JFXButton btndksd;
 	@FXML
@@ -27,23 +27,57 @@ public class ControllerGioiThieu implements Initializable {
 	@FXML
 	private JFXButton btngioithieu;
 
-
 	public void showQRT() {
-		btnquyenrt.setOnAction(new EventHandler<ActionEvent>()
-		{
-			public void handle(ActionEvent e)
-			{
+		quyenrt.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				Parent root = null;
 				try {
-					FXMLLoader fXMLLoader = new FXMLLoader();
-					fXMLLoader.setLocation(getClass().getResource("../resources/fxml/ppopup.fxml"));
-					Parent root = fXMLLoader.load();
-					Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-					Scene scene = new Scene(root);
-					stage.setScene(scene);
-					stage.show();
-				} catch (IOException ioException) {
-					ioException.printStackTrace();
+					root = FXMLLoader.load(getClass().getResource("../resources/fxml/quyenrt.fxml"));
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
+				Scene scene = new Scene(root);
+
+				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				window.setScene(scene);
+				window.show();
+			}
+		});
+	}
+	public void showDKSD() {
+		btndksd.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				Parent root = null;
+				try {
+					root = FXMLLoader.load(getClass().getResource("../resources/fxml/dksdung.fxml"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				Scene scene = new Scene(root);
+
+				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				window.setScene(scene);
+				window.show();
+			}
+		});
+	}
+	public void switchCD() {
+		btncaidatc.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				Parent root = null;
+				try {
+					root = FXMLLoader.load(getClass().getResource("../resources/fxml/setting.fxml"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				Scene scene = new Scene(root);
+
+				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				window.setScene(scene);
+				window.show();
 			}
 		});
 	}
@@ -51,7 +85,9 @@ public class ControllerGioiThieu implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
-		showQRT();
+		showQRT(); // hien thi chinh sach quyen rieng tu
+		showDKSD(); // hien thi dieu khoan su dung
+		switchCD(); // chuyen qua cai dat chung
 	}
 
 

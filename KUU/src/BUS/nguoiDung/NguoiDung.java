@@ -10,7 +10,7 @@ public class NguoiDung {
 	protected String email;
 	protected int id = 0;
 	protected int daXoa = 0;
-	protected NguoiDung() {
+	public NguoiDung() {
 		this.tenDangNhap = "";
 		this.matKhau = "";
 		this.hoTen = "";
