@@ -24,7 +24,8 @@ public class Nha{
 		this.soTang = 0;
 		this.giaTien = 0;
 	}
-	public Nha(String soNha, String duong, String phuong, String quan, float dienTich, float soTang, float giaTien) {
+	public Nha(int id, String soNha, String duong, String phuong, String quan, float dienTich, float soTang, float giaTien) {
+		this.id = id;
 		this.soNha = soNha;
 		this.duong = duong;
 		this.phuong = phuong;
@@ -33,6 +34,16 @@ public class Nha{
 		this.soTang = soTang;
 		this.giaTien = giaTien;
 	}
+
+	public Nha(int id, String duong, String quan, float dienTich, float soTang, float giaTien) {
+		this.duong = duong;
+		this.quan = quan;
+		this.dienTich = dienTich;
+		this.soTang = soTang;
+		this.giaTien = giaTien;
+		this.id = id;
+	}
+
 	public Nha(Nha nha)	{
 		this.soNha = nha.soNha;
 		this.duong = nha.duong;

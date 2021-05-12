@@ -1,11 +1,8 @@
 package src.BUS.nguoiDung;
 
-import java.util.ArrayList;
-
-import src.BUS.heSo.hesoDat.Hem;
 import src.BUS.nha.*;
-import src.application.java.CnnDB;
-public abstract class NguoiDung {
+
+public class NguoiDung {
 	protected String tenDangNhap;
 	protected String matKhau;
 	protected String hoTen;
@@ -13,7 +10,7 @@ public abstract class NguoiDung {
 	protected String email;
 	protected int id = 0;
 	protected int daXoa = 0;
-	protected NguoiDung() {
+	public NguoiDung() {
 		this.tenDangNhap = "";
 		this.matKhau = "";
 		this.hoTen = "";
@@ -21,12 +18,13 @@ public abstract class NguoiDung {
 		this.email = "";
 	}
 	
-	protected NguoiDung(String ngDung, String mKhau, String ht, String SDT, String mail) {
+	protected NguoiDung(int id, String ngDung, String mKhau, String ht, String SDT, String mail) {
 		this.tenDangNhap = ngDung;
 		this.matKhau = mKhau;
 		this.hoTen = ht;
 		this.sdt = SDT;
 		this.email = mail;
+		this.id = id;
 	}
 
 	protected NguoiDung(NguoiDung u) {
@@ -79,8 +77,6 @@ public abstract class NguoiDung {
 	public void setDaXoa(int daXoa) {
 		this.daXoa = daXoa;
 	}
-	public abstract void themNha(DangBanNha dbn);
-	public abstract void suaNha(DangBanNha dbn, DangBanNha dbn2);
-	public abstract void xoaNha(DangBanNha dbn);
+
 //	public abstract ArrayList<Nha> sapXepNha();
 }

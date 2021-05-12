@@ -14,7 +14,7 @@ public class CnnDB {
             conn = DriverManager.getConnection(dbURL, userName, password);
             System.out.println("connect successfully!");
         } catch (Exception ex) {
-            System.out.println("connect failure!");
+            System.out.println(ex);
             ex.printStackTrace();
         }
         return conn;
