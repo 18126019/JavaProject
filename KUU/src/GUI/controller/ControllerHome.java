@@ -71,7 +71,7 @@ public class ControllerHome implements Initializable {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-        System.out.println(UserSession.getInstace("a").toString());
+        System.out.println(UserSession.getInstace("a", -1).toString());
     }
 
     public void switchToDetail(ActionEvent event) throws IOException {

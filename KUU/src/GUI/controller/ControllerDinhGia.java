@@ -32,6 +32,8 @@ import src.DTO.heSo.hesoNha.TinhTrangDTO;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.ResourceBundle;
 
 public class ControllerDinhGia implements Initializable {
@@ -150,7 +152,7 @@ public class ControllerDinhGia implements Initializable {
             }
             for (DonGiaNnDTO h : donGiaNnBUS.danhsachDonGiaNn()) {
                 if (dinhgia_quan.getValue().toString().equals(h.getQuan())
-                 || dinhgia_duong.getValue().toString().equals(h.getDuong())) {
+                 && dinhgia_duong.getValue().toString().equals(h.getDuong())) {
                     dongiaNn = h.getGiaTien();
                     break;
                 }
@@ -158,12 +160,11 @@ public class ControllerDinhGia implements Initializable {
             float sotang = Float.parseFloat(dinhgia_txt_sotang.getText());
             float dientich = Float.parseFloat(dinhgia_txt_dientich.getText());
 
-            giaDat = dientich * dongiaNn * hesoHem * hesoHinhDang * hesoKhuDanCu * hesoMatTien;
-            giaNha = dientich * sotang * hesoKetCau * hesoNoiThat * hesoTinhTrang;
-            float dinhGia = (giaDat + giaNha) * hesoNgoaiCanh;
-
             if ( dongiaNn != 0) {
-                dinhgia_txt_giatien.setText(String.valueOf(dinhGia));
+                giaDat = dientich * dongiaNn * hesoHem * hesoHinhDang * hesoKhuDanCu * hesoMatTien;
+                giaNha = dientich * sotang * hesoKetCau * hesoNoiThat * hesoTinhTrang;
+                float dinhGia = (giaDat + giaNha) * hesoNgoaiCanh;
+                dinhgia_txt_giatien.setText(dinhGia + " Triệu Đồng");
             }
             else {
                 dinhgia_txt_giatien.setText("Không tìm thấy vị trí nhà, vui lòng nhập lại");
@@ -174,6 +175,26 @@ public class ControllerDinhGia implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Bắt đầu thêm dữ liệu vào các combobox
+
+        // thêm đường
+        ArrayList<String> d = new ArrayList<>();
+        for (DonGiaNnDTO h : donGiaNnBUS.danhsachDonGiaNn()) {
+            d.add(h.getDuong());
+        }
+        ArrayList<String> duong = new ArrayList<>(new HashSet<>(d));
+        for (String h : duong) {
+            dinhgia_duong.getItems().add(h);
+        }
+        // thêm quận
+        ArrayList<String> q = new ArrayList<>();
+        for (DonGiaNnDTO h : donGiaNnBUS.danhsachDonGiaNn()) {
+            q.add(h.getQuan());
+        }
+        ArrayList<String> quan = new ArrayList<>(new HashSet<>(q));
+        for (String h : quan) {
+            dinhgia_quan.getItems().add(h);
+        }
+
         for (HemDTO h : hemBUS.danhsachHem()) {
             dinhgia_hem.getItems().add(h.getTenHem());
         }
@@ -200,10 +221,8 @@ public class ControllerDinhGia implements Initializable {
         }
         // Kết thúc thêm dữ liệu
 
-
         dinhgia_txt_giatien.setDisable(true);
         dinhgia_btn_xacnhan.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
-
 
     }
 }

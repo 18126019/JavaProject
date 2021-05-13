@@ -181,16 +181,12 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <JFXComboBox fx:id="dinhgia_sotang" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="số tầng">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </JFXComboBox>
-                              <JFXComboBox fx:id="dinhgia_dientich" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" promptText="diện tích">
+                              <JFXTextField fx:id="dinhgia_txt_sotang" prefWidth="100.0" />
+                              <JFXTextField fx:id="dinhgia_txt_dientich">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
-                              </JFXComboBox>
+                              </JFXTextField>
                            </children>
                            <padding>
                               <Insets left="100.0" />
@@ -276,7 +272,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="dinhgia_txt_giatien" alignment="CENTER" >
+                        <JFXTextField fx:id="dinhgia_txt_giatien" alignment="CENTER">
                            <font>
                               <Font size="15.0" />
                            </font>

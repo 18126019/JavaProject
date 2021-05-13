@@ -22,8 +22,8 @@ public class Main extends Application {
 
         int id = 0;
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+        loader.setLocation(getClass().getResource("../../GUI/resources/fxml/timkiem.fxml"));
         Parent temp = loader.load();
-        ControllerDangNhap controllerDangNhap = loader.getController();
+        //ControllerDangNhap controllerDangNhap = loader.getController();
     }
 }

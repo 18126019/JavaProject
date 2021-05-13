@@ -67,7 +67,7 @@ public class DonGiaNnDTO {
             while (resultSet.next()) {
                 DonGiaNnDTO donGiaNnDTO = new DonGiaNnDTO(resultSet.getInt("id"),
                         resultSet.getString("duong"),
-                        resultSet.getString("quan"), resultSet.getFloat("heso"));
+                        resultSet.getString("quan"), resultSet.getFloat("dongia"));
                 this.getDanhsachDonGiaNn().add(donGiaNnDTO);
             }
         }catch (SQLException e){

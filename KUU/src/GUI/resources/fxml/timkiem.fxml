@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GUI.controller.ControllerTimKiem">
    <children>
       <BorderPane fx:id="border_pane" layoutX="278.0" layoutY="137.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -172,22 +172,22 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <JFXComboBox promptText="Quận">
+                              <JFXComboBox fx:id="timkiem_quan" promptText="Quận">
                                  <GridPane.margin>
                                     <Insets left="110.0" />
                                  </GridPane.margin>
                               </JFXComboBox>
-                              <JFXComboBox promptText="Phường" GridPane.columnIndex="1">
+                              <JFXComboBox fx:id="timkiem_phuong" promptText="Phường" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </JFXComboBox>
-                              <JFXComboBox promptText="Đường " GridPane.columnIndex="2">
+                              <JFXComboBox fx:id="timkiem_duong" promptText="Đường " GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </JFXComboBox>
-                              <JFXButton alignment="CENTER" contentDisplay="CENTER" text="Tìm kiếm" GridPane.columnIndex="3">
+                              <JFXButton fx:id="timkiem_btn_timkiem" alignment="CENTER" contentDisplay="CENTER" text="Tìm kiếm" GridPane.columnIndex="3">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -210,32 +210,13 @@
                         </Label>
                      </top>
                      <center>
-                        <GridPane BorderPane.alignment="CENTER">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="482.0" minWidth="10.0" prefWidth="289.4" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="689.4" minWidth="10.0" prefWidth="689.4" />
-                          </columnConstraints>
+                        <GridPane fx:id="timkiem_grid" prefHeight="220.0" prefWidth="826.0" BorderPane.alignment="CENTER">
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <BorderPane.margin>
                               <Insets bottom="200.0" left="50.0" right="50.0" top="50.0" />
                            </BorderPane.margin>
-                           <children>
-                              <Label text="Thông tin nhà">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <GridPane.margin>
-                                    <Insets left="50.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <JFXButton text="Xem chi tiết" GridPane.columnIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="500.0" />
-                                 </GridPane.margin>
-                              </JFXButton>
-                           </children>
                         </GridPane>
                      </center>
                   </BorderPane>
