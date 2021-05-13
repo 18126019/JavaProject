@@ -47,4 +47,57 @@ public class KhachHangDTO extends NguoiDung {
 		}
 		return this.getDanhsachKhachHang();
 	}
+	public String layTen(KhachHangDAO khachHangDAO, String username) {
+		ResultSet rs = khachHangDAO.timKh(username);
+		String ten = "";
+		try {
+			while (rs.next()) {
+				ten = rs.getString("ten");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ten;
+	}
+	public int layId(KhachHangDAO khachHangDAO, String username) {
+		ResultSet rs = khachHangDAO.timKh(username);
+		int id = -1;
+		try {
+			while (rs.next()) {
+				id = rs.getInt("id");
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+	public String layEmail(KhachHangDAO khachHangDAO, String username) {
+		ResultSet rs = khachHangDAO.timKh(username);
+		String email = "";
+		System.out.println(rs);
+		try {
+			while (rs.next()) {
+				email = rs.getString("email");
+			}
+
+			System.out.println(email);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return email;
+	}
+	public String laySdt(KhachHangDAO khachHangDAO, String username) {
+		ResultSet rs = khachHangDAO.timKh(username);
+		String sdt = "";
+		try {
+			while (rs.next()) {
+				sdt = rs.getString("sodienthoai");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return sdt;
+	}
 }

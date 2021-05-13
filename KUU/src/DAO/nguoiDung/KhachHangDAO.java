@@ -133,4 +133,15 @@ public class KhachHangDAO {
 		}
 		return rs;
 	}
+	public ResultSet timKh(String username) {
+		ResultSet rs = null;
+		try {
+			Statement statement = cnn.createStatement();
+			String selectId = "SELECT * FROM KHACHHANG WHERE taikhoan = '" + username + "'";
+			rs = statement.executeQuery(selectId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 }

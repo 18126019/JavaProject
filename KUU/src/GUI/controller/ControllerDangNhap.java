@@ -42,7 +42,7 @@ public class ControllerDangNhap implements Initializable {
 				for (int i = 0; i < ds.size(); i++) {
 					if (tendn.getText().equals(ds.get(i).getTenDangNhap()) && matkhau.getText().equals(ds.get(i).getMatKhau())) {
 						flat = true;
-						UserSession userSession = UserSession.getInstace(ds.get(i).getTenDangNhap(), ds.get(i).getId());
+						UserSession userSession = UserSession.getInstance(ds.get(i).getTenDangNhap());
 						try {
 							switchToHome(event);
 						} catch (IOException e) {

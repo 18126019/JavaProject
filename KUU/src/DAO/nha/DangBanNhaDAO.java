@@ -82,4 +82,16 @@ public class DangBanNhaDAO extends Nha {
         }
         return rs;
     }
+    public void xoaNha(int id, int maNguoiDung) {
+        try {
+            Statement statement = cnn.createStatement();
+            String deleteString = "UPDATE NHADANGBAN SET daxoa = 1 WHERE ID = '" + id + "' AND manguoidung = '" + maNguoiDung + "'";
+            statement.executeUpdate(deleteString);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

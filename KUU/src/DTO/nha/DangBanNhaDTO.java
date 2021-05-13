@@ -13,8 +13,8 @@ public class DangBanNhaDTO extends Nha {
     private String ketcau;
     private String imgUrl;
 
-    public DangBanNhaDTO(int id, int id_khachang, String soNha, String duong, String phuong, String quan, String ketcau, float dienTich, float soTang, float giaTien, String ghichu, String imgUrl) {
-        super(id, soNha, duong, phuong, quan, dienTich, soTang, giaTien);
+    public DangBanNhaDTO(int id, int id_khachang, String soNha, String duong, String phuong, String quan, String ketcau, float dienTich, float soTang, float giaTien, String ghichu, String imgUrl, int daxoa) {
+        super(id, soNha, duong, phuong, quan, dienTich, soTang, giaTien, daxoa);
         this.id_khachang = id_khachang;
         this.ghichu = ghichu;
         this.ketcau = ketcau;
@@ -88,7 +88,8 @@ public class DangBanNhaDTO extends Nha {
                         resultSet.getFloat("sotang"),
                         resultSet.getFloat("giatien"),
                         resultSet.getString("ghichu"),
-                        resultSet.getString("imgurl"));
+                        resultSet.getString("imgurl"),
+                        resultSet.getInt("daxoa"));
                 this.getDanhsachDangBanNha().add(dangBanNhaDTO);
             }
         }catch (SQLException e){

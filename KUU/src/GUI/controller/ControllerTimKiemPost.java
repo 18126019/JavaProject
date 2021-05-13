@@ -29,7 +29,7 @@ public class ControllerTimKiemPost {
     @FXML
     private JFXTextField timkiem_post_giatien;
     @FXML
-    private JFXButton tiemkiem_post_btn_xemchitiet = new JFXButton();
+    private JFXButton tiemkiem_post_btn_xemchitiet;
 
     public void setData(DangBanNhaDTO dto) {
         this.dangBanNhaDTO = dto;
@@ -37,33 +37,25 @@ public class ControllerTimKiemPost {
         timkiem_post_duong.setText(dto.getDuong());
         timkiem_post_phuong.setText(dto.getPhuong());
         timkiem_post_quan.setText(dto.getQuan());
-        timkiem_post_giatien.setText(String.valueOf(dto.getGiaTien()));
+        timkiem_post_giatien.setText(dto.getGiaTien() + " Triệu đồng");
     }
 
 
 
     public void switchToDetail(ActionEvent event) throws IOException {
-
-        EventHandler<ActionEvent> eventEventHandler = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("../../GUI/resources/fxml/detailHome.fxml"));
-                Parent root = null;
-                try {
-                    root = loader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                ControllerDetail controllerDetail = loader.getController();
-                controllerDetail.setHome(dangBanNhaDTO);
-                Scene scene = new Scene(root);
-                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            }
-        };
-
-        tiemkiem_post_btn_xemchitiet.setOnAction(eventEventHandler);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../../GUI/resources/fxml/detailHome.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ControllerDetail controllerDetail = loader.getController();
+        controllerDetail.setHome(dangBanNhaDTO);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

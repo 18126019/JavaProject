@@ -9,109 +9,106 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GUI.controller.ControllerTimKiemPost">
+<AnchorPane minHeight="100.0" prefHeight="100.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GUI.controller.ControllerTimKiemPost">
    <children>
-      <VBox layoutY="39.0" prefHeight="257.0" prefWidth="600.0">
+      <VBox minHeight="100.0" prefHeight="100.0" prefWidth="900.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_LEFT" minHeight="30.0" prefHeight="30.0" prefWidth="693.0">
                <children>
-                  <Label prefWidth="70.0" text="Số nhà">
+                  <Label prefHeight="26.0" prefWidth="46.0" text="Số nhà">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="13.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXTextField fx:id="timkiem_post_sonha" prefWidth="150.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
+                  <JFXTextField fx:id="timkiem_post_sonha" prefColumnCount="0" prefHeight="26.0" prefWidth="59.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
-                  </JFXTextField>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label prefWidth="70.0" text="Đường">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label prefHeight="26.0" prefWidth="46.0" text="Đường">
+                     <font>
+                        <Font size="13.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
                   <JFXTextField fx:id="timkiem_post_duong" prefWidth="150.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </JFXTextField>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label prefWidth="70.0" text="Phường">
+                  <Label prefHeight="19.0" prefWidth="52.0" text="Phường">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="13.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXTextField fx:id="timkiem_post_phuong" prefWidth="150.0">
+                  <JFXTextField fx:id="timkiem_post_phuong" prefHeight="26.0" prefWidth="150.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
-                  </JFXTextField>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label prefWidth="70.0" text="Quận">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label prefHeight="26.0" prefWidth="38.0" text="Quận">
+                     <font>
+                        <Font size="13.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXTextField fx:id="timkiem_post_quan" prefWidth="150.0">
+                  <JFXTextField fx:id="timkiem_post_quan" prefHeight="26.0" prefWidth="56.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
                   </JFXTextField>
                </children>
             </HBox>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="BOTTOM_RIGHT" minHeight="35.0" prefHeight="35.0" prefWidth="200.0">
                <children>
-                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="Giá tiền">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Giá tiền">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="13.0" />
                      </font>
-                  </Label>
-                  <JFXTextField fx:id="timkiem_post_giatien" prefWidth="150.0">
                      <HBox.margin>
-                        <Insets left="20.0" right="20.0" />
+                        <Insets right="10.0" />
                      </HBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="timkiem_post_giatien" alignment="TOP_RIGHT" editable="false" minHeight="30.0" prefHeight="30.0" prefWidth="300.0">
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
                   </JFXTextField>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox minHeight="35.0" prefHeight="35.0" prefWidth="200.0">
                <children>
-                  <JFXButton fx:id="timkiem_post_btn_xemchitiet" alignment="CENTER_RIGHT" text="Xem chi tiết" wrapText="true">
+                  <JFXButton fx:id="timkiem_post_btn_xemchitiet" alignment="CENTER_RIGHT" onAction="#switchToDetail" text="Xem chi tiết" wrapText="true">
                      <HBox.margin>
-                        <Insets left="500.0" top="20.0" />
+                        <Insets />
                      </HBox.margin>
                   </JFXButton>
                </children>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
             </HBox>
          </children>
       </VBox>

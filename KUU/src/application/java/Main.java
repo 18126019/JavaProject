@@ -20,10 +20,6 @@ public class Main extends Application {
         primaryStage.setTitle("KUU");
         primaryStage.show();
 
-        int id = 0;
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../../GUI/resources/fxml/timkiem.fxml"));
-        Parent temp = loader.load();
         //ControllerDangNhap controllerDangNhap = loader.getController();
     }
 }

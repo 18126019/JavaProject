@@ -13,7 +13,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import src.BUS.heSo.DonGiaNnBUS;
 import src.BUS.nha.DangBanNhaBUS;
-import src.BUS.nha.Nha;
 import src.DTO.heSo.DonGiaNnDTO;
 import src.DTO.nha.DangBanNhaDTO;
 import src.application.java.UserSession;
@@ -37,7 +36,7 @@ public class ControllerTimKiem implements Initializable {
     @FXML
     private GridPane timkiem_grid;
 
-    final int userSessionId = UserSession.getInstace("a", -1).getId();
+    final int userSessionId =  1; //UserSession.getInstance("a").getId();
 
     DangBanNhaBUS dangBanNhaBUS = new DangBanNhaBUS();
     DonGiaNnBUS donGiaNnBUS = new DonGiaNnBUS();
