@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GUI.controller.ControllerTimKiem">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GUI.controller.ControllerQuanlyUser">
    <children>
       <BorderPane fx:id="border_pane" layoutX="278.0" layoutY="137.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -150,84 +153,72 @@
          <center>
             <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                <top>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <top>
-                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" text="Tìm kiếm" BorderPane.alignment="TOP_LEFT">
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Quản lý ">
                            <font>
                               <Font size="34.0" />
                            </font>
-                           <BorderPane.margin>
-                              <Insets left="20.0" />
-                           </BorderPane.margin>
                         </Label>
-                     </top>
-                     <bottom>
-                        <Line endX="71.36456298828125" endY="0.8002029061317444" startX="-981.257080078125" startY="1.0148286673938856E-4" stroke="#dea5144d" strokeWidth="5.0" BorderPane.alignment="CENTER" />
-                     </bottom>
-                     <center>
-                        <GridPane BorderPane.alignment="CENTER">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.3999755859375" minWidth="10.0" prefWidth="200.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.60003662109375" minWidth="0.0" prefWidth="80.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="540.0" minWidth="10.0" prefWidth="80.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="673.5999755859374" minWidth="10.0" prefWidth="644.8000122070312" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <JFXComboBox fx:id="timkiem_quan" promptText="Quận">
-                                 <GridPane.margin>
-                                    <Insets left="110.0" />
-                                 </GridPane.margin>
-                              </JFXComboBox>
-                              <JFXComboBox fx:id="timkiem_phuong" promptText="Phường" GridPane.columnIndex="1">
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </JFXComboBox>
-                              <JFXComboBox fx:id="timkiem_duong" promptText="Đường " GridPane.columnIndex="2">
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </JFXComboBox>
-                              <JFXButton fx:id="timkiem_btn_timkiem" alignment="CENTER" contentDisplay="CENTER" text="Tìm kiếm" GridPane.columnIndex="3">
+                              <JFXButton fx:id="quanly_btn_nguoidung" prefHeight="50.0" prefWidth="150.0" text="Người dùng" wrapText="true">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="quanly_btn_nhadat" prefHeight="50.0" prefWidth="150.0" text="Nhà đất" wrapText="true">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <JFXTextField fx:id="quanly_user_txt_timkiem" maxWidth="200.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                              <JFXButton fx:id="quanly_user_btn_timkiem" text="Tìm kiếm">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
                               </JFXButton>
                            </children>
-                           <BorderPane.margin>
-                              <Insets top="50.0" />
-                           </BorderPane.margin>
-                        </GridPane>
-                     </center>
-                  </BorderPane>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
                </top>
                <center>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <top>
-                        <Label text="Kết quả" BorderPane.alignment="TOP_LEFT">
-                           <font>
-                              <Font size="34.0" />
-                           </font>
-                           <BorderPane.margin>
-                              <Insets bottom="20.0" left="20.0" />
-                           </BorderPane.margin>
-                        </Label>
-                     </top>
-                     <center>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                           <content>
-                              <GridPane fx:id="timkiem_grid" gridLinesVisible="true" maxHeight="100.0" maxWidth="900.0" minHeight="100.0" minWidth="900.0" prefHeight="100.0" prefWidth="900.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints />
-                                 </columnConstraints>
-                              </GridPane>
-                           </content>
-                        </ScrollPane>
-                     </center>
-                  </BorderPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <TableView fx:id="quanly_user_table_user" prefHeight="200.0" prefWidth="1044.0">
+                          <columns>
+                            <TableColumn fx:id="quanly_user_col_id" prefWidth="42.399993896484375" text="ID" />
+                            <TableColumn fx:id="quanly_user_col_taikhoan" onEditCommit="#editTaiKhoan" prefWidth="159.199951171875" text="tài khoản" />
+                              <TableColumn fx:id="quanly_user_col_matkhau" prefWidth="167.20004272460938" text="mật khẩu" />
+                              <TableColumn fx:id="quanly_user_col_ten" prefWidth="136.0" text="Tên" />
+                              <TableColumn fx:id="quanly_user_col_email" prefWidth="188.0" text="Email" />
+                              <TableColumn fx:id="quanly_user_col_sdt" prefWidth="251.199951171875" text="Số điện thoại" />
+                              <TableColumn fx:id="quanly_user_col_daxoa" prefWidth="94.4000244140625" text="Hoạt động" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
                </center>
             </BorderPane>
          </center>

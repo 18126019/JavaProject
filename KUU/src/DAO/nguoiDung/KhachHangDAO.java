@@ -144,4 +144,15 @@ public class KhachHangDAO {
 		}
 		return rs;
 	}
+	public void updateTaiKhoan(String username, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE KHACHHANG SET taikhoan = '" + username + "' WHERE id = '" + id + "'";
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

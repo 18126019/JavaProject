@@ -97,4 +97,8 @@ public class DangBanNhaDTO extends Nha {
         }
         return this.getDanhsachDangBanNha();
     }
+
+    public void updateSoNha(DangBanNhaDAO dangBanNhaDAO, String soNha, int id) {
+        dangBanNhaDAO.update(soNha, id);
+    }
 }

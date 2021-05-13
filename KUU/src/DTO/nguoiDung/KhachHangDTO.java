@@ -100,4 +100,7 @@ public class KhachHangDTO extends NguoiDung {
 		}
 		return sdt;
 	}
+	public void updateTaiKhoan(KhachHangDAO khachHangDAO, String username, int id) {
+		khachHangDAO.updateTaiKhoan(username, id);
+	}
 }

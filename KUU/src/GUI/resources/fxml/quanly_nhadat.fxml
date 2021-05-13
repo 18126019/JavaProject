@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GUI.controller.ControllerQuanlyNhadat">
    <children>
       <BorderPane fx:id="border_pane" layoutX="278.0" layoutY="137.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -140,77 +151,58 @@
          </left>
          <center>
             <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
-               <center>
-                  <GridPane BorderPane.alignment="CENTER">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <BorderPane.margin>
-                        <Insets bottom="450.0" left="50.0" right="50.0" top="50.0" />
-                     </BorderPane.margin>
-                     <children>
-                        <Label text="Người dùng 1">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <JFXButton text="Sửa" GridPane.columnIndex="1">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton text="Xóa" GridPane.columnIndex="1">
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </GridPane>
-               </center>
                <top>
                   <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label text="Quản lý người dùng">
+                        <Label text="Quản lý ">
                            <font>
                               <Font size="34.0" />
                            </font>
                         </Label>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <JFXTextField maxWidth="200.0">
+                              <JFXButton fx:id="quanly_btn_nguoidung" prefHeight="50.0" prefWidth="150.0" text="Người dùng" wrapText="true">
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="quanly_btn_nhadat" prefHeight="50.0" prefWidth="150.0" text="Nhà đất" wrapText="true">
+                                 <font>
+                                    <Font size="17.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="50.0" />
-                                 </HBox.margin>
-                              </JFXTextField>
-                              <JFXButton text="Tìm kiếm">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="30.0" />
                                  </HBox.margin>
                               </JFXButton>
                            </children>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
                         </HBox>
                      </children>
                   </VBox>
                </top>
+               <center>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <TableView fx:id="quanly_nhadat_table_nhadat" prefHeight="200.0" prefWidth="1044.0">
+                          <columns>
+                            <TableColumn fx:id="quanly_nhadat_col_id" prefWidth="42.399993896484375" text="ID" />
+                              <TableColumn prefWidth="544.8000030517578" text="địa chỉ">
+                                 <columns>
+                                  <TableColumn fx:id="quanly_nhadat_col_sonha" onEditCommit="#editSoNha" prefWidth="99.99998474121094" text="số nhà" />
+                                    <TableColumn fx:id="quanly_nhadat_col_duong" prefWidth="203.19998168945312" text="đường" />
+                                    <TableColumn fx:id="quanly_nhadat_col_phuong" prefWidth="111.20001220703125" text="phường" />
+                                    <TableColumn fx:id="quanly_nhadat_col_quan" prefWidth="93.5999755859375" text="quận" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn fx:id="quanly_nhadat_col_dientich" prefWidth="78.39996337890625" text="diện tích" />
+                              <TableColumn fx:id="quanly_nhadat_col_sotang" prefWidth="88.79998779296875" text="số tầng" />
+                              <TableColumn fx:id="quanly_nhadat_col_giatien" prefWidth="103.2000732421875" text="Giá tiền" />
+                              <TableColumn fx:id="quanly_nhadat_col_ghichu" prefWidth="138.4000244140625" text="Ghi chú" />
+                              <TableColumn fx:id="quanly_nhadat_col_daxoa" prefWidth="79.2000732421875" text="Đã xóa" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </center>
             </BorderPane>
          </center>
       </BorderPane>

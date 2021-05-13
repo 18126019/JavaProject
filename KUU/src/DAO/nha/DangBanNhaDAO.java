@@ -94,4 +94,15 @@ public class DangBanNhaDAO extends Nha {
         }
     }
 
+    public void update(String soNha, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE NHADANGBAN SET sonha = '" + soNha + "' WHERE id = '" + id + "'";
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
