@@ -12,8 +12,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import src.BUS.nguoiDung.KhachHangBUS;
+import src.DAO.nha.DangBanNhaDAO;
 import src.DTO.nguoiDung.KhachHangDTO;
 import src.DTO.nha.DangBanNhaDTO;
+import src.application.java.UserSession;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -73,7 +75,7 @@ public class ControllerDetail {
         tbDienTich.setText(Float.toString(nha.getDienTich()));
         tbSoTang.setText(Float.toString(nha.getSoTang()));
         tbKetCau.setText(nha.getKetcau());
-        tbGhiChu.setText(nha.getKetcau());
+        tbGhiChu.setText(nha.getGhichu());
         Image image = new javafx.scene.image.Image(getClass().getResourceAsStream(nha.getImgUrl()));
         img.setImage(image);
     }
@@ -94,20 +96,24 @@ public class ControllerDetail {
         stage.show();
     }
 
-    public void switchToDetailEditable(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/detailEditable.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void switchToAccount(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        String name = UserSession.getInstance("a").getUserName();
+        System.out.println(name);
+        if(!name.equals("a")) {
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/thongtintaikhoan.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+        else {
+            UserSession.clearUserSession();
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     public void switchToSetting(ActionEvent event) throws IOException {
@@ -132,10 +138,22 @@ public class ControllerDetail {
         stage.show();
     }
     public void switchToAddHome(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        String name = UserSession.getInstance("a").getUserName();
+        System.out.println(name);
+        if(!name.equals("a")) {
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+        else {
+            UserSession.clearUserSession();
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 }

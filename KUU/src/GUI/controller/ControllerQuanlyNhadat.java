@@ -1,16 +1,24 @@
 package src.GUI.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import src.BUS.nha.DangBanNhaBUS;
 import src.DAO.nguoiDung.KhachHangDAO;
 import src.DAO.nha.DangBanNhaDAO;
 import src.DTO.nguoiDung.KhachHangDTO;
 import src.DTO.nha.DangBanNhaDTO;
+import src.application.java.UserSession;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -62,5 +70,20 @@ public class ControllerQuanlyNhadat implements Initializable {
         DangBanNhaDTO dangBanNhaDTO = quanly_nhadat_table_nhadat.getSelectionModel().getSelectedItem();
         dangBanNhaDTO.setSoNha(editNha.getNewValue());
         dangBanNhaDTO.updateSoNha(new DangBanNhaDAO(), editNha.getNewValue(), dangBanNhaDTO.getId());
+    }
+    public void logout(ActionEvent event) throws IOException {
+        UserSession.clearUserSession();
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToNguoiDung(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_user.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

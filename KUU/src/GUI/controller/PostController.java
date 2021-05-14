@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import src.DAO.nha.DangBanNhaDAO;
 import src.DTO.nha.DangBanNhaDTO;
 
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class PostController {
         String addrStr = nha.getSoNha() + " " + nha.getDuong() + ", Phường " + nha.getPhuong() + ", Quận" + nha.getQuan();
         address.setText(addrStr);
         price.setText(Float.toString(nha.getGiaTien()) + " Triệu Đồng");
-
+        System.out.println(nha.getImgUrl());
         Image image = new javafx.scene.image.Image(getClass().getResourceAsStream(nha.getImgUrl()));
         img.setImage(image);
 

@@ -83,15 +83,16 @@ public class KhachHangDAO {
 		this.hoTen = kh.hoTen;
 		this.sdt = kh.sdt;
 	}
-	public void themNha(DangBanNhaDTO DbNha) {
+	public void themNha(DangBanNhaDAO DbNha) {
 		try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into NHADANGBAN(ID, manguoidung, sotang, dientich, ketcau, giatien, sonha, duong, phuong, quan, ghichu, imgurl, daxoa)"
-					+ " values('" + DbNha.getId() + "','" + this.getId() + "','" + DbNha.getSoTang() + "','" + DbNha.getKetcau() + "','" + DbNha.getGiaTien()
-					+ "','" + DbNha.getSoNha() + "','" + DbNha.getDuong()+ "','" + DbNha.getPhuong() + "','" + DbNha.getQuan() + "','" + DbNha.getGhichu()
-					+ "','"  + DbNha.getImgUrl() + "','" + this.daXoa + "')";
+			String insertSqlString = "Insert into NHADANGBAN(manguoidung, sotang, dientich, ketcau, giatien, sonha, duong, phuong, quan, ghichu, imgurl, daxoa)"
+					+ " values('" +  DbNha.getMaNguoiDung() + "','" + DbNha.getSoTang() + "','" + DbNha.getDienTich() + "','" + DbNha.getKetCau() + "','" + DbNha.getGiaTien()
+					+ "','" + DbNha.getSoNha() + "','" + DbNha.getDuong()+ "','" + DbNha.getPhuong() + "','" + DbNha.getQuan() + "','" + DbNha.getGhiChu()
+					+ "','"  + DbNha.getImgUrl() + "','" + DbNha.getDaXoa() + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
+			System.out.println("success");
 			statement.close();
 		} catch (SQLException e) {
 			System.out.println(e);
@@ -108,13 +109,13 @@ public class KhachHangDAO {
 			System.out.println(e);
 		}
 	}
-	public void suaNha(DangBanNhaDTO nha1) {
+	public void suaNha(DangBanNhaDAO nha1) {
 		try {
 			Statement statement = cnn.createStatement();
-			String updateSqlString = "Update NHADANGBAN SET sotang = " + nha1.getSoTang() + "', dientich = " + nha1.getDienTich()
-							+ ", ketcau = '" + nha1.getKetcau() + "', giatien = '" + nha1.getGiaTien() + "', sonha = '" + nha1.getSoNha()
+			String updateSqlString = "Update NHADANGBAN SET sotang = '" + nha1.getSoTang() + "', dientich = '" + nha1.getDienTich()
+							+ "', ketcau = '" + nha1.getKetCau() + "', giatien = '" + nha1.getGiaTien() + "', sonha = '" + nha1.getSoNha()
 							+ "', duong = '" + nha1.getDuong() + "', phuong = '" + nha1.getPhuong() + "', quan = '" + nha1.getQuan()
-							+ "', ghichu = '" + nha1.getGhichu() + " WHERE id = '" + nha1.getId() + "'";
+							+ "', ghichu = '" + nha1.getGhiChu() + "' WHERE id = '" + nha1.getID() + "'";
 			statement.executeUpdate(updateSqlString);
 			cnn.commit();
 			statement.close();	

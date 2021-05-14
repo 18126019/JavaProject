@@ -2,16 +2,24 @@ package src.GUI.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 import src.BUS.nguoiDung.KhachHangBUS;
 import src.DAO.nguoiDung.KhachHangDAO;
 import src.DTO.nguoiDung.KhachHangDTO;
+import src.application.java.UserSession;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -92,5 +100,20 @@ public class ControllerQuanlyUser implements Initializable {
         KhachHangDTO khachHangDTO = quanly_user_table_user.getSelectionModel().getSelectedItem();
         khachHangDTO.setDaXoa(Integer.parseInt(editDx.getNewValue()));
         khachHangDTO.updateDaXoa(new KhachHangDAO(), editDx.getNewValue(), khachHangDTO.getId());
+    }
+    public void logout(ActionEvent event) throws IOException {
+        UserSession.clearUserSession();
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToNhaDat(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_nhadat.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

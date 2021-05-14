@@ -40,13 +40,23 @@ public class ControllerDangNhap implements Initializable {
 				ArrayList<KhachHangDTO> ds = khachHangBUS.danhSachKhachHang();
 				boolean flat = false;
 				for (int i = 0; i < ds.size(); i++) {
-					if (tendn.getText().equals(ds.get(i).getTenDangNhap()) && matkhau.getText().equals(ds.get(i).getMatKhau())) {
+					if(tendn.getText().equals("admin") && matkhau.getText().equals("1")){
 						flat = true;
 						UserSession userSession = UserSession.getInstance(ds.get(i).getTenDangNhap());
 						try {
-							switchToHome(event);
+							switchToAdmin(event);
 						} catch (IOException e) {
 							e.printStackTrace();
+						}
+					} else {
+						if (tendn.getText().equals(ds.get(i).getTenDangNhap()) && matkhau.getText().equals(ds.get(i).getMatKhau())) {
+							flat = true;
+							UserSession userSession = UserSession.getInstance(ds.get(i).getTenDangNhap());
+							try {
+								switchToHome(event);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
 						}
 					}
 				}
@@ -81,7 +91,6 @@ public class ControllerDangNhap implements Initializable {
 			}
 		});
 	}
-
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -118,13 +127,32 @@ public class ControllerDangNhap implements Initializable {
 		stage.show();
 	}
 	public void switchToAddHome(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
+		String name = UserSession.getInstance("a").getUserName();
+		System.out.println("name: " + name);
+		if(!name.equals("a")) {
+			Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+		}
+		else {
+			UserSession.clearUserSession();
+			Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+		}
+	}
+	public void switchToAccount(ActionEvent actionEvent) {
+
+	}
+	public void switchToAdmin(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_user.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
 		stage.show();
-	}
-
-	public void switchToAccount(ActionEvent actionEvent) {
 	}
 }
