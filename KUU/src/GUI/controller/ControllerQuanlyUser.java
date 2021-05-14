@@ -46,10 +46,15 @@ public class ControllerQuanlyUser implements Initializable {
         quanly_user_col_taikhoan.setCellValueFactory(new PropertyValueFactory<>("tenDangNhap"));
         quanly_user_col_taikhoan.setCellFactory(TextFieldTableCell.forTableColumn());
         quanly_user_col_matkhau.setCellValueFactory(new PropertyValueFactory<>("matKhau"));
+        quanly_user_col_matkhau.setCellFactory(TextFieldTableCell.forTableColumn());
         quanly_user_col_ten.setCellValueFactory(new PropertyValueFactory<>("hoTen"));
+        quanly_user_col_ten.setCellFactory(TextFieldTableCell.forTableColumn());
         quanly_user_col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        quanly_user_col_email.setCellFactory(TextFieldTableCell.forTableColumn());
         quanly_user_col_sdt.setCellValueFactory(new PropertyValueFactory<>("sdt"));
+        quanly_user_col_sdt.setCellFactory(TextFieldTableCell.forTableColumn());
         quanly_user_col_daxoa.setCellValueFactory(new PropertyValueFactory<>("daXoa"));
+        quanly_user_col_daxoa.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
         for (KhachHangDTO khachHangDTO : khachHangBUS.danhSachKhachHang()) {
@@ -57,9 +62,35 @@ public class ControllerQuanlyUser implements Initializable {
         }
     }
 
-    public void editTaiKhoan(TableColumn.CellEditEvent<KhachHangDTO, String> editKh) {
+    public void editTaiKhoan(TableColumn.CellEditEvent<KhachHangDTO, String> editTk) {
         KhachHangDTO khachHangDTO = quanly_user_table_user.getSelectionModel().getSelectedItem();
-        khachHangDTO.setTenDangNhap(editKh.getNewValue());
-        khachHangDTO.updateTaiKhoan(new KhachHangDAO(), editKh.getNewValue(), khachHangDTO.getId());
+        khachHangDTO.setTenDangNhap(editTk.getNewValue());
+        khachHangDTO.updateTaiKhoan(new KhachHangDAO(), editTk.getNewValue(), khachHangDTO.getId());
+    }
+
+    public void editMatKhau(TableColumn.CellEditEvent<KhachHangDTO, String> editMk) {
+        KhachHangDTO khachHangDTO = quanly_user_table_user.getSelectionModel().getSelectedItem();
+        khachHangDTO.setMatKhau(editMk.getNewValue());
+        khachHangDTO.updateMatKhau(new KhachHangDAO(), editMk.getNewValue(), khachHangDTO.getId());
+    }
+    public void editHoTen(TableColumn.CellEditEvent<KhachHangDTO, String> editHt) {
+        KhachHangDTO khachHangDTO = quanly_user_table_user.getSelectionModel().getSelectedItem();
+        khachHangDTO.setHoTen(editHt.getNewValue());
+        khachHangDTO.updateHoTen(new KhachHangDAO(), editHt.getNewValue(), khachHangDTO.getId());
+    }
+    public void editEmail(TableColumn.CellEditEvent<KhachHangDTO, String> editEmail) {
+        KhachHangDTO khachHangDTO = quanly_user_table_user.getSelectionModel().getSelectedItem();
+        khachHangDTO.setEmail(editEmail.getNewValue());
+        khachHangDTO.updateEmail(new KhachHangDAO(), editEmail.getNewValue(), khachHangDTO.getId());
+    }
+    public void editSdt(TableColumn.CellEditEvent<KhachHangDTO, String> editSdt) {
+        KhachHangDTO khachHangDTO = quanly_user_table_user.getSelectionModel().getSelectedItem();
+        khachHangDTO.setSdt(editSdt.getNewValue());
+        khachHangDTO.updateSdt(new KhachHangDAO(), editSdt.getNewValue(), khachHangDTO.getId());
+    }
+    public void editDaXoa(TableColumn.CellEditEvent<KhachHangDTO, String> editDx) {
+        KhachHangDTO khachHangDTO = quanly_user_table_user.getSelectionModel().getSelectedItem();
+        khachHangDTO.setDaXoa(Integer.parseInt(editDx.getNewValue()));
+        khachHangDTO.updateDaXoa(new KhachHangDAO(), editDx.getNewValue(), khachHangDTO.getId());
     }
 }
