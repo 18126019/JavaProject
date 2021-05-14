@@ -4,22 +4,32 @@ package src.GUI.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import src.BUS.nguoiDung.KhachHangBUS;
 import src.DAO.nguoiDung.KhachHangDAO;
+import src.DAO.nha.DangBanNhaDAO;
+import src.DTO.nguoiDung.KhachHangDTO;
 import src.DTO.nha.DangBanNhaDTO;
+import src.application.java.UserSession;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class ControllerDetailEditable {
+    private DangBanNhaDAO nhaSelected;
     private DangBanNhaDTO nha;
     @FXML
     private ImageView img;
-
-    @FXML
-    private JFXTextField tbChuNha;
-
-    @FXML
-    private JFXTextField tbSdt;
 
     @FXML
     private JFXTextField tbDienTich;
@@ -54,19 +64,134 @@ public class ControllerDetailEditable {
     @FXML
     private JFXButton btnHuy;
 
-    public void saveModifiedHome() {
-        nha.setDienTich(Float.parseFloat(tbDienTich.getText()));
-        nha.setSoTang(Float.parseFloat(tbSoTang.getText()));
-        nha.setKetcau(tbKetCau.getText());
-        nha.setSoNha(tbSoNha.getText());
-        nha.setDuong(tbDuong.getText());
-        nha.setPhuong(tbPhuong.getText());
-        nha.setQuan(tbQuan.getText());
-        nha.setGiaTien(Float.parseFloat(tbGiaTien.getText()));
-        nha.setGhichu(tbGhiChu.getText());
+    public void setNha(DangBanNhaDTO nha) {
+        KhachHangBUS kh = new KhachHangBUS();
+        ArrayList<KhachHangDTO> dsKH = kh.danhSachKhachHang();
 
-        KhachHangDAO kh = new KhachHangDAO();
-        kh.suaNha(nha);
+        tbSoNha.setText(nha.getSoNha());
+        tbDuong.setText(nha.getDuong());
+        tbPhuong.setText(nha.getPhuong());
+        tbQuan.setText(nha.getQuan());
+        tbGiaTien.setText(Float.toString(nha.getGiaTien()) + " Triệu Đồng");
+        tbDienTich.setText(Float.toString(nha.getDienTich()));
+        tbSoTang.setText(Float.toString(nha.getSoTang()));
+        tbKetCau.setText(nha.getKetcau());
+        tbGhiChu.setText(nha.getGhichu());
+        Image image = new javafx.scene.image.Image(getClass().getResourceAsStream(nha.getImgUrl()));
+        img.setImage(image);
+        this.nha = nha;
     }
 
+    public void saveModifiedHome(ActionEvent event) throws IOException {
+        nhaSelected = new DangBanNhaDAO();
+        nhaSelected.setID(nha.getId());
+        nhaSelected.setDienTich(Float.parseFloat(tbDienTich.getText()));
+        nhaSelected.setSoTang(Float.parseFloat(tbSoTang.getText()));
+        nhaSelected.setKetCau(tbKetCau.getText());
+        nhaSelected.setSoNha(tbSoNha.getText());
+        nhaSelected.setDuong(tbDuong.getText());
+        nhaSelected.setPhuong(tbPhuong.getText());
+        nhaSelected.setQuan(tbQuan.getText());
+        nhaSelected.setGiaTien(Float.parseFloat(tbGiaTien.getText()));
+        nhaSelected.setGhiChu(tbGhiChu.getText());
+
+        KhachHangDAO kh = new KhachHangDAO();
+        kh.suaNha(nhaSelected);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Lưu nhà thành công");
+        alert.show();
+        switchToAccount(event);
+    }
+
+    public void cancel(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/thongtintaikhoan.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToHome(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+        System.out.println(UserSession.getInstance("a").toString());
+    }
+
+    public void switchToDetail(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/detailHome.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    public void switchToDetailEditable(ActionEvent event) throws IOException {
+
+    }
+
+    public void switchToAccount(ActionEvent event) throws IOException {
+        String name = UserSession.getInstance("a").getUserName();
+        System.out.println(name);
+        if(!name.equals("a")) {
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/thongtintaikhoan.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+        else {
+            UserSession.clearUserSession();
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+
+    public void switchToSetting(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/setting.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToDinhGia(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/dinhgia.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToSearch(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/timkiem.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToAddHome(ActionEvent event) throws IOException {
+        String name = UserSession.getInstance("a").getUserName();
+        System.out.println(name);
+        if(!name.equals("a")) {
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+        else {
+            UserSession.clearUserSession();
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
 }

@@ -25,7 +25,7 @@ public class UserSession {
 	public void cleanUserSession() {
 		userName = "";// or null
 	}
-
+	public static void clearUserSession() { instance = null; }
 	@Override
 	public String toString() {
 		return "UserSession{" +

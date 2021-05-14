@@ -20,6 +20,7 @@ import java.io.IOException;
 public class ControllerThongtintaikhoanPost {
 
     public DangBanNhaDTO nhaDTO;
+    public DangBanNhaDAO nhaSelected;
 
     @FXML
     private JFXTextField thongtintaikhoan_post_txt_diachi;
@@ -30,19 +31,21 @@ public class ControllerThongtintaikhoanPost {
 
     public void setData(DangBanNhaDTO dangBanNhaDTO, int id) {
         this.nhaDTO = dangBanNhaDTO;
+
         thongtintaikhoan_post_txt_diachi.setText(nhaDTO.getSoNha() +
                 " đường " + nhaDTO.getDuong() +
                 " phường " + nhaDTO.getPhuong() +
                 " quận " + nhaDTO.getQuan());
+
     }
 
 
     public void switchToDetail(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../../GUI/resources/fxml/detailHome.fxml"));
+        loader.setLocation(getClass().getResource("../../GUI/resources/fxml/detailEditable.fxml"));
         Parent root = loader.load();
-        ControllerDetail controllerDetail = loader.getController();
-        controllerDetail.setHome(this.nhaDTO);
+        ControllerDetailEditable controllerDetailEditable = loader.getController();
+        controllerDetailEditable.setNha(nhaDTO);
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);

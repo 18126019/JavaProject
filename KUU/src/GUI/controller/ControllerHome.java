@@ -34,6 +34,14 @@ public class ControllerHome implements Initializable {
         dsNha = nha.danhSachDangBanNha();
         int column = 0;
         int row = 1;
+        int n = dsNha.size();
+        for(int i = 0; i < n; i++) {
+            if(dsNha.get(i).getDaXoa() == 1) {
+                dsNha.remove(i);
+                i--;
+                n--;
+            }
+        }
         for(int i = 0; i < dsNha.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("../resources/fxml/post.fxml"));
@@ -82,21 +90,24 @@ public class ControllerHome implements Initializable {
         stage.show();
     }
 
-
-    public void switchToDetailEditable(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/detailEditable.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void switchToAccount(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        String name = UserSession.getInstance("a").getUserName();
+        System.out.println(name);
+        if(!name.equals("a")) {
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/thongtintaikhoan.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+        else {
+            UserSession.clearUserSession();
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     public void switchToSetting(ActionEvent event) throws IOException {
@@ -107,7 +118,7 @@ public class ControllerHome implements Initializable {
         stage.show();
     }
     public void switchToDinhGia(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_user.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/dinhgia.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -121,11 +132,23 @@ public class ControllerHome implements Initializable {
         stage.show();
     }
     public void switchToAddHome(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        String name = UserSession.getInstance("a").getUserName();
+        System.out.println(name);
+        if(!name.equals("a")) {
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/themNha.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+        else {
+            UserSession.clearUserSession();
+            Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/login.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
 }
