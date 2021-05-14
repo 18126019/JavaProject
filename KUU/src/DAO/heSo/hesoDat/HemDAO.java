@@ -67,7 +67,6 @@ public class HemDAO {
 			String updateSqlString = "Update HESOHEM SET ten =" + "'" + hemDAO.getTenHem() + "', heso= " + hemDAO.getHesoHem() + " WHERE id = '" + this.getID() + "'";
 			statement.executeUpdate(updateSqlString);
 			cnn.commit();
-			System.out.println("Update success");
 			statement.close();	
 		
 			}  catch (SQLException e) {
@@ -84,5 +83,29 @@ public class HemDAO {
             e.printStackTrace();
         }
         return rs;
+    }
+
+    public void updateTen(String ten, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE HESOHEM SET ten = '" + ten + "' WHERE id = " + id;
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateHeSo(Float heSo, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE HESOHEM SET heso = " + heSo + " WHERE id = " + id;
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

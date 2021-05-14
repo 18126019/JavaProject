@@ -65,4 +65,12 @@ public class HemDTO {
         }
         return this.getDsHem();
     }
+
+    public void updateTen(HemDAO hemDAO, String ten, int id) {
+        hemDAO.updateTen(ten, id);
+    }
+
+    public void updateHeSo(HemDAO hemDAO, Float heSo, int id) {
+        hemDAO.updateHeSo(heSo, id);
+    }
 }

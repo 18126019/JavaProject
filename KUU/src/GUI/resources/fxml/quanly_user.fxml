@@ -45,6 +45,14 @@
                               <Insets left="80.0" />
                            </HBox.margin>
                         </JFXButton>
+                        <JFXButton fx:id="quanly_btn_hesodat" onAction="#switchToHeSoDat" prefHeight="50.0" prefWidth="150.0" text="Hệ số dất" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
                      </children>
                      <padding>
                         <Insets top="15.0" />

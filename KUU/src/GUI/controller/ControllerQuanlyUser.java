@@ -51,8 +51,6 @@ public class ControllerQuanlyUser implements Initializable {
     @FXML
     private TableColumn<KhachHangDTO, Integer> quanly_user_col_daxoa;
     @FXML
-    private JFXButton quanly_user_btn_timkiem;
-    @FXML
     private JFXTextField quanly_user_txt_timkiem;
 
     private KhachHangBUS khachHangBUS = new KhachHangBUS();
@@ -154,35 +152,11 @@ public class ControllerQuanlyUser implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-    public void searchUser(ActionEvent event) throws IOException {
-
-
-
-        String text = "";
-        if (quanly_user_txt_timkiem.getText().isEmpty()) {
-            quanly_user_table_user.setItems(FXCollections.observableArrayList(khachHangBUS.danhSachKhachHang()));
-        }
-        else {
-            text = quanly_user_txt_timkiem.getText();
-            ArrayList<KhachHangDTO> listSearch = new ArrayList<>();
-            for (KhachHangDTO dto : khachHangBUS.danhSachKhachHang()) {
-                if (dto.getEmail().equals(text)
-                || dto.getTenDangNhap().equals(text)
-                || String.valueOf(dto.getId()).equals(text)) {
-                    listSearch.add(dto);
-                }
-            }
-            quanly_user_table_user.setItems(FXCollections.observableArrayList(listSearch));
-        }
-
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_user.fxml"));
+    public void switchToHeSoDat(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyheso.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-
-        quanly_user_table_user.getItems().clear();
-        System.out.println("da search");
     }
 }
