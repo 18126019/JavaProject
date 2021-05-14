@@ -88,15 +88,15 @@
             <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1280.0">
                <content>
                   <TableView fx:id="quanly_user_table_user" prefHeight="521.0" prefWidth="1280.0">
-                    <columns>
-                      <TableColumn fx:id="quanly_user_col_id" prefWidth="42.399993896484375" text="ID" />
-                      <TableColumn fx:id="quanly_user_col_taikhoan" onEditCommit="#editTaiKhoan" prefWidth="159.199951171875" text="tài khoản" />
-                        <TableColumn fx:id="quanly_user_col_matkhau" prefWidth="167.20004272460938" text="mật khẩu" />
-                        <TableColumn fx:id="quanly_user_col_ten" prefWidth="136.0" text="Tên" />
-                        <TableColumn fx:id="quanly_user_col_email" prefWidth="188.0" text="Email" />
-                        <TableColumn fx:id="quanly_user_col_sdt" prefWidth="251.199951171875" text="Số điện thoại" />
-                        <TableColumn fx:id="quanly_user_col_daxoa" prefWidth="94.4000244140625" text="Hoạt động" />
-                    </columns>
+                     <columns>
+                        <TableColumn fx:id="quanly_user_col_id" prefWidth="42.399993896484375" text="ID" />
+                        <TableColumn fx:id="quanly_user_col_taikhoan" onEditCommit="#editTaiKhoan" prefWidth="159.199951171875" text="tài khoản" />
+                        <TableColumn fx:id="quanly_user_col_matkhau" onEditCommit="#editMatKhau" prefWidth="167.20004272460938" text="mật khẩu" />
+                        <TableColumn fx:id="quanly_user_col_ten" onEditCommit="#editHoTen" prefWidth="136.0" text="Tên" />
+                        <TableColumn fx:id="quanly_user_col_email" onEditCommit="#editEmail" prefWidth="188.0" text="Email" />
+                        <TableColumn fx:id="quanly_user_col_sdt" onEditCommit="#editSdt" prefWidth="251.199951171875" text="Số điện thoại" />
+                        <TableColumn fx:id="quanly_user_col_daxoa" onEditCommit="#editDaXoa" prefWidth="94.4000244140625" text="Hoạt động" />
+                     </columns>
                   </TableView>
                </content>
                <BorderPane.margin>

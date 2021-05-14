@@ -14,6 +14,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
+import javafx.util.converter.IntegerStringConverter;
+import javafx.util.converter.NumberStringConverter;
 import src.BUS.nguoiDung.KhachHangBUS;
 import src.DAO.nguoiDung.KhachHangDAO;
 import src.DTO.nguoiDung.KhachHangDTO;
@@ -28,19 +31,19 @@ public class ControllerQuanlyUser implements Initializable {
     @FXML
     private TableView<KhachHangDTO> quanly_user_table_user;
     @FXML
-    private TableColumn quanly_user_col_id;
+    private TableColumn<KhachHangDTO, String> quanly_user_col_id;
     @FXML
-    private TableColumn quanly_user_col_taikhoan;
+    private TableColumn<KhachHangDTO, String> quanly_user_col_taikhoan;
     @FXML
-    private TableColumn quanly_user_col_matkhau;
+    private TableColumn<KhachHangDTO, String> quanly_user_col_matkhau;
     @FXML
-    private TableColumn quanly_user_col_ten;
+    private TableColumn<KhachHangDTO, String> quanly_user_col_ten;
     @FXML
-    private TableColumn quanly_user_col_email;
+    private TableColumn<KhachHangDTO, String> quanly_user_col_email;
     @FXML
-    private TableColumn quanly_user_col_sdt;
+    private TableColumn<KhachHangDTO, String> quanly_user_col_sdt;
     @FXML
-    private TableColumn quanly_user_col_daxoa;
+    private TableColumn<KhachHangDTO, Integer> quanly_user_col_daxoa;
     @FXML
     private JFXButton quanly_user_btn_timkiem;
     @FXML
@@ -59,15 +62,19 @@ public class ControllerQuanlyUser implements Initializable {
         quanly_user_col_ten.setCellFactory(TextFieldTableCell.forTableColumn());
         quanly_user_col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
         quanly_user_col_email.setCellFactory(TextFieldTableCell.forTableColumn());
+
         quanly_user_col_sdt.setCellValueFactory(new PropertyValueFactory<>("sdt"));
         quanly_user_col_sdt.setCellFactory(TextFieldTableCell.forTableColumn());
+
         quanly_user_col_daxoa.setCellValueFactory(new PropertyValueFactory<>("daXoa"));
-        quanly_user_col_daxoa.setCellFactory(TextFieldTableCell.forTableColumn());
+        quanly_user_col_daxoa.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+
 
 
         for (KhachHangDTO khachHangDTO : khachHangBUS.danhSachKhachHang()) {
             quanly_user_table_user.getItems().add(khachHangDTO);
         }
+
     }
 
     public void editTaiKhoan(TableColumn.CellEditEvent<KhachHangDTO, String> editTk) {
@@ -96,9 +103,9 @@ public class ControllerQuanlyUser implements Initializable {
         khachHangDTO.setSdt(editSdt.getNewValue());
         khachHangDTO.updateSdt(new KhachHangDAO(), editSdt.getNewValue(), khachHangDTO.getId());
     }
-    public void editDaXoa(TableColumn.CellEditEvent<KhachHangDTO, String> editDx) {
+    public void editDaXoa(TableColumn.CellEditEvent<KhachHangDTO, Integer> editDx) {
         KhachHangDTO khachHangDTO = quanly_user_table_user.getSelectionModel().getSelectedItem();
-        khachHangDTO.setDaXoa(Integer.parseInt(editDx.getNewValue()));
+        khachHangDTO.setDaXoa(editDx.getNewValue());
         khachHangDTO.updateDaXoa(new KhachHangDAO(), editDx.getNewValue(), khachHangDTO.getId());
     }
     public void logout(ActionEvent event) throws IOException {

@@ -200,10 +200,10 @@ public class KhachHangDAO {
 			e.printStackTrace();
 		}
 	}
-	public void updateDaXoa(String enabled, int id) {
+	public void updateDaXoa(int enabled, int id) {
 		try {
 			Statement statement = cnn.createStatement();
-			String update = "UPDATE KHACHHANG SET daxoa = '" + enabled + "' WHERE id = '" + id + "'";
+			String update = "UPDATE KHACHHANG SET daxoa = " + enabled + " WHERE id = '" + id + "'";
 			statement.executeUpdate(update);
 			cnn.commit();
 			statement.close();

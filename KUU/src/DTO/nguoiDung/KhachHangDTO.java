@@ -115,7 +115,7 @@ public class KhachHangDTO extends NguoiDung {
 	public void updateSdt(KhachHangDAO khachHangDAO, String phone, int id) {
 		khachHangDAO.updateSdt(phone, id);
 	}
-	public void updateDaXoa(KhachHangDAO khachHangDAO, String enabled, int id) {
+	public void updateDaXoa(KhachHangDAO khachHangDAO, int enabled, int id) {
 		khachHangDAO.updateDaXoa(enabled, id);
 	}
 }
