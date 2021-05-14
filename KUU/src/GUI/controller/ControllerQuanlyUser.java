@@ -54,12 +54,16 @@ public class ControllerQuanlyUser implements Initializable {
         KhachHangBUS khachHangBUS = new KhachHangBUS();
         quanly_user_table_user.setEditable(true);
         quanly_user_col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+
         quanly_user_col_taikhoan.setCellValueFactory(new PropertyValueFactory<>("tenDangNhap"));
         quanly_user_col_taikhoan.setCellFactory(TextFieldTableCell.forTableColumn());
+
         quanly_user_col_matkhau.setCellValueFactory(new PropertyValueFactory<>("matKhau"));
         quanly_user_col_matkhau.setCellFactory(TextFieldTableCell.forTableColumn());
+
         quanly_user_col_ten.setCellValueFactory(new PropertyValueFactory<>("hoTen"));
         quanly_user_col_ten.setCellFactory(TextFieldTableCell.forTableColumn());
+
         quanly_user_col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
         quanly_user_col_email.setCellFactory(TextFieldTableCell.forTableColumn());
 
