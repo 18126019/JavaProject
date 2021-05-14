@@ -52,22 +52,22 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <JFXTextField fx:id="quanly_user_txt_timkiem" maxWidth="200.0">
+                        <Label alignment="TOP_LEFT" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="102.0" text="Tìm kiếm:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="quanly_user_txt_timkiem" maxHeight="30.0" maxWidth="200.0" minHeight="30.0" prefHeight="30.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="50.0" />
+                              <Insets />
                            </HBox.margin>
                         </JFXTextField>
-                        <JFXButton fx:id="quanly_user_btn_timkiem" text="Tìm kiếm">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                        </JFXButton>
                         <JFXButton onAction="#logout" prefHeight="42.0" prefWidth="148.0" style="-fx-border-color: black; -fx-border-radius: 10;" text="Đăng xuất">
                            <HBox.margin>
                               <Insets left="420.0" />

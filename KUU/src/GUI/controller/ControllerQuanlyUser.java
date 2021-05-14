@@ -2,6 +2,10 @@ package src.GUI.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +28,8 @@ import src.application.java.UserSession;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ControllerQuanlyUser implements Initializable {
@@ -49,9 +55,11 @@ public class ControllerQuanlyUser implements Initializable {
     @FXML
     private JFXTextField quanly_user_txt_timkiem;
 
+    private KhachHangBUS khachHangBUS = new KhachHangBUS();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        KhachHangBUS khachHangBUS = new KhachHangBUS();
+
         quanly_user_table_user.setEditable(true);
         quanly_user_col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
 
@@ -72,13 +80,32 @@ public class ControllerQuanlyUser implements Initializable {
 
         quanly_user_col_daxoa.setCellValueFactory(new PropertyValueFactory<>("daXoa"));
         quanly_user_col_daxoa.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-
-
-
+        //hiển thị data
         for (KhachHangDTO khachHangDTO : khachHangBUS.danhSachKhachHang()) {
             quanly_user_table_user.getItems().add(khachHangDTO);
         }
+        //sort + filter
+        ObservableList<KhachHangDTO> list = FXCollections.observableArrayList(khachHangBUS.danhSachKhachHang());
+        FilteredList<KhachHangDTO> filteredList = new FilteredList<>(list, p -> true);
+        quanly_user_txt_timkiem.textProperty().addListener((observable, newValue, oldValue) -> {
+            filteredList.setPredicate(khachHang -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String low = newValue.toLowerCase();
+                if (khachHang.getEmail().toLowerCase().contains(low)) {
+                    return true;
+                }
+                else if (khachHang.getTenDangNhap().toLowerCase().contains(low)) {
+                    return true;
+                }
+                return false;
+            });
+        });
 
+        SortedList<KhachHangDTO> sortedList = new SortedList<>(filteredList);
+        sortedList.comparatorProperty().bind(quanly_user_table_user.comparatorProperty());
+        quanly_user_table_user.setItems(sortedList);
     }
 
     public void editTaiKhoan(TableColumn.CellEditEvent<KhachHangDTO, String> editTk) {
@@ -126,5 +153,36 @@ public class ControllerQuanlyUser implements Initializable {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void searchUser(ActionEvent event) throws IOException {
+
+
+
+        String text = "";
+        if (quanly_user_txt_timkiem.getText().isEmpty()) {
+            quanly_user_table_user.setItems(FXCollections.observableArrayList(khachHangBUS.danhSachKhachHang()));
+        }
+        else {
+            text = quanly_user_txt_timkiem.getText();
+            ArrayList<KhachHangDTO> listSearch = new ArrayList<>();
+            for (KhachHangDTO dto : khachHangBUS.danhSachKhachHang()) {
+                if (dto.getEmail().equals(text)
+                || dto.getTenDangNhap().equals(text)
+                || String.valueOf(dto.getId()).equals(text)) {
+                    listSearch.add(dto);
+                }
+            }
+            quanly_user_table_user.setItems(FXCollections.observableArrayList(listSearch));
+        }
+
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_user.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+        quanly_user_table_user.getItems().clear();
+        System.out.println("da search");
     }
 }
