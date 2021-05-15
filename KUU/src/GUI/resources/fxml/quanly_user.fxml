@@ -45,12 +45,20 @@
                               <Insets left="80.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="quanly_btn_hesodat" onAction="#switchToHeSoDat" prefHeight="50.0" prefWidth="150.0" text="Hệ số dất" wrapText="true">
+                        <JFXButton fx:id="quanly_btn_hesodat" onAction="#switchToHeSoDat" prefHeight="50.0" prefWidth="150.0" text="Hệ số đất" wrapText="true">
                            <font>
                               <Font size="17.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="quanly_btn_hesonha" prefHeight="50.0" prefWidth="150.0" text="Hệ số nhà" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" />
                            </HBox.margin>
                         </JFXButton>
                      </children>
@@ -78,7 +86,7 @@
                         </JFXTextField>
                         <JFXButton onAction="#logout" prefHeight="42.0" prefWidth="148.0" style="-fx-border-color: black; -fx-border-radius: 10;" text="Đăng xuất">
                            <HBox.margin>
-                              <Insets left="420.0" />
+                              <Insets left="650.0" />
                            </HBox.margin>
                            <font>
                               <Font size="21.0" />

@@ -153,71 +153,129 @@
                             <font>
                                 <Font size="34.0" />
                             </font>
+                     <BorderPane.margin>
+                        <Insets left="15.0" top="10.0" />
+                     </BorderPane.margin>
                         </Label>
                     </top>
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <ImageView fx:id="img" fitHeight="245.0" fitWidth="313.0" layoutX="710.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
-                                <Label layoutX="123.0" layoutY="92.0" text="Số nhà">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="106.0" layoutY="283.0" text="Diện tích">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="121.0" layoutY="243.0" text="Kết cấu">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="119.0" layoutY="320.0" text="Số tầng">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="138.0" layoutY="203.0" text="Quận">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="123.0" layoutY="128.0" text="Đường">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="117.0" layoutY="165.0" text="Phường">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="118.0" layoutY="366.0" text="Giá tiền">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <JFXTextField fx:id="tbDienTich" layoutX="220.0" layoutY="286.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField fx:id="tbSoTang" layoutX="220.0" layoutY="323.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField fx:id="tbGiaTien" layoutX="220.0" layoutY="369.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField fx:id="tbSoNha" layoutX="220.0" layoutY="95.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField fx:id="tbDuong" layoutX="220.0" layoutY="131.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField fx:id="tbPhuong" layoutX="220.0" layoutY="168.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField fx:id="tbQuan" layoutX="220.0" layoutY="206.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextField fx:id="tbKetCau" layoutX="220.0" layoutY="246.0" prefHeight="25.0" prefWidth="247.0" />
-                                <JFXTextArea fx:id="tbGhiChu" layoutX="695.0" layoutY="506.0" prefHeight="57.0" prefWidth="343.0" />
-                                <Label layoutX="592.0" layoutY="532.0" text="Ghi chú">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                        <JFXButton layoutX="806.0" layoutY="359.0" onAction="#chooseImage" style="-fx-border-color: black; -fx-border-radius: 10;" text="Thêm ảnh">
+                                <ImageView fx:id="img" fitHeight="245.0" fitWidth="313.0" layoutX="650.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+                        <JFXButton layoutX="753.0" layoutY="366.0" onAction="#chooseImage" style="-fx-border-color: black; -fx-border-radius: 10;" text="Thêm ảnh">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </JFXButton>
+                        <GridPane layoutX="152.0" layoutY="27.0" prefHeight="454.0" prefWidth="388.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="112.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="276.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                                      <Label text="Số nhà">
+                                          <font>
+                                              <Font size="21.0" />
+                                          </font>
+                                      </Label>
+                                      <JFXTextField fx:id="tbSoNha" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                                      <Label text="Đường" GridPane.rowIndex="1">
+                                          <font>
+                                              <Font size="21.0" />
+                                          </font>
+                                      </Label>
+                                      <JFXTextField fx:id="tbDuong" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                                      <Label text="Phường" GridPane.rowIndex="2">
+                                          <font>
+                                              <Font size="21.0" />
+                                          </font>
+                                      </Label>
+                                      <JFXTextField fx:id="tbPhuong" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                                      <Label text="Quận" GridPane.rowIndex="3">
+                                          <font>
+                                              <Font size="21.0" />
+                                          </font>
+                                      </Label>
+                                      <JFXTextField fx:id="tbQuan" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                                      <Label text="Kết cấu" GridPane.rowIndex="4">
+                                          <font>
+                                              <Font size="21.0" />
+                                          </font>
+                                      </Label>
+                                      <JFXTextField fx:id="tbKetCau" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                                      <Label text="Diện tích" GridPane.rowIndex="5">
+                                          <font>
+                                              <Font size="21.0" />
+                                          </font>
+                                      </Label>
+                                      <JFXTextField fx:id="tbDienTich" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                                      <Label text="Số tầng" GridPane.rowIndex="6">
+                                          <font>
+                                              <Font size="21.0" />
+                                          </font>
+                                      </Label>
+                                      <JFXTextField fx:id="tbSoTang" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                                      <Label text="Giá tiền" GridPane.rowIndex="8">
+                                          <font>
+                                              <Font size="21.0" />
+                                          </font>
+                                      </Label>
+                                      <JFXTextField fx:id="tbGiaTien" prefHeight="25.0" prefWidth="247.0" style="-fx-font-weight: 900;" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                                      <Label text="Ghi chú" GridPane.rowIndex="7">
+                                          <font>
+                                              <Font size="21.0" />
+                                          </font>
+                                      </Label>
+                                      <JFXTextArea fx:id="tbGhiChu" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="343.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextArea>
+                           </children>
+                        </GridPane>
                             </children>
                         </AnchorPane>
                     </center>
@@ -227,7 +285,7 @@
                         <Font size="21.0" />
                      </font>
                      <BorderPane.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="80.0" />
                      </BorderPane.margin>
                   </JFXButton>
                </bottom>

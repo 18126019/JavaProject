@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import src.BUS.nguoiDung.KhachHangBUS;
 import src.DAO.nguoiDung.KhachHangDAO;
@@ -21,6 +22,7 @@ import src.DTO.nguoiDung.KhachHangDTO;
 import src.DTO.nha.DangBanNhaDTO;
 import src.application.java.UserSession;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -28,6 +30,7 @@ import java.util.ArrayList;
 public class ControllerDetailEditable {
     private DangBanNhaDAO nhaSelected;
     private DangBanNhaDTO nha;
+    private String url;
     @FXML
     private ImageView img;
 
@@ -78,8 +81,24 @@ public class ControllerDetailEditable {
         tbKetCau.setText(nha.getKetcau());
         tbGhiChu.setText(nha.getGhichu());
         Image image = new javafx.scene.image.Image(getClass().getResourceAsStream(nha.getImgUrl()));
+        this.url = nha.getImgUrl();
         img.setImage(image);
         this.nha = nha;
+    }
+
+    public void chooseImage(ActionEvent e) throws IOException {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Choose a image");
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
+        fc.getExtensionFilters().add(imageFilter);
+
+        File file = fc.showOpenDialog(null);
+        if (file != null){
+            Image image = new Image(file.toURI().toString(),320, 213, false, true);
+            String[] temp = file.toURI().toString().split("resources");
+            this.url = "../resources" + temp[1];
+            img.setImage(image);
+        }
     }
 
     public void saveModifiedHome(ActionEvent event) throws IOException {
@@ -94,6 +113,7 @@ public class ControllerDetailEditable {
         nhaSelected.setQuan(tbQuan.getText());
         nhaSelected.setGiaTien(Float.parseFloat(tbGiaTien.getText()));
         nhaSelected.setGhiChu(tbGhiChu.getText());
+        nhaSelected.setImgUrl(this.url);
 
         KhachHangDAO kh = new KhachHangDAO();
         kh.suaNha(nhaSelected);

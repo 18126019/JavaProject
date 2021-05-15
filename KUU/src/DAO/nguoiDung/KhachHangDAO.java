@@ -87,8 +87,8 @@ public class KhachHangDAO {
 		try {
 			Statement statement = cnn.createStatement();
 			String insertSqlString = "Insert into NHADANGBAN(manguoidung, sotang, dientich, ketcau, giatien, sonha, duong, phuong, quan, ghichu, imgurl, daxoa)"
-					+ " values('" +  DbNha.getMaNguoiDung() + "','" + DbNha.getSoTang() + "','" + DbNha.getDienTich() + "','" + DbNha.getKetCau() + "','" + DbNha.getGiaTien()
-					+ "','" + DbNha.getSoNha() + "','" + DbNha.getDuong()+ "','" + DbNha.getPhuong() + "','" + DbNha.getQuan() + "','" + DbNha.getGhiChu()
+					+ " values('" +  DbNha.getMaNguoiDung() + "','" + DbNha.getSoTang() + "','" + DbNha.getDienTich() + "',N'" + DbNha.getKetCau() + "','" + DbNha.getGiaTien()
+					+ "','" + DbNha.getSoNha() + "',N'" + DbNha.getDuong()+ "',N'" + DbNha.getPhuong() + "',N'" + DbNha.getQuan() + "',N'" + DbNha.getGhiChu()
 					+ "','"  + DbNha.getImgUrl() + "','" + DbNha.getDaXoa() + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
@@ -113,9 +113,9 @@ public class KhachHangDAO {
 		try {
 			Statement statement = cnn.createStatement();
 			String updateSqlString = "Update NHADANGBAN SET sotang = '" + nha1.getSoTang() + "', dientich = '" + nha1.getDienTich()
-							+ "', ketcau = '" + nha1.getKetCau() + "', giatien = '" + nha1.getGiaTien() + "', sonha = '" + nha1.getSoNha()
-							+ "', duong = '" + nha1.getDuong() + "', phuong = '" + nha1.getPhuong() + "', quan = '" + nha1.getQuan()
-							+ "', ghichu = '" + nha1.getGhiChu() + "' WHERE id = '" + nha1.getID() + "'";
+							+ "', ketcau = N'" + nha1.getKetCau() + "', giatien = '" + nha1.getGiaTien() + "', sonha = '" + nha1.getSoNha()
+							+ "', duong = N'" + nha1.getDuong() + "', phuong = N'" + nha1.getPhuong() + "', quan = N'" + nha1.getQuan()
+							+ "', ghichu = N'" + nha1.getGhiChu() + "', imgurl = '" + nha1.getImgUrl() + "' WHERE id = '" + nha1.getID() + "'";
 			statement.executeUpdate(updateSqlString);
 			cnn.commit();
 			statement.close();	

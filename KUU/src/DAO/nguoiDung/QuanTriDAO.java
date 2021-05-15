@@ -84,7 +84,7 @@ public class QuanTriDAO {
 		try {
 			Statement statement = cnn.createStatement();
 			String insertSqlString = "Insert into KHACHHANG(taikhoan, matkhau, ten, email, sodienthoai, maquantri, daxoa)"
-					+ " values('" + kh.getTenDangNhap() + "','" + kh.getMatKhau() + "','" + kh.getHoTen() + "','" + kh.getEmail()+ "','"+ kh.getSdt()
+					+ " values('" + kh.getTenDangNhap() + "','" + kh.getMatKhau() + "',N'" + kh.getHoTen() + "','" + kh.getEmail()+ "','"+ kh.getSdt()
 					+ "','" + this.getId() + "','" + kh.getDaXoa() + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
