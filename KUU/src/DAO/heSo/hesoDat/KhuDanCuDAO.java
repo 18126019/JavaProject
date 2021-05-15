@@ -80,4 +80,26 @@ public class KhuDanCuDAO {
         }
         return rs;
     }
+	public void updateTen(String ten, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE HESOKHUDANCU SET ten = '" + ten + "' WHERE id = " + id;
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void updateHeSo(Float heSo, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE HESOKHUDANCU SET heso = " + heSo + " WHERE id = " + id;
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

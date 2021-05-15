@@ -2,6 +2,7 @@ package src.DTO.heSo.hesoDat;
 import java.sql.*;
 import java.util.ArrayList;
 
+import src.DAO.heSo.hesoDat.HemDAO;
 import src.DAO.heSo.hesoDat.HinhDangDAO;
 import src.application.java.*;
 public class HinhDangDTO {
@@ -66,4 +67,10 @@ public class HinhDangDTO {
     public void themHinhDang(HinhDangDAO hinhDangDAO, String tenHeSo, Float giatriHeSo) {
     	hinhDangDAO.addHinhDang(tenHeSo, giatriHeSo);
     }
+	public void updateTen(HinhDangDAO hinhDangDAO, String ten, int id) {
+		hinhDangDAO.updateTen(ten, id);
+	}
+	public void updateHeSo(HinhDangDAO hinhDangDAO, Float heSo, int id) {
+		hinhDangDAO.updateHeSo(heSo, id);
+	}
 }

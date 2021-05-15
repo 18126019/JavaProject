@@ -66,4 +66,10 @@ public class MatTienDTO {
     public void themMatTien(MatTienDAO matTienDAO, String tenHeSo, Float giatriHeSo) {
         matTienDAO.addMatTien(tenHeSo, giatriHeSo);
     }
+    public void updateTen(MatTienDAO matTienDAO, String ten, int id) {
+        matTienDAO.updateTen(ten, id);
+    }
+    public void updateHeSo(MatTienDAO matTienDAO, Float heSo, int id) {
+        matTienDAO.updateHeSo(heSo, id);
+    }
 }

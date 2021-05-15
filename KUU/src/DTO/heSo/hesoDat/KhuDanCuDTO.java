@@ -67,4 +67,10 @@ public class KhuDanCuDTO {
     public void themKDC(KhuDanCuDAO khuDanCuDAO, String tenHeSo, Float giatriHeSo) {
         khuDanCuDAO.addKhuDanCu(tenHeSo, giatriHeSo);
     }
+    public void updateTen(KhuDanCuDAO khuDanCuDAO, String ten, int id) {
+        khuDanCuDAO.updateTen(ten, id);
+    }
+    public void updateHeSo(KhuDanCuDAO khuDanCuDAO, Float heSo, int id) {
+        khuDanCuDAO.updateHeSo(heSo, id);
+    }
 }

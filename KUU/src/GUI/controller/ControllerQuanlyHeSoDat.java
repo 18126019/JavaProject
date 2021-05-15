@@ -139,6 +139,39 @@ public class ControllerQuanlyHeSoDat implements Initializable {
         hemDTO.updateHeSo(new HemDAO(), editTenHem.getNewValue(), hemDTO.getID());
     }
 
+    public void editTenHinhDang(TableColumn.CellEditEvent<HinhDangDTO, String> editTenHinhDang) {
+        HinhDangDTO hinhDangDTO = quanly_hesodat_table_HinhDang.getSelectionModel().getSelectedItem();
+        hinhDangDTO.setTenHinhDang(editTenHinhDang.getNewValue());
+        hinhDangDTO.updateTen(new HinhDangDAO(), editTenHinhDang.getNewValue(), hinhDangDTO.getId());
+    }
+    public void editHeSoHinhDang(TableColumn.CellEditEvent<HinhDangDTO, Float> editTenHinhDang) {
+        HinhDangDTO hinhDangDTO = quanly_hesodat_table_HinhDang.getSelectionModel().getSelectedItem();
+        hinhDangDTO.setHesoHinhDang(editTenHinhDang.getNewValue());
+        hinhDangDTO.updateHeSo(new HinhDangDAO(), editTenHinhDang.getNewValue(), hinhDangDTO.getId());
+    }
+
+    public void editTenKDC(TableColumn.CellEditEvent< KhuDanCuDTO, String> editTenKDC) {
+        KhuDanCuDTO khuDanCuDTO = quanly_hesodat_table_KDC.getSelectionModel().getSelectedItem();
+        khuDanCuDTO.setTenKhuDanCu(editTenKDC.getNewValue());
+        khuDanCuDTO.updateTen(new KhuDanCuDAO(), editTenKDC.getNewValue(), khuDanCuDTO.getId());
+    }
+    public void editHeSoKDC(TableColumn.CellEditEvent<HinhDangDTO, Float> editTenHinhDang) {
+        HinhDangDTO hinhDangDTO = quanly_hesodat_table_HinhDang.getSelectionModel().getSelectedItem();
+        hinhDangDTO.setHesoHinhDang(editTenHinhDang.getNewValue());
+        hinhDangDTO.updateHeSo(new HinhDangDAO(), editTenHinhDang.getNewValue(), hinhDangDTO.getId());
+    }
+
+    public void editTenMatTien(TableColumn.CellEditEvent<HemDTO, String> editTenMatTien) {
+        HemDTO hemDTO = quanly_hesodat_table_Hem.getSelectionModel().getSelectedItem();
+        hemDTO.setTenHem(editTenMatTien.getNewValue());
+        hemDTO.updateTen(new HemDAO(), editTenMatTien.getNewValue(), hemDTO.getID());
+    }
+    public void editHeSoMatTien(TableColumn.CellEditEvent<HemDTO, Float> editTenMatTien) {
+        MatTienDTO matTienDTO = quanly_hesodat_table_MatTien.getSelectionModel().getSelectedItem();
+        matTienDTO.setHesoMatTien(editTenMatTien.getNewValue());
+        matTienDTO.updateHeSo(new MatTienDAO(), editTenMatTien.getNewValue(),matTienDTO.getId());
+    }
+
 
     // điều hướng
     public void logout(ActionEvent event) throws IOException {
@@ -179,6 +212,7 @@ public class ControllerQuanlyHeSoDat implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
     public void xoaHeSo(ActionEvent event) {
         HemDTO hemDTO = quanly_hesodat_table_Hem.getSelectionModel().getSelectedItem();
         quanly_hesodat_table_Hem.getItems().remove(hemDTO);

@@ -81,4 +81,26 @@ public class HinhDangDAO {
 		}
 		return rs;
 	}
+	public void updateTen(String ten, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE HESOHINHDANG SET ten = '" + ten + "' WHERE id = " + id;
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void updateHeSo(Float heSo, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE HESOHINHDANG SET heso = " + heSo + " WHERE id = " + id;
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
