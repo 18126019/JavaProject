@@ -43,7 +43,7 @@
                               <Insets left="80.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="quanly_btn_hesodat" onAction="#swtichToHeSoDat" prefHeight="50.0" prefWidth="150.0" text="Hệ số dất" wrapText="true">
+                        <JFXButton fx:id="quanly_btn_hesodat" onAction="#switchToHeSoDat" prefHeight="50.0" prefWidth="150.0" text="Hệ số dất" wrapText="true">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -124,6 +124,16 @@
                </padding>
             </HBox>
          </center>
+         <bottom>
+            <Label fx:id="quanly_heso_them_thongbao" prefHeight="26.0" prefWidth="311.0" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets bottom="200.0" />
+               </BorderPane.margin>
+            </Label>
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>

@@ -2,6 +2,7 @@ package src.DTO.heSo;
 import java.sql.*;
 import java.util.ArrayList;
 
+import src.BUS.heSo.HeSoNcBUS;
 import src.DAO.heSo.HeSoNcDAO;
 import src.DAO.heSo.hesoNha.KetCauDAO;
 import src.DTO.heSo.hesoNha.KetCauDTO;
@@ -80,5 +81,17 @@ public class HeSoNcDTO {
 
     public void themNgoaiCanh(HeSoNcDAO heSoNcDAO, String tenHeSo, Float giatriHeSo) {
         heSoNcDAO.addNC(tenHeSo, giatriHeSo);
+    }
+
+    public void xoaNgoaiCanh(HeSoNcDAO heSoNcDAO, int id) {
+        heSoNcDAO.delNC(id);
+    }
+
+    public void updateTen(HeSoNcDAO heSoNcDAO, String ten, int id) {
+        heSoNcDAO.updateTen(ten, id);
+    }
+
+    public void updateHeSo(HeSoNcDAO heSoNcDAO, Float heso, int id) {
+        heSoNcDAO.updateHeSo(heso, id);
     }
 }

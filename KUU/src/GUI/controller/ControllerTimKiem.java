@@ -71,7 +71,7 @@ public class ControllerTimKiem implements Initializable {
             timkiem_grid.getChildren().clear();
 
             for (DangBanNhaDTO dangBanNhaDTO : dangBanNhaBUS.danhSachDangBanNha()) {
-                if (dangBanNhaDTO.getId_khachang() == userSessionId && dangBanNhaDTO.getDaXoa() == 0) {
+                if (dangBanNhaDTO.getDaXoa() == 0) {
                     if (duong == null && quan == null && phuong == null) {
                         dsTimKiem.add(dangBanNhaDTO);
                     } else if (duong != null && dangBanNhaDTO.getDuong().equals(duong) && quan == null && phuong == null) {

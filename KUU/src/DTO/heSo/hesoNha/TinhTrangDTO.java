@@ -85,4 +85,16 @@ public class TinhTrangDTO
     public void themTinhTrang(TinhTrangDAO tinhTrangDAO, String tenHeSo, Float giatriHeSo) {
         tinhTrangDAO.addTT(tenHeSo, giatriHeSo);
     }
+
+    public void xoaTinhTrang(TinhTrangDAO tinhTrangDAO, int id) {
+        tinhTrangDAO.delTT(id);
+    }
+
+    public void updateTen(TinhTrangDAO tinhTrangDAO, String tenTinhTrang, int id) {
+        tinhTrangDAO.updateTen(tenTinhTrang, id);
+    }
+
+    public void updateHeSo(TinhTrangDAO tinhTrangDAO, Float hesoTinhTrang, int id) {
+        tinhTrangDAO.updateHeSo(hesoTinhTrang, id);
+    }
 }

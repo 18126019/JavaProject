@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -89,14 +90,36 @@ public class ControllerDinhGia implements Initializable {
     EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent mouseEvent) {
-            String hem = dinhgia_hem.getValue().toString();
-            String hinhdang = dinhgia_hinhdang.getValue().toString();
-            String khudancu = dinhgia_khudancu.getValue().toString();
-            String mattien = dinhgia_mattien.getValue().toString();
-            String ketcau = dinhgia_ketcau.getValue().toString();
-            String noithat = dinhgia_noithat.getValue().toString();
-            String tinhtrang = dinhgia_tinhtrang.getValue().toString();
-            String ngoaicanh = dinhgia_ngoaicanh.getValue().toString();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            String hem = null;
+            String hinhdang = null;
+            String khudancu = null;
+            String mattien = null;
+            String ketcau = null;
+            String noithat = null;
+            String tinhtrang = null;
+            String ngoaicanh = null;
+            try {
+                hem = dinhgia_hem.getValue().toString();
+                hinhdang = dinhgia_hinhdang.getValue().toString();
+                khudancu = dinhgia_khudancu.getValue().toString();
+                mattien = dinhgia_mattien.getValue().toString();
+                ketcau = dinhgia_ketcau.getValue().toString();
+                noithat = dinhgia_noithat.getValue().toString();
+                tinhtrang = dinhgia_tinhtrang.getValue().toString();
+                ngoaicanh = dinhgia_ngoaicanh.getValue().toString();
+            } catch (NullPointerException e) {
+                alert.setContentText("Vui lòng nhập đủ thông tin để thực hiện định giá");
+                alert.show();
+            }
+            try {
+                Float.parseFloat(dinhgia_txt_sotang.getText());
+                Float.parseFloat(dinhgia_txt_dientich.getText());
+            } catch (NumberFormatException e) {
+                alert.setContentText("Vui lòng nhập đúng định dạng");
+                alert.show();
+            }
+
             float hesoHem = 0;
             float hesoHinhDang = 0;
             float hesoKhuDanCu = 0;
@@ -106,63 +129,65 @@ public class ControllerDinhGia implements Initializable {
             float hesoTinhTrang = 0;
             float hesoNgoaiCanh = 0;
             float dongiaNn = 0;
-
             float giaDat = 0;
             float giaNha = 0;
 
-            for (HemDTO h : hemBUS.danhsachHem()) {
-                if (hem.equals(h.getTenHem())) {
-                    hesoHem = h.getHesoHem();
-                    break;
+            if (hem != null && hinhdang != null && khudancu != null && mattien != null
+                    && ketcau != null && noithat != null && tinhtrang != null && ngoaicanh != null) {
+                for (HemDTO h : hemBUS.danhsachHem()) {
+                    if (hem.equals(h.getTenHem())) {
+                        hesoHem = h.getHesoHem();
+                        break;
+                    }
                 }
-            }
-            for (HinhDangDTO h : hinhDangBUS.danhsachHinhDang()) {
-                if (hinhdang.equals(h.getTenHinhDang())) {
-                    hesoHinhDang = h.getHesoHinhDang();
-                    break;
+                for (HinhDangDTO h : hinhDangBUS.danhsachHinhDang()) {
+                    if (hinhdang.equals(h.getTenHinhDang())) {
+                        hesoHinhDang = h.getHesoHinhDang();
+                        break;
+                    }
                 }
-            }
-            for (KhuDanCuDTO h : khuDanCuBUS.danhsachKhuDanCu()) {
-                if (khudancu.equals(h.getTenKhuDanCu())) {
-                    hesoKhuDanCu = h.getHesoKhuDanCu();
-                    break;
+                for (KhuDanCuDTO h : khuDanCuBUS.danhsachKhuDanCu()) {
+                    if (khudancu.equals(h.getTenKhuDanCu())) {
+                        hesoKhuDanCu = h.getHesoKhuDanCu();
+                        break;
+                    }
                 }
-            }
-            for (MatTienDTO h : matTienBUS.danhsachMatTien()) {
-                if (mattien.equals(h.getTenMatTien())) {
-                    hesoMatTien = h.getHesoMatTien();
-                    break;
+                for (MatTienDTO h : matTienBUS.danhsachMatTien()) {
+                    if (mattien.equals(h.getTenMatTien())) {
+                        hesoMatTien = h.getHesoMatTien();
+                        break;
+                    }
                 }
-            }
-            for (KetCauDTO h : ketCauBUS.danhsachKetCau()) {
-                if (ketcau.equals(h.getTenKetCau())) {
-                    hesoKetCau = h.getHesoKetCau();
-                    break;
+                for (KetCauDTO h : ketCauBUS.danhsachKetCau()) {
+                    if (ketcau.equals(h.getTenKetCau())) {
+                        hesoKetCau = h.getHesoKetCau();
+                        break;
+                    }
                 }
-            }
-            for (NoiThatDTO h : noiThatBUS.danhsachNoiThat()) {
-                if (noithat.equals(h.getTenNoiThat())) {
-                    hesoKhuDanCu = h.getHesoNoiThat();
-                    break;
+                for (NoiThatDTO h : noiThatBUS.danhsachNoiThat()) {
+                    if (noithat.equals(h.getTenNoiThat())) {
+                        hesoKhuDanCu = h.getHesoNoiThat();
+                        break;
+                    }
                 }
-            }
-            for (TinhTrangDTO h : tinhTrangBUS.danhsachTinhTrang()) {
-                if (tinhtrang.equals(h.getTenTinhTrang())) {
-                    hesoTinhTrang = h.getHesoTinhTrang();
-                    break;
+                for (TinhTrangDTO h : tinhTrangBUS.danhsachTinhTrang()) {
+                    if (tinhtrang.equals(h.getTenTinhTrang())) {
+                        hesoTinhTrang = h.getHesoTinhTrang();
+                        break;
+                    }
                 }
-            }
-            for (HeSoNcDTO h : heSoNcBUS.danhsachNgoaiCanh()) {
-                if (ngoaicanh.equals(h.getTen())) {
-                    hesoNgoaiCanh = h.getHeso();
-                    break;
+                for (HeSoNcDTO h : heSoNcBUS.danhsachNgoaiCanh()) {
+                    if (ngoaicanh.equals(h.getTen())) {
+                        hesoNgoaiCanh = h.getHeso();
+                        break;
+                    }
                 }
-            }
-            for (DonGiaNnDTO h : donGiaNnBUS.danhsachDonGiaNn()) {
-                if (dinhgia_quan.getValue().toString().equals(h.getQuan())
-                 && dinhgia_duong.getValue().toString().equals(h.getDuong())) {
-                    dongiaNn = h.getGiaTien();
-                    break;
+                for (DonGiaNnDTO h : donGiaNnBUS.danhsachDonGiaNn()) {
+                    if (dinhgia_quan.getValue().toString().equals(h.getQuan())
+                            && dinhgia_duong.getValue().toString().equals(h.getDuong())) {
+                        dongiaNn = h.getGiaTien();
+                        break;
+                    }
                 }
             }
             float sotang = Float.parseFloat(dinhgia_txt_sotang.getText());
@@ -202,7 +227,6 @@ public class ControllerDinhGia implements Initializable {
         for (String h : quan) {
             dinhgia_quan.getItems().add(h);
         }
-
         for (HemDTO h : hemBUS.danhsachHem()) {
             dinhgia_hem.getItems().add(h.getTenHem());
         }
@@ -261,7 +285,6 @@ public class ControllerDinhGia implements Initializable {
             stage.show();
         }
     }
-
     public void switchToSetting(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/setting.fxml"));
         Scene scene = new Scene(root);
@@ -270,7 +293,6 @@ public class ControllerDinhGia implements Initializable {
         stage.show();
     }
     public void switchToDinhGia(ActionEvent event) throws IOException {
-
     }
     public void switchToSearch(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/timkiem.fxml"));

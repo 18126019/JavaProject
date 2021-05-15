@@ -204,7 +204,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="thongtintaikhoan_txt_sdt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <JFXTextField fx:id="thongtintaikhoan_txt_sdt" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="15.0" />
                                  </font>

@@ -55,10 +55,10 @@ public class HeSoNcDAO {
 		}
     	
     }
-    public void delNC() {
+    public void delNC(int id) {
     	try {
 			Statement statement = cnn.createStatement();
-			String deleteSqlString = "DELETE FROM HESONGOAICANH WHERE ten = " + "'" + this.getTen() + "'";
+			String deleteSqlString = "DELETE FROM HESONGOAICANH WHERE ID = " + id;
 			statement.executeUpdate(deleteSqlString);
 			cnn.commit();
 			statement.close();
@@ -88,5 +88,28 @@ public class HeSoNcDAO {
 		}
 		return rs;
 	}
-    
+
+    public void updateTen(String ten, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String updateSqlString = "Update HESONGOAICANH SET ten = N'"+ ten + "' WHERE id = " + id;
+			statement.executeUpdate(updateSqlString);
+			cnn.commit();
+			statement.close();
+		}  catch (SQLException e) {
+			System.out.println(e);
+		}
+    }
+
+	public void updateHeSo(Float heso, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String updateSqlString = "Update HESONGOAICANH SET heso = "+ heso + " WHERE id = " + id;
+			statement.executeUpdate(updateSqlString);
+			cnn.commit();
+			statement.close();
+		}  catch (SQLException e) {
+			System.out.println(e);
+		}
+    }
 }

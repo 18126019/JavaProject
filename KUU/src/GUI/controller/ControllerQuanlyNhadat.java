@@ -137,6 +137,8 @@ public class ControllerQuanlyNhadat implements Initializable {
         dangBanNhaDTO.setDaXoa(editDx.getNewValue());
         dangBanNhaDTO.updateDaXoa(new DangBanNhaDAO(), editDx.getNewValue(), dangBanNhaDTO.getId());
     }
+
+    //điều hướng
     public void logout(ActionEvent event) throws IOException {
         UserSession.clearUserSession();
         Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
@@ -153,17 +155,17 @@ public class ControllerQuanlyNhadat implements Initializable {
         stage.show();
     }
     public void switchToHeSoDat(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyheso.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyhesodat.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
-//        public void switchToHeSoNha(ActionEvent event) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyhesonha.fxml"));
-//        Scene scene = new Scene(root);
-//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.show();
-//    }
+        public void switchToHeSoNha(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyhesonha.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 }

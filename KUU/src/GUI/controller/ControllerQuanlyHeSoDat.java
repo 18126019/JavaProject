@@ -196,13 +196,13 @@ public class ControllerQuanlyHeSoDat implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    //    public void switchToHeSoNha(ActionEvent event) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyhesonha.fxml"));
-//        Scene scene = new Scene(root);
-//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.show();
-//    }
+        public void switchToHeSoNha(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyhesonha.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
     // nút chức năng thêm xóa sửa
     public void switchToThemNha(ActionEvent event) throws IOException {
@@ -214,30 +214,30 @@ public class ControllerQuanlyHeSoDat implements Initializable {
     }
 
     public void xoaHeSo(ActionEvent event) {
+
         HemDTO hemDTO = quanly_hesodat_table_Hem.getSelectionModel().getSelectedItem();
         quanly_hesodat_table_Hem.getItems().remove(hemDTO);
         if (hemDTO != null) {
             hemDTO.xoaHem(new HemDAO(), hemDTO.getID());
         }
-
         HinhDangDTO hinhDangDTO = quanly_hesodat_table_HinhDang.getSelectionModel().getSelectedItem();
         quanly_hesodat_table_HinhDang.getItems().remove(hinhDangDTO);
         if (hinhDangDTO != null) {
             hinhDangDTO.xoaHinhDang(new HinhDangDAO(), hinhDangDTO.getId());
 
         }
-
         KhuDanCuDTO khuDanCuDTO = quanly_hesodat_table_KDC.getSelectionModel().getSelectedItem();
         quanly_hesodat_table_KDC.getItems().remove(khuDanCuDTO);
         if (khuDanCuDTO != null) {
             khuDanCuDTO.xoaKhuDanCu(new KhuDanCuDAO(), khuDanCuDTO.getId());
         }
-
         MatTienDTO matTienDTO = quanly_hesodat_table_MatTien.getSelectionModel().getSelectedItem();
-        quanly_hesodat_table_KDC.getItems().remove(matTienDTO);
+        quanly_hesodat_table_MatTien.getItems().remove(matTienDTO);
         if (matTienDTO != null) {
             matTienDTO.xoaMatTien(new MatTienDAO(), matTienDTO.getId());
         }
+
+
         quanly_hesodat_table_HinhDang.getSelectionModel().clearSelection();
         quanly_hesodat_table_Hem.getSelectionModel().clearSelection();
         quanly_hesodat_table_KDC.getSelectionModel().clearSelection();

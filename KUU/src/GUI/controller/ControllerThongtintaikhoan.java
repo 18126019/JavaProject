@@ -46,6 +46,9 @@ public class ControllerThongtintaikhoan implements Initializable {
         thongtintaikhoan_txt_hoten.setText(khachHangDTO.layTen(khachHangDAO, username));
         thongtintaikhoan_txt_sdt.setText(khachHangDTO.laySdt(khachHangDAO, username));
 
+        thongtintaikhoan_txt_email.setEditable(false);
+        thongtintaikhoan_txt_hoten.setEditable(false);
+        thongtintaikhoan_txt_sdt.setEditable(false);
 
         DangBanNhaBUS dangBanNhaBUS = new DangBanNhaBUS();
         ArrayList<DangBanNhaDTO> dangBanNhaDTO = dangBanNhaBUS.danhSachDangBanNha();

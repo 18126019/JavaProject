@@ -59,10 +59,10 @@ public class TinhTrangDAO
     	
     }
     
-    public void delTT() {
+    public void delTT(int id) {
     	try {
 			Statement statement = cnn.createStatement();
-			String deleteSqlString = "DELETE FROM HESOTINHTRANG WHERE ten = " + "'" + this.getTenTinhTrang() + "'";
+			String deleteSqlString = "DELETE FROM HESOTINHTRANG WHERE ID = " + id;
 			statement.executeUpdate(deleteSqlString);
 			cnn.commit();
 			statement.close();
@@ -92,5 +92,29 @@ public class TinhTrangDAO
             e.printStackTrace();
         }
         return rs;
+    }
+
+    public void updateTen(String tenTinhTrang, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String updateSqlString = "Update HESOTINHTRANG SET ten = N'" + tenTinhTrang + "' WHERE ID = " + id;
+            statement.executeUpdate(updateSqlString);
+            cnn.commit();
+            statement.close();
+        }  catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void updateHeSo(Float hesoTinhTrang, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String updateSqlString = "Update HESOTINHTRANG SET heso = " + hesoTinhTrang + " WHERE id = " +  id;
+            statement.executeUpdate(updateSqlString);
+            cnn.commit();
+            statement.close();
+        }  catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 }

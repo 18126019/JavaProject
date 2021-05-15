@@ -73,4 +73,16 @@ public class KetCauDTO
     public void themKetCau(KetCauDAO ketCauDAO, String tenHeSo, Float giatriHeSo) {
         ketCauDAO.addKC(tenHeSo, giatriHeSo);
     }
+
+    public void xoaKetCau(KetCauDAO ketCauDAO, int id) {
+        ketCauDAO.delKC(id);
+    }
+
+    public void updateTen(KetCauDAO ketCauDAO, String tenKetCau, int id) {
+        ketCauDAO.updateTen(tenKetCau, id);
+    }
+
+    public void updateHeSo(KetCauDAO ketCauDAO, Float hesoKetCau, int id) {
+        ketCauDAO.updateHeSo(hesoKetCau, id);
+    }
 }

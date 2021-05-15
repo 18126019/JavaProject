@@ -115,8 +115,8 @@
                            <content>
                               <TableView fx:id="quanly_hesodat_table_HinhDang" prefHeight="130.0" prefWidth="800.0">
                                 <columns>
-                                  <TableColumn fx:id="quanly_hesodat_col_HinhDang_ten" prefWidth="200.0" text="Tên hệ số" />
-                                  <TableColumn fx:id="quanly_hesodat_col_HinhDang_giatri" prefWidth="115.0" text="Giá trị hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_HinhDang_ten" onEditCommit="#editTenHinhDang" prefWidth="200.0" text="Tên hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_HinhDang_giatri" onEditCommit="#editHeSoHinhDang" prefWidth="115.0" text="Giá trị hệ số" />
                                 </columns>
                               </TableView>
                            </content>
@@ -137,8 +137,8 @@
                            <content>
                               <TableView fx:id="quanly_hesodat_table_KDC" prefHeight="130.0" prefWidth="800.0">
                                 <columns>
-                                  <TableColumn fx:id="quanly_hesodat_col_KDC_ten" prefWidth="200.0" text="Tên hệ số" />
-                                  <TableColumn fx:id="quanly_hesodat_col_KDC_giatri" prefWidth="115.0" text="Giá trị hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_KDC_ten" onEditCommit="#editTenKDC" prefWidth="200.0" text="Tên hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_KDC_giatri" onEditCommit="#editHeSoKDC" prefWidth="115.0" text="Giá trị hệ số" />
                                 </columns>
                               </TableView>
                            </content>
@@ -159,8 +159,8 @@
                            <content>
                               <TableView fx:id="quanly_hesodat_table_MatTien" prefHeight="130.0" prefWidth="800.0">
                                 <columns>
-                                  <TableColumn fx:id="quanly_hesodat_col_MatTien_ten" prefWidth="200.0" text="Tên hệ số" />
-                                  <TableColumn fx:id="quanly_hesodat_col_MatTien_giatri" prefWidth="115.0" text="Giá trị hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_MatTien_ten" onEditCommit="#editTenMatTien" prefWidth="200.0" text="Tên hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_MatTien_giatri" onEditCommit="#editHeSoMatTien" prefWidth="115.0" text="Giá trị hệ số" />
                                 </columns>
                               </TableView>
                            </content>

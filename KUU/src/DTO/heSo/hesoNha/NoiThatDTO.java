@@ -74,4 +74,16 @@ public class NoiThatDTO
     public void themNoiThat(NoiThatDAO noiThatDAO, String tenHeSo, Float giatriHeSo) {
         noiThatDAO.addNT(tenHeSo, giatriHeSo);
     }
+
+    public void xoaNoiThat(NoiThatDAO noiThatDAO, int id) {
+        noiThatDAO.delNT(id);
+    }
+
+    public void updateTen(NoiThatDAO noiThatDAO, String tenNoiThat, int id) {
+        noiThatDAO.updateTen(tenNoiThat, id);
+    }
+
+    public void updateHeSo(NoiThatDAO noiThatDAO, Float hesoNoiThat, int id) {
+        noiThatDAO.updateHeSo(hesoNoiThat, id);
+    }
 }

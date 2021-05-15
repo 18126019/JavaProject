@@ -1,5 +1,7 @@
 package src.DAO.heSo.hesoNha;
 import java.sql.*;
+
+import javafx.scene.Parent;
 import src.application.java.CnnDB;
 
 public class KetCauDAO
@@ -48,10 +50,10 @@ public class KetCauDAO
 		}
     	
     }
-    public void delKC() {
+    public void delKC(int id) {
     	try {
 			Statement statement = cnn.createStatement();
-			String deleteSqlString = "DELETE FROM HESOKETCAU WHERE ten = " + "'" + this.getTenKetCau() + "'";
+			String deleteSqlString = "DELETE FROM HESOKETCAU WHERE ID = " + id;
 			statement.executeUpdate(deleteSqlString);
 			cnn.commit();
 			statement.close();
@@ -80,5 +82,29 @@ public class KetCauDAO
 			e.printStackTrace();
 		}
 		return rs;
+	}
+
+	public void updateTen(String tenKetCau, int id) {
+    	try {
+    		Statement statement = cnn.createStatement();
+    		String update = "UPDATE HESOKETCAU SET ten = N'" + tenKetCau + "' WHERE ID = " + id;
+    		statement.executeUpdate(update);
+    		cnn.commit();
+    		statement.close();
+		} catch (SQLException e) {
+    		e.printStackTrace();
+		}
+	}
+
+	public void updateHeSo(Float hesoKetCau, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE HESOKETCAU SET heso = " + hesoKetCau + " WHERE ID = " + id;
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
