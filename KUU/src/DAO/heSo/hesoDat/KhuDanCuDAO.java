@@ -33,11 +33,11 @@ public class KhuDanCuDAO {
     public void setId(int id) {
     	this.id = id;
     }
-    public void addKhuDanCu()
+    public void addKhuDanCu(String tenKhuDanCu, float hesoKhuDanCu)
     {
     	try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOKHUDANCU(ten, heso)" + "values('" + this.getTenKhuDanCu() + "','" + this.getHesoKhuDanCu() + "')";
+			String insertSqlString = "Insert into HESOKHUDANCU(ten, heso)" + "values('" + tenKhuDanCu + "','" + hesoKhuDanCu + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
 			statement.close();
@@ -46,10 +46,10 @@ public class KhuDanCuDAO {
 		}
     	
     }
-    public void delKhuDanCu() {
+    public void delKhuDanCu(int id) {
     	try {
 			Statement statement = cnn.createStatement();
-			String deleteSqlString 	= "DELETE FROM HESOKHUDANCU WHERE ten = " + "'" + this.getTenKhuDanCu() + "'";
+			String deleteSqlString 	= "DELETE FROM HESOKHUDANCU WHERE ID = " + id;
 			statement.executeUpdate(deleteSqlString);
 			cnn.commit();
 			statement.close();

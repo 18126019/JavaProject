@@ -35,10 +35,10 @@ public class NoiThatDAO
     	this.id = id;
     }
     
-    public void addNT() {
+    public void addNT(String tenNoiThat, float hesoNoiThat) {
     	try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESONOITHAT(ten, heso) values('" + this.getTenNoiThat() + "','" + this.getHesoNoiThat() + "')";
+			String insertSqlString = "Insert into HESONOITHAT(ten, heso) values('" + tenNoiThat + "','" + hesoNoiThat + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
 			statement.close();

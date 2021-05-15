@@ -46,10 +46,10 @@ public class TinhTrangDAO
     	this.id = id;
     }
     
-    public void addTT() {
+    public void addTT(String tenTinhTrang, float hesoTinhTrang) {
     	try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOTINHTRANG(ten, heso) values('" + this.getTenTinhTrang() + "','" + this.getHesoTinhTrang() + "')";
+			String insertSqlString = "Insert into HESOTINHTRANG(ten, heso) values('" + tenTinhTrang + "','" + hesoTinhTrang + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
 			statement.close();

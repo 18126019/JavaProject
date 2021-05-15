@@ -43,10 +43,10 @@ public class HeSoNcDAO {
     public void setID(int id) {
 		this.id = id;
 	}
-    public void addNC() {
+    public void addNC(String ten, float heso) {
     	try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESONGOAICANH(ten, heso) values('" + this.getTen() + "','" + this.getHeso() + "')";
+			String insertSqlString = "Insert into HESONGOAICANH(ten, heso) values('" + ten + "','" + heso + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
 			statement.close();

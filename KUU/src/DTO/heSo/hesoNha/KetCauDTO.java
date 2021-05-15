@@ -69,4 +69,8 @@ public class KetCauDTO
         }
         return this.getDsKetCauDTO();
     }
+
+    public void themKetCau(KetCauDAO ketCauDAO, String tenHeSo, Float giatriHeSo) {
+        ketCauDAO.addKC(tenHeSo, giatriHeSo);
+    }
 }

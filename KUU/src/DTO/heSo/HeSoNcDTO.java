@@ -77,4 +77,8 @@ public class HeSoNcDTO {
         }
         return this.getDanhSachHeSoNn();
     }
+
+    public void themNgoaiCanh(HeSoNcDAO heSoNcDAO, String tenHeSo, Float giatriHeSo) {
+        heSoNcDAO.addNC(tenHeSo, giatriHeSo);
+    }
 }

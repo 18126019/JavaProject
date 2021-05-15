@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GUI.controller.ControllerQuanlyHeSoThem">
+   <children>
+      <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
+         <top>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Quản lý ">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="quanly_btn_nguoidung" prefHeight="50.0" prefWidth="150.0" text="Người dùng" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="quanly_btn_nhadat" prefHeight="50.0" prefWidth="150.0" text="Nhà đất" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="quanly_btn_hesodat" prefHeight="50.0" prefWidth="150.0" text="Hệ số dất" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="quanly_btn_hesonha" prefHeight="50.0" prefWidth="150.0" text="Hệ số nhà" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding>
+                  </HBox>
+                  <JFXButton onAction="#logout" prefHeight="42.0" prefWidth="148.0" style="-fx-border-color: black; -fx-border-radius: 10;" text="Đăng xuất">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="950.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXComboBox fx:id="quanly_heso_them_loai" prefHeight="38.4" prefWidth="100.0" promptText="Loại hệ số">
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                  </JFXComboBox>
+                  <JFXTextField fx:id="quanly_heso_them_txt_ten" promptText="Tên hệ số">
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="quanly_heso_them_txt_giatri" promptText="Giá trị hệ số">
+                     <HBox.margin>
+                        <Insets right="150.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="quanly_heso_them_btn_them" onAction="#themHeSo" prefWidth="100.0" text="Thêm">
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="quanly_heso_them_btn_huy" onAction="#huyHeSo" prefWidth="100.0" text="Hủy">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets left="50.0" top="200.0" />
+               </padding>
+            </HBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

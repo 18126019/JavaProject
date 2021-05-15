@@ -59,4 +59,12 @@ public class KhuDanCuDTO {
         }
         return this.getDsKhuDanCuDTO();
     }
+
+    public void xoaKhuDanCu(KhuDanCuDAO khuDanCuDAO, int id) {
+        khuDanCuDAO.delKhuDanCu(id);
+    }
+
+    public void themKDC(KhuDanCuDAO khuDanCuDAO, String tenHeSo, Float giatriHeSo) {
+        khuDanCuDAO.addKhuDanCu(tenHeSo, giatriHeSo);
+    }
 }

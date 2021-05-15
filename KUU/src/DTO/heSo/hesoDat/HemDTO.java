@@ -73,4 +73,12 @@ public class HemDTO {
     public void updateHeSo(HemDAO hemDAO, Float heSo, int id) {
         hemDAO.updateHeSo(heSo, id);
     }
+
+    public void xoaHem(HemDAO hemDAO, int id) {
+        hemDAO.delHem(id);
+    }
+
+    public void themHem(HemDAO hemDAO, String tenHeSo, Float giatriHeSo) {
+        hemDAO.addHem(tenHeSo, giatriHeSo);
+    }
 }

@@ -36,10 +36,10 @@ public class KetCauDAO
 		this.id = id;
 	}
  
-    public void addKC() {
+    public void addKC(String tenKetCau, float hesoKetCau) {
     	try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOKETCAU(ten, heso) values('" + this.getTenKetCau() + "','" + this.getHesoKetCau() + "')";
+			String insertSqlString = "Insert into HESOKETCAU(ten, heso) values('" + tenKetCau + "','" + hesoKetCau + "')";
 			statement.executeUpdate(insertSqlString);
 			cnn.commit();
 			statement.close();

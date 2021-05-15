@@ -33,10 +33,10 @@ public class HinhDangDAO {
 		this.id = id;
 	}
 
-    public void addHinhDang() {
+    public void addHinhDang(String tenHinhDang, float hesoHinhDang) {
     	try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOHINHDANG(ten, heso)" + "values('" + this.getTenHinhDang() + "','" + this.getHesoHinhDang() + "')";
+			String insertSqlString = "Insert into HESOHINHDANG(ten, heso)" + "values('" + tenHinhDang + "','" + hesoHinhDang + "')";
 			statement.executeUpdate(insertSqlString);
 			System.out.println("Add Sucessfully");
 			cnn.commit();
@@ -46,10 +46,10 @@ public class HinhDangDAO {
 		}
     }
 
-    public void delHinhDang() {
+    public void delHinhDang(int id) {
     	try {
 			Statement statement = cnn.createStatement();
-			String deleteSqlString 	= "DELETE FROM HESOHINHDANG WHERE ten = " + "'" + this.getTenHinhDang() + "'";
+			String deleteSqlString 	= "DELETE FROM HESOHINHDANG WHERE ID = " + id;
 			statement.executeUpdate(deleteSqlString);
 			System.out.println("Delete Sucessfully");
 			cnn.commit();

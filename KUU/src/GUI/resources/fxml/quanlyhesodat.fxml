@@ -171,6 +171,33 @@
                </children>
             </VBox>
          </center>
+         <right>
+            <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="quanly_heso_btn_them" onAction="#switchToThemNha" prefHeight="50.0" prefWidth="150.0" text="Thêm hệ số" underline="true" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="100.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="quanly_heso_btn_xoa" onAction="#xoaHeSo" prefHeight="50.0" prefWidth="150.0" text="Xóa hệ số" underline="true" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="100.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="quanly_heso_btn_clear" onAction="#clearHeSo" prefHeight="50.0" prefWidth="150.0" text="Bỏ chọn" underline="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

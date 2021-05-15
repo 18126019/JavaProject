@@ -184,8 +184,8 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <JFXTextField fx:id="dinhgia_txt_sotang" prefWidth="100.0" />
-                              <JFXTextField fx:id="dinhgia_txt_dientich">
+                              <JFXTextField fx:id="dinhgia_txt_sotang" prefWidth="100.0" promptText="Số tầng" />
+                              <JFXTextField fx:id="dinhgia_txt_dientich" promptText="Diện tích">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>

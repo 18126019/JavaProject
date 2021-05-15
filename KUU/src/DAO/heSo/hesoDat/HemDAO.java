@@ -37,10 +37,10 @@ public class HemDAO {
     	this.id = id;
     }
 
-    public void addHem() {
+    public void addHem(String tenHem, float hesoHem) {
     	try {
 			Statement statement = cnn.createStatement();
-			String insertSqlString = "Insert into HESOHEM(ten, heso) values('" + this.getTenHem() + "','" + this.getHesoHem() + "')";
+			String insertSqlString = "Insert into HESOHEM(ten, heso) values(N'" + tenHem + "','" + hesoHem + "')";
 			statement.executeUpdate(insertSqlString);
 			System.out.println("Add Sucessfully");
 			cnn.commit();
@@ -50,10 +50,10 @@ public class HemDAO {
 		}
     	
     }
-    public void delHem() {
+    public void delHem(int id) {
     	try {
 			Statement statement = cnn.createStatement();
-			String deleteSqlString = "DELETE FROM HESOHEM WHERE ten = " + "'" + this.getTenHem() + "'";
+			String deleteSqlString = "DELETE FROM HESOHEM WHERE id = " + id;
 			statement.executeUpdate(deleteSqlString);
 			cnn.commit();
 			statement.close();

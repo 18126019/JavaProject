@@ -81,4 +81,8 @@ public class TinhTrangDTO
         }
         return this.getDanhsachTinhTrang();
     }
+
+    public void themTinhTrang(TinhTrangDAO tinhTrangDAO, String tenHeSo, Float giatriHeSo) {
+        tinhTrangDAO.addTT(tenHeSo, giatriHeSo);
+    }
 }

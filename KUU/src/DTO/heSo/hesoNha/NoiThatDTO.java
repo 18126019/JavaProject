@@ -70,4 +70,8 @@ public class NoiThatDTO
         }
         return this.getDanhSachNoiThat();
     }
+
+    public void themNoiThat(NoiThatDAO noiThatDAO, String tenHeSo, Float giatriHeSo) {
+        noiThatDAO.addNT(tenHeSo, giatriHeSo);
+    }
 }

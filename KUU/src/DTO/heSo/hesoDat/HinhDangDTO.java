@@ -58,4 +58,12 @@ public class HinhDangDTO {
 	    }
     	return this.getDsHinhDangDTO();
 	}
+
+    public void xoaHinhDang(HinhDangDAO hinhDangDAO, int id) {
+    	hinhDangDAO.delHinhDang(id);
+    }
+
+    public void themHinhDang(HinhDangDAO hinhDangDAO, String tenHeSo, Float giatriHeSo) {
+    	hinhDangDAO.addHinhDang(tenHeSo, giatriHeSo);
+    }
 }

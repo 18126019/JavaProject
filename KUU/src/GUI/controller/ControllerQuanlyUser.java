@@ -1,6 +1,5 @@
 package src.GUI.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,9 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
 import javafx.util.converter.IntegerStringConverter;
-import javafx.util.converter.NumberStringConverter;
 import src.BUS.nguoiDung.KhachHangBUS;
 import src.DAO.nguoiDung.KhachHangDAO;
 import src.DTO.nguoiDung.KhachHangDTO;
@@ -28,8 +25,6 @@ import src.application.java.UserSession;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ControllerQuanlyUser implements Initializable {
@@ -153,7 +148,7 @@ public class ControllerQuanlyUser implements Initializable {
         stage.show();
     }
     public void switchToHeSoDat(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyheso.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/quanlyhesodat.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);

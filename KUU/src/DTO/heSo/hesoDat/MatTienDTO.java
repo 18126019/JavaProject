@@ -58,4 +58,12 @@ public class MatTienDTO {
         }
         return this.getDsMatTienDTO();
     }
+
+    public void xoaMatTien(MatTienDAO matTienDAO, int id) {
+        matTienDAO.delMatTien(id);
+    }
+
+    public void themMatTien(MatTienDAO matTienDAO, String tenHeSo, Float giatriHeSo) {
+        matTienDAO.addMatTien(tenHeSo, giatriHeSo);
+    }
 }
