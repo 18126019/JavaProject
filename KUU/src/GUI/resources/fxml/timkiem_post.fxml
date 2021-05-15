@@ -23,7 +23,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXTextField fx:id="timkiem_post_sonha" prefColumnCount="0" prefHeight="26.0" prefWidth="59.0">
+                  <JFXTextField fx:id="timkiem_post_sonha" maxWidth="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="29.0" prefWidth="89.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -71,7 +71,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXTextField fx:id="timkiem_post_quan" prefHeight="26.0" prefWidth="56.0">
+                  <JFXTextField fx:id="timkiem_post_quan" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="108.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -81,17 +81,23 @@
                   </JFXTextField>
                </children>
             </HBox>
-            <HBox alignment="BOTTOM_RIGHT" minHeight="35.0" prefHeight="35.0" prefWidth="200.0">
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0" />
+            <HBox minHeight="35.0" prefHeight="35.0" prefWidth="200.0">
                <children>
+                  <JFXButton fx:id="timkiem_post_btn_xemchitiet" alignment="CENTER_RIGHT" onAction="#switchToDetail" style="-fx-border-color: black; -fx-border-radius: 10;" text="Xem chi tiết" wrapText="true">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </JFXButton>
                   <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Giá tiền">
                      <font>
                         <Font size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="10.0" />
+                        <Insets left="350.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXTextField fx:id="timkiem_post_giatien" alignment="TOP_RIGHT" editable="false" minHeight="30.0" prefHeight="30.0" prefWidth="300.0">
+                  <JFXTextField fx:id="timkiem_post_giatien" alignment="TOP_RIGHT" editable="false" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" style="-fx-font-weight: 900;">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -99,15 +105,6 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </JFXTextField>
-               </children>
-            </HBox>
-            <HBox minHeight="35.0" prefHeight="35.0" prefWidth="200.0">
-               <children>
-                  <JFXButton fx:id="timkiem_post_btn_xemchitiet" alignment="CENTER_RIGHT" onAction="#switchToDetail" text="Xem chi tiết" wrapText="true">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </JFXButton>
                </children>
             </HBox>
          </children>
