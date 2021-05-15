@@ -99,7 +99,7 @@
                         <Font size="17.0" />
                      </font>
                   </JFXTextField>
-                  <JFXButton fx:id="quanly_heso_them_btn_them" onAction="#themHeSo" prefWidth="100.0" text="Thêm">
+                  <JFXButton fx:id="quanly_heso_them_btn_them" prefWidth="100.0" text="Thêm">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
