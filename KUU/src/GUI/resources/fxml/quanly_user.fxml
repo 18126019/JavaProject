@@ -45,6 +45,14 @@
                               <Insets left="80.0" />
                            </HBox.margin>
                         </JFXButton>
+                        <JFXButton fx:id="quanly_btn_hesodat" onAction="#switchToHeSoDat" prefHeight="50.0" prefWidth="150.0" text="Hệ số dất" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
                      </children>
                      <padding>
                         <Insets top="15.0" />
@@ -52,22 +60,22 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <JFXTextField fx:id="quanly_user_txt_timkiem" maxWidth="200.0">
+                        <Label alignment="TOP_LEFT" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="102.0" text="Tìm kiếm:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="quanly_user_txt_timkiem" maxHeight="30.0" maxWidth="200.0" minHeight="30.0" prefHeight="30.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="50.0" />
+                              <Insets />
                            </HBox.margin>
                         </JFXTextField>
-                        <JFXButton fx:id="quanly_user_btn_timkiem" text="Tìm kiếm">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                        </JFXButton>
                         <JFXButton onAction="#logout" prefHeight="42.0" prefWidth="148.0" style="-fx-border-color: black; -fx-border-radius: 10;" text="Đăng xuất">
                            <HBox.margin>
                               <Insets left="420.0" />
@@ -88,15 +96,15 @@
             <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1280.0">
                <content>
                   <TableView fx:id="quanly_user_table_user" prefHeight="521.0" prefWidth="1280.0">
-                    <columns>
-                      <TableColumn fx:id="quanly_user_col_id" prefWidth="42.399993896484375" text="ID" />
-                      <TableColumn fx:id="quanly_user_col_taikhoan" onEditCommit="#editTaiKhoan" prefWidth="159.199951171875" text="tài khoản" />
-                        <TableColumn fx:id="quanly_user_col_matkhau" prefWidth="167.20004272460938" text="mật khẩu" />
-                        <TableColumn fx:id="quanly_user_col_ten" prefWidth="136.0" text="Tên" />
-                        <TableColumn fx:id="quanly_user_col_email" prefWidth="188.0" text="Email" />
-                        <TableColumn fx:id="quanly_user_col_sdt" prefWidth="251.199951171875" text="Số điện thoại" />
-                        <TableColumn fx:id="quanly_user_col_daxoa" prefWidth="94.4000244140625" text="Hoạt động" />
-                    </columns>
+                     <columns>
+                        <TableColumn fx:id="quanly_user_col_id" prefWidth="42.399993896484375" text="ID" />
+                        <TableColumn fx:id="quanly_user_col_taikhoan" onEditCommit="#editTaiKhoan" prefWidth="159.199951171875" text="tài khoản" />
+                        <TableColumn fx:id="quanly_user_col_matkhau" onEditCommit="#editMatKhau" prefWidth="167.20004272460938" text="mật khẩu" />
+                        <TableColumn fx:id="quanly_user_col_ten" onEditCommit="#editHoTen" prefWidth="136.0" text="Tên" />
+                        <TableColumn fx:id="quanly_user_col_email" onEditCommit="#editEmail" prefWidth="188.0" text="Email" />
+                        <TableColumn fx:id="quanly_user_col_sdt" onEditCommit="#editSdt" prefWidth="251.199951171875" text="Số điện thoại" />
+                        <TableColumn fx:id="quanly_user_col_daxoa" onEditCommit="#editDaXoa" prefWidth="94.4000244140625" text="Hoạt động" />
+                     </columns>
                   </TableView>
                </content>
                <BorderPane.margin>

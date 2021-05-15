@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GUI.controller.ControllerQuanlyHeSoDat">
+   <children>
+      <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
+         <top>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Quản lý ">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="quanly_btn_nguoidung" prefHeight="50.0" prefWidth="150.0" text="Người dùng" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="quanly_btn_nhadat" prefHeight="50.0" prefWidth="150.0" text="Nhà đất" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="quanly_btn_hesodat" prefHeight="50.0" prefWidth="150.0" text="Hệ số dất" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="quanly_btn_hesonha" prefHeight="50.0" prefWidth="150.0" text="Hệ số nhà" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding>
+                  </HBox>
+                  <JFXButton onAction="#logout" prefHeight="42.0" prefWidth="148.0" style="-fx-border-color: black; -fx-border-radius: 10;" text="Đăng xuất">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="950.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="130.0" prefWidth="200.0">
+                     <children>
+                        <Label prefWidth="150.0" text="Hệ số Hẻm">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane prefHeight="200.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <content>
+                              <TableView fx:id="quanly_hesodat_table_Hem" prefHeight="130.0" prefWidth="800.0">
+                                <columns>
+                                  <TableColumn fx:id="quanly_hesodat_col_Hem_ten" onEditCommit="#editTenHem" prefWidth="200.0" text="Tên hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_Hem_giatri" minWidth="4.000030517578125" onEditCommit="#editHeSoHem" prefWidth="115.0" text="Giá trị hệ số" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="130.0" prefWidth="200.0">
+                     <children>
+                        <Label prefWidth="150.0" text="Hệ số Hình dáng">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane prefHeight="200.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <content>
+                              <TableView fx:id="quanly_hesodat_table_HinhDang" prefHeight="130.0" prefWidth="800.0">
+                                <columns>
+                                  <TableColumn fx:id="quanly_hesodat_col_HinhDang_ten" prefWidth="200.0" text="Tên hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_HinhDang_giatri" prefWidth="115.0" text="Giá trị hệ số" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="130.0" prefWidth="200.0">
+                     <children>
+                        <Label prefWidth="150.0" text="Hệ số Khu dân cư">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane prefHeight="200.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <content>
+                              <TableView fx:id="quanly_hesodat_table_KDC" prefHeight="130.0" prefWidth="800.0">
+                                <columns>
+                                  <TableColumn fx:id="quanly_hesodat_col_KDC_ten" prefWidth="200.0" text="Tên hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_KDC_giatri" prefWidth="115.0" text="Giá trị hệ số" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="130.0" prefWidth="200.0">
+                     <children>
+                        <Label prefWidth="150.0" text="Hệ số Mặt tiền">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane prefHeight="200.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <content>
+                              <TableView fx:id="quanly_hesodat_table_MatTien" prefHeight="130.0" prefWidth="800.0">
+                                <columns>
+                                  <TableColumn fx:id="quanly_hesodat_col_MatTien_ten" prefWidth="200.0" text="Tên hệ số" />
+                                  <TableColumn fx:id="quanly_hesodat_col_MatTien_giatri" prefWidth="115.0" text="Giá trị hệ số" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+                  <Label text="Label" />
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

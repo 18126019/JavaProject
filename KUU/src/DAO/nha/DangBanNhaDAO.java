@@ -94,10 +94,106 @@ public class DangBanNhaDAO extends Nha {
         }
     }
 
-    public void update(String soNha, int id) {
+    public void updateSoNha(String soNha, int id) {
         try {
             Statement statement = cnn.createStatement();
             String update = "UPDATE NHADANGBAN SET sonha = '" + soNha + "' WHERE id = '" + id + "'";
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateDuong(String duong, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE NHADANGBAN SET duong = '" + duong + "' WHERE id = '" + id + "'";
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updatePhuong(String phuong, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE NHADANGBAN SET phuong = '" + phuong + "' WHERE id = '" + id + "'";
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateQuan(String quan, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE NHADANGBAN SET quan = '" + quan + "' WHERE id = '" + id + "'";
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateGhiChu(String ghichu, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE NHADANGBAN SET ghichu = '" + ghichu + "' WHERE id = '" + id + "'";
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateDienTich(Float dienTich, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE NHADANGBAN SET dientich = '" + dienTich + "' WHERE id = '" + id + "'";
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateSoTang(Float soTang, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE NHADANGBAN SET sotang = '" + soTang + "' WHERE id = '" + id + "'";
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateGiaTien(Float giaTien, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE NHADANGBAN SET giatien = '" + giaTien + "' WHERE id = '" + id + "'";
+            statement.executeUpdate(update);
+            cnn.commit();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateDaXoa(Integer daXoa, int id) {
+        try {
+            Statement statement = cnn.createStatement();
+            String update = "UPDATE NHADANGBAN SET daxoa = '" + daXoa + "' WHERE id = '" + id + "'";
             statement.executeUpdate(update);
             cnn.commit();
             statement.close();

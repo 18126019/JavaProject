@@ -18,7 +18,9 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import src.BUS.heSo.DonGiaNnBUS;
 import src.BUS.nha.DangBanNhaBUS;
+import src.DAO.nguoiDung.KhachHangDAO;
 import src.DTO.heSo.DonGiaNnDTO;
+import src.DTO.nguoiDung.KhachHangDTO;
 import src.DTO.nha.DangBanNhaDTO;
 import src.application.java.UserSession;
 
@@ -41,11 +43,13 @@ public class ControllerTimKiem implements Initializable {
     @FXML
     private GridPane timkiem_grid;
 
-    final int userSessionId =  1; //UserSession.getInstance("a").getId();
-
+    private String username = UserSession.getInstance("a").getUserName();
+    KhachHangDTO khachHangDTO = new KhachHangDTO();
+    KhachHangDAO khachHangDAO = new KhachHangDAO();
+    final private int userSessionId = khachHangDTO.layId(khachHangDAO, username);
     DangBanNhaBUS dangBanNhaBUS = new DangBanNhaBUS();
     DonGiaNnBUS donGiaNnBUS = new DonGiaNnBUS();
-    ArrayList<DangBanNhaDTO> dsTimKiem = new ArrayList<>();
+
 
     EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
         @Override
@@ -62,22 +66,41 @@ public class ControllerTimKiem implements Initializable {
             if (timkiem_phuong.getValue() != null) {
                 phuong = timkiem_phuong.getValue().toString();
             }
+            ArrayList<DangBanNhaDTO> dsTimKiem = new ArrayList<>();
+            dsTimKiem.clear();
+            timkiem_grid.getChildren().clear();
 
-
-            if (duong != null || quan != null || phuong != null) {
-                for (DangBanNhaDTO dangBanNhaDTO : dangBanNhaBUS.danhSachDangBanNha()) {
-                    if (dangBanNhaDTO.getDuong().equals(duong)
-                            || dangBanNhaDTO.getQuan().equals(quan)
-                            || dangBanNhaDTO.getDuong().equals(duong)
-                            || dangBanNhaDTO.getId_khachang() == userSessionId) {
+            for (DangBanNhaDTO dangBanNhaDTO : dangBanNhaBUS.danhSachDangBanNha()) {
+                if (dangBanNhaDTO.getId_khachang() == userSessionId && dangBanNhaDTO.getDaXoa() == 0) {
+                    if (duong == null && quan == null && phuong == null) {
+                        dsTimKiem.add(dangBanNhaDTO);
+                    } else if (duong != null && dangBanNhaDTO.getDuong().equals(duong) && quan == null && phuong == null) {
+                        dsTimKiem.add(dangBanNhaDTO);
+                    } else if (quan != null && dangBanNhaDTO.getQuan().equals(quan) && duong == null && phuong == null) {
+                        dsTimKiem.add(dangBanNhaDTO);
+                    } else if (phuong != null && dangBanNhaDTO.getPhuong().equals(phuong) && duong == null && quan == null) {
+                        dsTimKiem.add(dangBanNhaDTO);
+                    } else if (duong != null && quan != null
+                            && dangBanNhaDTO.getDuong().equals(duong)
+                            && dangBanNhaDTO.getQuan().equals(quan)
+                            && phuong == null) {
+                        dsTimKiem.add(dangBanNhaDTO);
+                    } else if (duong != null && phuong != null
+                            && dangBanNhaDTO.getDuong().equals(duong)
+                            && dangBanNhaDTO.getPhuong().equals(phuong)
+                            && quan == null) {
+                        dsTimKiem.add(dangBanNhaDTO);
+                    } else if (phuong != null && quan != null
+                            && dangBanNhaDTO.getPhuong().equals(phuong)
+                            && dangBanNhaDTO.getQuan().equals(quan)
+                            && duong == null) {
+                        dsTimKiem.add(dangBanNhaDTO);
+                    } else if (duong != null && quan != null && phuong != null
+                            && dangBanNhaDTO.getDuong().equals(duong)
+                            && dangBanNhaDTO.getQuan().equals(quan)
+                            && dangBanNhaDTO.getPhuong().equals(phuong)){
                         dsTimKiem.add(dangBanNhaDTO);
                     }
-                }
-            } else {
-                for (DangBanNhaDTO dangBanNhaDTO : dangBanNhaBUS.danhSachDangBanNha()) {
-                    //if (dangBanNhaDTO.getId() == userSessionId) {
-                        dsTimKiem.add(dangBanNhaDTO);
-                    //}
                 }
             }
             int column = 0;

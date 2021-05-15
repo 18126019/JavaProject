@@ -156,4 +156,59 @@ public class KhachHangDAO {
 			e.printStackTrace();
 		}
 	}
+	public void updateMatKhau(String pass, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE KHACHHANG SET matkhau = '" + pass + "' WHERE id = '" + id + "'";
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void updateHoTen(String name, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE KHACHHANG SET ten = '" + name + "' WHERE id = '" + id + "'";
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void updateEmail(String email, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE KHACHHANG SET email = '" + email + "' WHERE id = '" + id + "'";
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void updateSdt(String phone, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE KHACHHANG SET sodienthoai = '" + phone + "' WHERE id = '" + id +"'";
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void updateDaXoa(int enabled, int id) {
+		try {
+			Statement statement = cnn.createStatement();
+			String update = "UPDATE KHACHHANG SET daxoa = " + enabled + " WHERE id = '" + id + "'";
+			statement.executeUpdate(update);
+			cnn.commit();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

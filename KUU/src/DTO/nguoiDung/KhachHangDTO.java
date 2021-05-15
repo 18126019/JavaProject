@@ -103,4 +103,19 @@ public class KhachHangDTO extends NguoiDung {
 	public void updateTaiKhoan(KhachHangDAO khachHangDAO, String username, int id) {
 		khachHangDAO.updateTaiKhoan(username, id);
 	}
+	public void updateMatKhau(KhachHangDAO khachHangDAO, String pass, int id) {
+		khachHangDAO.updateMatKhau(pass, id);
+	}
+	public void updateHoTen(KhachHangDAO khachHangDAO, String name, int id) {
+		khachHangDAO.updateHoTen(name, id);
+	}
+	public void updateEmail(KhachHangDAO khachHangDAO, String email, int id) {
+		khachHangDAO.updateEmail(email, id);
+	}
+	public void updateSdt(KhachHangDAO khachHangDAO, String phone, int id) {
+		khachHangDAO.updateSdt(phone, id);
+	}
+	public void updateDaXoa(KhachHangDAO khachHangDAO, int enabled, int id) {
+		khachHangDAO.updateDaXoa(enabled, id);
+	}
 }

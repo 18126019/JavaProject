@@ -1,4 +1,5 @@
 package src.DTO.nha;
+import src.DAO.nguoiDung.KhachHangDAO;
 import src.DAO.nha.DangBanNhaDAO;
 import src.application.java.CnnDB;
 
@@ -99,6 +100,38 @@ public class DangBanNhaDTO extends Nha {
     }
 
     public void updateSoNha(DangBanNhaDAO dangBanNhaDAO, String soNha, int id) {
-        dangBanNhaDAO.update(soNha, id);
+        dangBanNhaDAO.updateSoNha(soNha, id);
+    }
+
+    public void updateDuong(DangBanNhaDAO dangBanNhaDAO, String duong, int id) {
+        dangBanNhaDAO.updateDuong(duong, id);
+    }
+
+    public void updatePhuong(DangBanNhaDAO dangBanNhaDAO, String phuong, int id) {
+        dangBanNhaDAO.updatePhuong(phuong, id);
+    }
+
+    public void updateQuan(DangBanNhaDAO dangBanNhaDAO, String quan, int id) {
+        dangBanNhaDAO.updateQuan(quan, id);
+    }
+
+    public void updateGhiChu(DangBanNhaDAO dangBanNhaDAO, String ghichu, int id) {
+        dangBanNhaDAO.updateGhiChu(ghichu, id);
+    }
+
+    public void updateDienTich(DangBanNhaDAO dangBanNhaDAO, Float dienTich, int id) {
+        dangBanNhaDAO.updateDienTich(dienTich, id);
+    }
+
+    public void updateSoTang(DangBanNhaDAO dangBanNhaDAO, Float soTang, int id) {
+        dangBanNhaDAO.updateSoTang(soTang, id);
+    }
+
+    public void updateGiaTien(DangBanNhaDAO dangBanNhaDAO, Float giaTien, int id) {
+        dangBanNhaDAO.updateGiaTien(giaTien, id);
+    }
+
+    public void updateDaXoa(DangBanNhaDAO dangBanNhaDAO, Integer daXoa, int id) {
+        dangBanNhaDAO.updateDaXoa(daXoa, id);
     }
 }

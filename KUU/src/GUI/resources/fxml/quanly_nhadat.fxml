@@ -69,16 +69,16 @@
                         <TableColumn prefWidth="544.8000030517578" text="địa chỉ">
                            <columns>
                             <TableColumn fx:id="quanly_nhadat_col_sonha" onEditCommit="#editSoNha" prefWidth="99.99998474121094" text="số nhà" />
-                              <TableColumn fx:id="quanly_nhadat_col_duong" prefWidth="203.19998168945312" text="đường" />
-                              <TableColumn fx:id="quanly_nhadat_col_phuong" prefWidth="111.20001220703125" text="phường" />
-                              <TableColumn fx:id="quanly_nhadat_col_quan" prefWidth="93.5999755859375" text="quận" />
+                              <TableColumn fx:id="quanly_nhadat_col_duong" onEditCommit="#editDuong" prefWidth="203.19998168945312" text="đường" />
+                              <TableColumn fx:id="quanly_nhadat_col_phuong" onEditCommit="#editPhuong" prefWidth="111.20001220703125" text="phường" />
+                              <TableColumn fx:id="quanly_nhadat_col_quan" onEditCommit="#editQuan" prefWidth="93.5999755859375" text="quận" />
                            </columns>
                         </TableColumn>
-                        <TableColumn fx:id="quanly_nhadat_col_dientich" prefWidth="78.39996337890625" text="diện tích" />
-                        <TableColumn fx:id="quanly_nhadat_col_sotang" prefWidth="88.79998779296875" text="số tầng" />
-                        <TableColumn fx:id="quanly_nhadat_col_giatien" prefWidth="103.2000732421875" text="Giá tiền" />
-                        <TableColumn fx:id="quanly_nhadat_col_ghichu" prefWidth="138.4000244140625" text="Ghi chú" />
-                        <TableColumn fx:id="quanly_nhadat_col_daxoa" prefWidth="79.2000732421875" text="Đã xóa" />
+                        <TableColumn fx:id="quanly_nhadat_col_dientich" onEditCommit="#editDienTich" prefWidth="78.39996337890625" text="diện tích" />
+                        <TableColumn fx:id="quanly_nhadat_col_sotang" onEditCommit="#editSoTang" prefWidth="88.79998779296875" text="số tầng" />
+                        <TableColumn fx:id="quanly_nhadat_col_giatien" onEditCommit="#editGiaTien" prefWidth="103.2000732421875" text="Giá tiền" />
+                        <TableColumn fx:id="quanly_nhadat_col_ghichu" onEditCommit="#editGhiChu" prefWidth="138.4000244140625" text="Ghi chú" />
+                        <TableColumn fx:id="quanly_nhadat_col_daxoa" onEditCommit="#editDaXoa" prefWidth="79.2000732421875" text="Đã xóa" />
                     </columns>
                   </TableView>
                </content>

@@ -105,7 +105,7 @@ public class ControllerDetailEditable {
         nhaSelected = new DangBanNhaDAO();
         nhaSelected.setID(nha.getId());
         nhaSelected.setDienTich(Float.parseFloat(tbDienTich.getText()));
-        nhaSelected.setSoTang(Float.parseFloat(tbSoTang.getText()));
+        nhaSelected.setSoTang(Integer.parseInt(tbSoTang.getText()));
         nhaSelected.setKetCau(tbKetCau.getText());
         nhaSelected.setSoNha(tbSoNha.getText());
         nhaSelected.setDuong(tbDuong.getText());
