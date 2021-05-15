@@ -28,7 +28,7 @@
                   </Label>
                   <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="200.0">
                      <children>
-                        <JFXButton fx:id="quanly_btn_nguoidung" prefHeight="50.0" prefWidth="150.0" text="Người dùng" wrapText="true">
+                        <JFXButton fx:id="quanly_btn_nguoidung" onAction="#switchToNguoiDung" prefHeight="50.0" prefWidth="150.0" text="Người dùng" wrapText="true">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -36,7 +36,7 @@
                               <Insets left="30.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="quanly_btn_nhadat" prefHeight="50.0" prefWidth="150.0" text="Nhà đất" wrapText="true">
+                        <JFXButton fx:id="quanly_btn_nhadat" onAction="#switchToNhaDat" prefHeight="50.0" prefWidth="150.0" text="Nhà đất" wrapText="true">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -44,7 +44,7 @@
                               <Insets left="80.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="quanly_btn_hesodat" prefHeight="50.0" prefWidth="150.0" text="Hệ số dất" wrapText="true">
+                        <JFXButton fx:id="quanly_btn_hesodat" prefHeight="50.0" prefWidth="150.0" text="Hệ số đất" wrapText="true">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -167,8 +167,11 @@
                         </ScrollPane>
                      </children>
                   </HBox>
-                  <Label text="Label" />
+                  <Label />
                </children>
+               <BorderPane.margin>
+                  <Insets left="100.0" />
+               </BorderPane.margin>
             </VBox>
          </center>
       </BorderPane>

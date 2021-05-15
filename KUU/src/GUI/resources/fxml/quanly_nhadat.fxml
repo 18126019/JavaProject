@@ -44,6 +44,22 @@
                               <Insets left="80.0" />
                            </HBox.margin>
                         </JFXButton>
+                        <JFXButton fx:id="quanly_btn_hesodat" onAction="#switchToHeSoDat" prefHeight="50.0" prefWidth="150.0" text="Hệ số đất" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="quanly_btn_hesonha" prefHeight="50.0" prefWidth="150.0" text="Hệ số nhà" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </JFXButton>
                      </children>
                      <padding>
                         <Insets top="15.0" />
@@ -54,7 +70,7 @@
                         <Font size="21.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="850.0" />
+                        <Insets left="950.0" />
                      </VBox.margin>
                   </JFXButton>
                </children>

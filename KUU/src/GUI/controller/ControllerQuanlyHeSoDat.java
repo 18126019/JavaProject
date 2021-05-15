@@ -135,5 +135,25 @@ public class ControllerQuanlyHeSoDat implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    public void switchToNhaDat(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_nhadat.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToHeSoNha(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyheso.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToNguoiDung(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_user.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 }
