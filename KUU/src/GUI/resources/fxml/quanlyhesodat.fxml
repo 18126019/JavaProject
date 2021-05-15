@@ -52,7 +52,7 @@
                               <Insets left="80.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="quanly_btn_hesonha" prefHeight="50.0" prefWidth="150.0" text="Hệ số nhà" wrapText="true">
+                        <JFXButton fx:id="quanly_btn_hesonha" onAction="#switchToHeSoNha" prefHeight="50.0" prefWidth="150.0" text="Hệ số nhà" wrapText="true">
                            <font>
                               <Font size="17.0" />
                            </font>

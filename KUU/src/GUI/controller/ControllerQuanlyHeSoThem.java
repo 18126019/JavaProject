@@ -75,6 +75,8 @@ public class ControllerQuanlyHeSoThem implements Initializable {
             if (loaiHeSo.equals("Hẻm")) {
                 HemDTO hemDTO = new HemDTO();
                 hemDTO.themHem(new HemDAO(), tenHeSo, giatriHeSo);
+                quanly_heso_them_txt_ten.clear();
+                quanly_heso_them_txt_giatri.clear();
             }
             else if (loaiHeSo.equals("Hình Dạng")) {
                 HinhDangDTO hinhDangDTO = new HinhDangDTO();
@@ -113,6 +115,7 @@ public class ControllerQuanlyHeSoThem implements Initializable {
         quanly_heso_them_txt_giatri.clear();
     }
 
+    // điều hướng
     public void logout(ActionEvent event) throws IOException {
         UserSession.clearUserSession();
         Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
@@ -121,4 +124,32 @@ public class ControllerQuanlyHeSoThem implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    public void switchToNguoiDung(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_user.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToNhaDat(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanly_nhadat.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToHeSoDat(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/quanlyhesodat.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    //    public void switchToHeSoNha(ActionEvent event) throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyhesonha.fxml"));
+//        Scene scene = new Scene(root);
+//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 }

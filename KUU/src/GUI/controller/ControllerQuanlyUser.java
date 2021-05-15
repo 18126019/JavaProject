@@ -106,7 +106,6 @@ public class ControllerQuanlyUser implements Initializable {
         khachHangDTO.setTenDangNhap(editTk.getNewValue());
         khachHangDTO.updateTaiKhoan(new KhachHangDAO(), editTk.getNewValue(), khachHangDTO.getId());
     }
-
     public void editMatKhau(TableColumn.CellEditEvent<KhachHangDTO, String> editMk) {
         KhachHangDTO khachHangDTO = quanly_user_table_user.getSelectionModel().getSelectedItem();
         khachHangDTO.setMatKhau(editMk.getNewValue());
@@ -132,6 +131,9 @@ public class ControllerQuanlyUser implements Initializable {
         khachHangDTO.setDaXoa(editDx.getNewValue());
         khachHangDTO.updateDaXoa(new KhachHangDAO(), editDx.getNewValue(), khachHangDTO.getId());
     }
+
+
+
     public void logout(ActionEvent event) throws IOException {
         UserSession.clearUserSession();
         Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/home.fxml"));
@@ -154,11 +156,11 @@ public class ControllerQuanlyUser implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToHeSoNha(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyheso.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
+//    public void switchToHeSoNha(ActionEvent event) throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("../../GUI/resources/fxml/quanlyhesonha.fxml"));
+//        Scene scene = new Scene(root);
+//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 }
