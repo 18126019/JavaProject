@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -230,19 +231,19 @@
                               <Font size="15.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="rematkhau" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <JFXPasswordField fx:id="matkhau" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="15.0" />
                            </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="matkhau" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        </JFXPasswordField>
+                        <JFXPasswordField fx:id="rematkhau" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font size="15.0" />
                            </font>
-                        </JFXTextField>
+                        </JFXPasswordField>
                             </children>
                         </GridPane>
-                        <JFXButton fx:id="dangky_btn_huy" layoutX="607.0" layoutY="567.0" prefHeight="70.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 10px;" text="Hủy" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="565.0">
+                        <JFXButton fx:id="dangky_btn_huy" layoutX="607.0" layoutY="567.0" prefHeight="70.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 10px;" text="Đặt lại" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="565.0">
                             <font>
                                 <Font size="32.0" />
                             </font>

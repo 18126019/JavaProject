@@ -78,7 +78,7 @@
          <center>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXComboBox fx:id="quanly_heso_them_loai" prefHeight="38.4" prefWidth="100.0" promptText="Loại hệ số">
+                  <JFXComboBox fx:id="quanly_heso_them_loai" prefHeight="38.0" prefWidth="153.0" promptText="Loại hệ số" styleClass="quanlyheso_loai_combobox" stylesheets="@../css/dinhgia.css">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
@@ -99,7 +99,7 @@
                         <Font size="17.0" />
                      </font>
                   </JFXTextField>
-                  <JFXButton fx:id="quanly_heso_them_btn_them" prefWidth="100.0" text="Thêm">
+                  <JFXButton fx:id="quanly_heso_them_btn_them" prefWidth="100.0" text="Thêm" wrapText="true">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
@@ -107,7 +107,7 @@
                         <Font size="17.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="quanly_heso_them_btn_huy" onAction="#huyHeSo" prefWidth="100.0" text="Hủy">
+                  <JFXButton fx:id="quanly_heso_them_btn_huy" onAction="#huyHeSo" prefWidth="100.0" text="Hủy" wrapText="true">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

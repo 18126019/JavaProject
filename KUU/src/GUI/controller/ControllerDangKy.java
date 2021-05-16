@@ -28,9 +28,9 @@ public class ControllerDangKy implements Initializable {
 	@FXML
 	private JFXTextField tendn;
 	@FXML
-	private JFXTextField matkhau;
+	private JFXPasswordField matkhau;
 	@FXML
-	private JFXTextField rematkhau;
+	private JFXPasswordField rematkhau;
 	@FXML
 	private JFXTextField sdt;
 	@FXML
