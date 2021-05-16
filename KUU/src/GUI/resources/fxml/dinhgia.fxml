@@ -161,47 +161,43 @@
                   </Label>
                </top>
                <center>
-                  <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+                  <VBox alignment="CENTER" BorderPane.alignment="TOP_RIGHT">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <JFXComboBox fx:id="dinhgia_quan" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="Quận" />
-                              <JFXComboBox fx:id="dinhgia_duong" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="220.0" promptText="Đường">
+                              <JFXComboBox fx:id="dinhgia_quan" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" promptText="Quận" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css" />
+                              <JFXComboBox fx:id="dinhgia_duong" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" promptText="Đường" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </JFXComboBox>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="100.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <children>
-                              <JFXTextField fx:id="dinhgia_txt_sotang" prefWidth="100.0" promptText="Số tầng" />
-                              <JFXTextField fx:id="dinhgia_txt_dientich" promptText="Diện tích">
+                              <JFXTextField fx:id="dinhgia_txt_sotang" prefHeight="50.0" prefWidth="200.0" promptText="Số tầng">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font></JFXTextField>
+                              <JFXTextField fx:id="dinhgia_txt_dientich" prefHeight="50.0" prefWidth="200.0" promptText="Diện tích">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
                               </JFXTextField>
                            </children>
-                           <padding>
-                              <Insets left="100.0" />
-                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <JFXComboBox fx:id="dinhgia_hem" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="Hẻm" />
-                              <JFXComboBox fx:id="dinhgia_hinhdang" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="Hình dạng">
+                              <JFXComboBox fx:id="dinhgia_hem" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" promptText="Hẻm" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css" />
+                              <JFXComboBox fx:id="dinhgia_hinhdang" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" promptText="Hình dạng" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -209,75 +205,66 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </JFXComboBox>
-                              <JFXComboBox fx:id="dinhgia_khudancu" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="Khu dân cư">
+                              <JFXComboBox fx:id="dinhgia_khudancu" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" promptText="Khu dân cư" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </JFXComboBox>
-                              <JFXComboBox fx:id="dinhgia_mattien" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="Mặt tiền">
+                              <JFXComboBox fx:id="dinhgia_mattien" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" promptText="Mặt tiền" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </JFXComboBox>
                            </children>
-                           <padding>
-                              <Insets left="100.0" />
-                           </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <JFXComboBox fx:id="dinhgia_ketcau" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="Kết cấu" />
-                              <JFXComboBox fx:id="dinhgia_noithat" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="Nội thất">
+                              <JFXComboBox fx:id="dinhgia_ketcau" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" promptText="Kết cấu" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css" />
+                              <JFXComboBox fx:id="dinhgia_ngoaicanh" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" promptText="Ngoại cảnh" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </JFXComboBox>
-                              <JFXComboBox fx:id="dinhgia_tinhtrang" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="Tình trạng">
+                              <JFXComboBox fx:id="dinhgia_tinhtrang" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="230.0" promptText="Tình trạng" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </JFXComboBox>
-                              <JFXComboBox fx:id="dinhgia_ngoaicanh" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" promptText="Ngoại cảnh">
+                              <JFXComboBox fx:id="dinhgia_noithat" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" promptText="Nội thất" styleClass="dinhgia_combobox" stylesheets="@../css/dinhgia.css">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </JFXComboBox>
                            </children>
-                           <padding>
-                              <Insets left="100.0" />
-                           </padding>
                         </HBox>
                      </children>
                      <BorderPane.margin>
                         <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                      </BorderPane.margin>
-                     <padding>
-                        <Insets left="150.0" right="150.0" />
-                     </padding>
                   </VBox>
                </center>
                <bottom>
                   <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <JFXButton fx:id="dinhgia_btn_xacnhan" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" text="Xác nhận">
+                        <JFXButton fx:id="dinhgia_btn_xacnhan" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" text="Định giá" wrapText="true">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="17.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="300.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <Label alignment="CENTER" text="Định giá :">
+                        <Label alignment="CENTER" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" text="Định giá :">
                            <HBox.margin>
                               <Insets left="50.0" top="10.0" />
                            </HBox.margin>
                            <font>
-                              <Font size="20.0" />
+                              <Font size="17.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="dinhgia_txt_giatien" alignment="CENTER">
+                        <JFXTextField fx:id="dinhgia_txt_giatien" alignment="CENTER" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="336.0">
                            <font>
-                              <Font size="15.0" />
+                              <Font size="17.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="20.0" top="10.0" />
